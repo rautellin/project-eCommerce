@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { SectionHeader } from '../lib/Text'
 import { NewsletterForm } from './Footer/NewsletterForm'
 import { SocialMedia } from './Footer/SocialMedia'
+import { Terms } from './Footer/Terms'
 
 export const Footer = () => {
   const Container = styled.section`
@@ -21,6 +22,7 @@ export const Footer = () => {
         <SectionHeader>Join our newsletter</SectionHeader>
         <NewsletterForm />
         <SocialMedia />
+        <Terms />
       </Container>
     </>
   )

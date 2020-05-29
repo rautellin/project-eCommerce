@@ -27,4 +27,5 @@ export const Links = styled.a`
   text-transform: uppercase;
   font-weight: 300;
   color: black;
+  margin: ${(props) => props.margin};
 `

@@ -11,11 +11,11 @@ export const SocialMedia = () => {
 
   return (
     <Container>
-      <Links href="/">Instagram</Links>
-      <Links href="/">Facebook</Links>
-      <Links href="/">Twitter</Links>
-      <Links href="/">Pinterest</Links>
-      <Links href="/">Youtube</Links>
+      <Links href="/" target="_blank">Instagram</Links>
+      <Links href="/" target="_blank">Facebook</Links>
+      <Links href="/" target="_blank">Twitter</Links>
+      <Links href="/" target="_blank">Pinterest</Links>
+      <Links href="/" target="_blank">Youtube</Links>
     </Container>
   )
 }

@@ -8,6 +8,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-transform: uppercase;
 `;
 
 export const NewsletterForm = () => {
@@ -18,10 +19,10 @@ export const NewsletterForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <TextInput type="text" placeholder="Enter your email address here" />
-      <GenderCheck />
-      <GenderCheck />
-      <GenderCheck />
-      <AgreeCheck />
+      <GenderCheck>Woman</GenderCheck>
+      <GenderCheck>Man</GenderCheck>
+      <GenderCheck>Kids</GenderCheck>
+      <AgreeCheck>I have read and understand the privacy and cookies policy and agree to receive personalised commercial communications from <strong>nara</strong> by email.</AgreeCheck>
       <Submit type="submit">Subscribe</Submit>
     </Form>
   )

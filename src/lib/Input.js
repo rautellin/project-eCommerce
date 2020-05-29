@@ -6,6 +6,7 @@ export const TextInput = styled.input`
    padding-bottom: 10px;
    text-align: center;
    width: 350px;
+   text-transform: none;
 `;
 
 export const GenderCheck = styled.label`

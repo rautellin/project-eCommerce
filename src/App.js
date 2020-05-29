@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import { HomePage } from 'pages/HomePage'
+import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 
 export const App = () => {
@@ -14,6 +15,7 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Container>
+        <Header />
         <Switch>
           <Route path="/" exact>
             <HomePage />
