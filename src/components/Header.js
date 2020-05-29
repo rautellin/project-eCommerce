@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Nav } from './Header/Nav'
 
 export const Header = () => {
   const Container = styled.section`
@@ -13,6 +14,7 @@ export const Header = () => {
   return (
     <>
       <Container>
+        <Nav />
         Search
         Login Help cart
       </Container>

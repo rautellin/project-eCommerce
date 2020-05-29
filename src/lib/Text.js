@@ -1,11 +1,5 @@
 import styled from 'styled-components'
 
-export const Logo = styled.h1`
-  font-family: 'Vidaloka', serif;
-  font-size: 72px;
-  font-weight: lighter;
-`
-
 export const Header = styled.h1`
   font-family: 'Heebo', sans-serif;
   font-size: 94px;
