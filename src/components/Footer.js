@@ -12,7 +12,7 @@ export const Footer = () => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: blue;
+    background: white;
   `
 
   return (
