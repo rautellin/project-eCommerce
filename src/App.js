@@ -2,7 +2,9 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import { HomePage } from 'pages/HomePage'
-import { Search } from 'pages/Search'
+import { SearchPage } from 'pages/SearchPage'
+import { LoginPage } from 'pages/LoginPage'
+import { HelpPage } from 'pages/HelpPage'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 
@@ -23,10 +25,13 @@ export const App = () => {
             <HomePage />
           </Route>
           <Route path="/search" exact>
-            <Search />
+            <SearchPage />
           </Route>
-          <Route path="/summary" exact>
-            <h1>Hi</h1>
+          <Route path="/login" exact>
+            <LoginPage />
+          </Route>
+          <Route path="/help" exact>
+            <HelpPage />
           </Route>
         </Switch>
         <Footer />

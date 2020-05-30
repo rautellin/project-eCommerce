@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Links } from '../../lib/Text'
+import { ExternalLinks } from '../../lib/Text'
 
 export const SocialMedia = () => {
   const Container = styled.article`
@@ -11,11 +11,11 @@ export const SocialMedia = () => {
 
   return (
     <Container>
-      <Links href="/" target="_blank">Instagram</Links>
-      <Links href="/" target="_blank">Facebook</Links>
-      <Links href="/" target="_blank">Twitter</Links>
-      <Links href="/" target="_blank">Pinterest</Links>
-      <Links href="/" target="_blank">Youtube</Links>
+      <ExternalLinks href="/" target="_blank">Instagram</ExternalLinks>
+      <ExternalLinks href="/" target="_blank">Facebook</ExternalLinks>
+      <ExternalLinks href="/" target="_blank">Twitter</ExternalLinks>
+      <ExternalLinks href="/" target="_blank">Pinterest</ExternalLinks>
+      <ExternalLinks href="/" target="_blank">Youtube</ExternalLinks>
     </Container>
   )
 }

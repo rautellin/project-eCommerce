@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { SearchLink, SearchLine } from '../../lib/Text'
 
@@ -12,8 +11,8 @@ export const Container = styled.div`
 export const Search = () => {
   return (
     <Container>
-      <NavLink to="/search"><SearchLink>Search</SearchLink></NavLink>
-      <NavLink to="/search"><SearchLine /></NavLink>
+      <SearchLink to="/search">Search</SearchLink>
+      <SearchLine to="/search" />
     </Container>
   )
 }

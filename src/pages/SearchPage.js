@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Search = () => {
+export const SearchPage = () => {
   return (
     <>
       Search here

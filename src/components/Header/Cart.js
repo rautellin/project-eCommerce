@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Links } from '../../lib/Text'
+import { PageLinks } from '../../lib/Text'
 import { ShoppingBag } from '../../lib/Icons'
 
 export const Container = styled.div`
@@ -12,8 +12,8 @@ export const Container = styled.div`
 export const Cart = () => {
   return (
     <Container>
-      <Links>Log in</Links>
-      <Links>Help</Links>
+      <PageLinks to="/login">Log in</PageLinks>
+      <PageLinks to="/help">Help</PageLinks>
       <ShoppingBag>0</ShoppingBag>
     </Container>
   )

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 export const Header = styled.h1`
   font-family: 'Heebo', sans-serif;
@@ -15,7 +16,7 @@ export const SectionHeader = styled.h2`
   font-weight: 500;
 `
 
-export const Links = styled.a`
+export const ExternalLinks = styled.a`
   font-family: 'Heebo', sans-serif;
   font-size: 15px;
   text-transform: uppercase;
@@ -23,7 +24,15 @@ export const Links = styled.a`
   margin: ${(props) => props.margin};
 `
 
-export const SearchLink = styled.a`
+export const PageLinks = styled(NavLink)`
+  font-family: 'Heebo', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin: ${(props) => props.margin};
+`
+
+export const SearchLink = styled(NavLink)`
   font-family: 'Heebo', sans-serif;
   font-size: 22px;
   text-transform: uppercase;
@@ -31,7 +40,7 @@ export const SearchLink = styled.a`
   padding-right: 10px;
 `
 
-export const SearchLine = styled.div`
+export const SearchLine = styled(NavLink)`
   border-bottom: 1px solid black;
   width: 147px;
   height: 18px;
