@@ -23,3 +23,11 @@ export const Links = styled.a`
   color: black;
   margin: ${(props) => props.margin};
 `
+
+export const SearchLink = styled.a`
+  font-family: 'Heebo', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: black;
+`

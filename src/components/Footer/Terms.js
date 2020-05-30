@@ -7,7 +7,6 @@ export const Terms = () => {
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    padding-right: 20px;
   `
 
   return (

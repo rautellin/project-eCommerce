@@ -5,7 +5,6 @@ export const Nav = () => {
   const Container = styled.div`
   display: flex;
   align-items: center;
-  padding-left: 16px;
   `
 
   const Logo = styled.h1`

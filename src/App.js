@@ -10,6 +10,7 @@ export const App = () => {
     height: 100vh;
     width: 100vw;
     background: red;
+    padding: 0 30px;
   `
 
   return (
