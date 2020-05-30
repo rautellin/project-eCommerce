@@ -5,6 +5,7 @@ import { HomePage } from 'pages/HomePage'
 import { SearchPage } from 'pages/SearchPage'
 import { LoginPage } from 'pages/LoginPage'
 import { HelpPage } from 'pages/HelpPage'
+import { CartPage } from 'pages/CartPage'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 
@@ -32,6 +33,9 @@ export const App = () => {
           </Route>
           <Route path="/help" exact>
             <HelpPage />
+          </Route>
+          <Route path="/cart" exact>
+            <CartPage />
           </Route>
         </Switch>
         <Footer />
