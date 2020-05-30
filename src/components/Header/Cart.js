@@ -3,18 +3,25 @@ import styled from 'styled-components'
 import { PageLinks } from '../../lib/Text'
 import { ShoppingBag } from './ShoppingBag'
 
-export const Container = styled.div`
-  padding: 30px 0;
+export const Container = styled.ul`
   display: flex;
+  align-items: center;
+`;
+
+export const Actions = styled.li`
+  margin-left: 16px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
   align-items: center;
 `;
 
 export const Cart = () => {
   return (
     <Container>
-      <PageLinks to="/login">Log in</PageLinks>
-      <PageLinks to="/help">Help</PageLinks>
-      <ShoppingBag />
+      <Actions><PageLinks to="/login">Log in</PageLinks></Actions>
+      <Actions><PageLinks to="/help">Help</PageLinks></Actions>
+      <Actions><ShoppingBag /></Actions>
     </Container>
   )
 }

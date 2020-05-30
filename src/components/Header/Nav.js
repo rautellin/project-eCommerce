@@ -35,7 +35,7 @@ export const Nav = () => {
   return (
     <Container>
       <Menu />
-      <NavLink to="/"><Logo>Nara</Logo></NavLink>
+      <NavLink to="/" title="NARA Sweden, Go to the NARA Homepage"><Logo>Nara</Logo></NavLink>
     </Container>
   )
 }
