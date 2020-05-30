@@ -1,21 +1,19 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { TextInput } from '../../lib/Input'
-import { SearchLink } from '../../lib/Text'
+import { SearchLink, SearchLine } from '../../lib/Text'
 
-export const Form = styled.form`
-  padding: 30px 0;
+export const Container = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-transform: uppercase;
+  /* display: hidden;  when the search page is active*/
 `;
 
 export const Search = () => {
   return (
-    <div>
-      <SearchLink>Search</SearchLink>
-      <TextInput type="text" />
-    </div>
+    <Container>
+      <NavLink to="/search"><SearchLink>Search</SearchLink></NavLink>
+      <NavLink to="/search"><SearchLine /></NavLink>
+    </Container>
   )
 }

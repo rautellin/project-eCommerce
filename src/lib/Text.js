@@ -20,7 +20,6 @@ export const Links = styled.a`
   font-size: 15px;
   text-transform: uppercase;
   font-weight: 300;
-  color: black;
   margin: ${(props) => props.margin};
 `
 
@@ -29,5 +28,11 @@ export const SearchLink = styled.a`
   font-size: 22px;
   text-transform: uppercase;
   font-weight: 500;
-  color: black;
+  padding-right: 10px;
+`
+
+export const SearchLine = styled.div`
+  border-bottom: 1px solid black;
+  width: 147px;
+  height: 18px;
 `

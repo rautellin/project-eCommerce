@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Nav = () => {
@@ -34,7 +35,7 @@ export const Nav = () => {
   return (
     <Container>
       <Menu />
-      <Logo>Nara</Logo>
+      <NavLink to="/"><Logo>Nara</Logo></NavLink>
     </Container>
   )
 }
