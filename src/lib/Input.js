@@ -9,18 +9,30 @@ export const TextInput = styled.input`
    text-transform: none;
 `;
 
-export const GenderCheck = styled.label`
+export const Checkbox = styled.input`
    all: unset;
    width: 14px;
    height: 14px;
    border: 1px solid black;
    cursor: pointer;
+
+   :checked {
+      background: black;
+   }
 `;
 
-export const AgreeCheck = styled.label`
-   all: unset;
-   width: 14px;
-   height: 14px;
-   border: 1px solid black;
-   cursor: pointer;
+export const Label = styled.label`
+  font-size: 12px;
+  color: rgb(102, 102, 102);
+  display: flex;
+  cursor: pointer;
+  width: 100%;
 `;
+
+export const TermsLabel = styled.label`
+  text-align: center;
+  font-size: 12px;
+  color: rgb(102, 102, 102);
+  cursor: pointer;
+`;
+

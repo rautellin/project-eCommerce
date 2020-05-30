@@ -16,6 +16,8 @@ export const SectionHeader = styled.h2`
   font-weight: 500;
 `
 
+// LINKS
+
 export const ExternalLinks = styled.a`
   font-family: 'Heebo', sans-serif;
   font-size: 15px;
@@ -44,4 +46,8 @@ export const SearchLine = styled(NavLink)`
   border-bottom: 1px solid black;
   width: 147px;
   height: 18px;
+`
+
+export const FooterLink = styled.a`
+  text-decoration: underline;
 `

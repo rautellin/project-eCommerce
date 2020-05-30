@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TextInput, GenderCheck, AgreeCheck } from '../../lib/Input'
+import { TextInput, Checkbox, Label, TermsLabel } from '../../lib/Input'
 import { Submit } from '../../lib/Buttons'
+import { FooterLink } from '../../lib/Text'
 
 export const Form = styled.form`
   padding: 30px 0;
@@ -9,6 +10,20 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   text-transform: uppercase;
+  width: 100%;
+`;
+
+export const TermsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  max-width: 50%;
+`;
+
+export const CheckboxContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: fit-content;
 `;
 
 export const NewsletterForm = () => {
@@ -19,10 +34,15 @@ export const NewsletterForm = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <TextInput type="text" placeholder="Enter your email address here" />
-      <GenderCheck>Woman</GenderCheck>
-      <GenderCheck>Man</GenderCheck>
-      <GenderCheck>Kids</GenderCheck>
-      <AgreeCheck>I have read and understand the privacy and cookies policy and agree to receive personalised commercial communications from <strong>nara</strong> by email.</AgreeCheck>
+      <CheckboxContainer>
+        <Label htmlFor="Woman"><Checkbox type="checkbox" id="Woman" />Woman</Label>
+        <Label htmlFor="Man"><Checkbox type="checkbox" id="Man" />Man</Label>
+        <Label htmlFor="Kids"><Checkbox type="checkbox" id="Kids" />Kids</Label>
+      </CheckboxContainer>
+      <TermsContainer>
+        <Checkbox type="checkbox" id="terms" />
+        <TermsLabel htmlFor="terms">I have read and understand the <FooterLink href="/">privacy and cookies policy</FooterLink> and agree to receive personalised commercial communications from <strong>nara</strong> by email.</TermsLabel>
+      </TermsContainer>
       <Submit type="submit">Subscribe</Submit>
     </Form>
   )
