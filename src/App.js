@@ -7,6 +7,7 @@ import { LoginPage } from 'pages/LoginPage'
 import { HelpPage } from 'pages/HelpPage'
 import { CartPage } from 'pages/CartPage'
 import { Header } from './components/Header'
+import { Navigation } from './components/Navigation'
 import { Footer } from './components/Footer'
 import { Pagination } from './components/Pagination'
 import { Arrows } from './components/Arrows'
@@ -21,6 +22,7 @@ export const App = () => {
     <BrowserRouter>
       <Container>
         <Header />
+        <Navigation />
         <Switch>
           <Route path="/" exact>
             <HomePage />

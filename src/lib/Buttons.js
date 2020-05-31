@@ -27,3 +27,14 @@ export const SlideButton = styled.button`
    margin-top: 10px;
    cursor: pointer;
 `;
+
+export const NavButton = styled.button`
+   all: unset;
+   text-transform: uppercase;
+   font-family: 'Heebo', sans-serif;
+   font-weight: 500;
+   font-size: 40px;
+   letter-spacing: -4px;
+   cursor: pointer;
+   margin-bottom: -27px;
+`;
