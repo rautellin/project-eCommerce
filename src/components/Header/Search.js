@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SearchLink, SearchLine } from '../../lib/Text'
+import { NavigationLinks, SearchLine } from '../../lib/Text'
 
 export const Container = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const Search = () => {
   return (
     <Container>
-      <SearchLink to="/search">Search</SearchLink>
+      <NavigationLinks to="/search">Search</NavigationLinks>
       <SearchLine to="/search" />
     </Container>
   )

@@ -9,6 +9,7 @@ import { CartPage } from 'pages/CartPage'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
 import { Pagination } from './components/Pagination'
+import { Arrows } from './components/Arrows'
 
 export const App = () => {
   const Container = styled.main`
@@ -38,6 +39,7 @@ export const App = () => {
             <CartPage />
           </Route>
         </Switch>
+        <Arrows />
         <Pagination />
         <Footer />
       </Container>

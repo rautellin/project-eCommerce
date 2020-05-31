@@ -34,7 +34,7 @@ export const PageLinks = styled(NavLink)`
   margin: ${(props) => props.margin};
 `
 
-export const SearchLink = styled(NavLink)`
+export const NavigationLinks = styled(NavLink)`
   font-family: 'Heebo', sans-serif;
   font-size: 22px;
   text-transform: uppercase;
