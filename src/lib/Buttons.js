@@ -9,8 +9,6 @@ export const Button = styled.button`
    font-weight: 500;
    font-size: 15px;
    border: 1px solid black;
-   border-width: ${(props) => props.borderWidth};
-   width: ${(props) => props.borderWidth};
    padding: 0 17px;
 `;
 
@@ -37,4 +35,13 @@ export const NavButton = styled.button`
    letter-spacing: -4px;
    cursor: pointer;
    margin-bottom: -27px;
+   margin: ${(props) => props.margin};
+`;
+
+export const SmallNavButton = styled.button`
+   all: unset;
+   font-family: 'Heebo', sans-serif;
+   font-size: 15px;
+   text-transform: uppercase;
+   font-weight: 300;
 `;

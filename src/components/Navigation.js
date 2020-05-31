@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { NavButton } from 'lib/Buttons'
+import { NavButton, SmallNavButton } from 'lib/Buttons'
+import { PageLinks } from 'lib/Text'
 
 export const Navigation = () => {
   const Nav = styled.nav`
@@ -12,8 +13,12 @@ export const Navigation = () => {
     background: white;
     min-width: 246px;
     padding: 82px 28px 0 32px;
-    display: flex;
+    display: none;
     flex-direction: column;
+  `
+
+  const Ul = styled.ul`
+    display: none;
   `
 
   return (
@@ -30,10 +35,25 @@ export const Navigation = () => {
             <NavButton>Kids</NavButton>
           </li>
           <li>
-            <NavButton>Join Life</NavButton>
+            <NavButton margin="82px 0">Join Life</NavButton>
           </li>
         </ul>
-        +info
+        <ul>
+          <li>
+            <SmallNavButton>+ info</SmallNavButton>
+            <Ul>
+              <li>
+                <PageLinks to="/">Newsletter</PageLinks>
+              </li>
+              <li>
+                <PageLinks to="/">Contact Us</PageLinks>
+              </li>
+              <li>
+                <PageLinks to="/">Help</PageLinks>
+              </li>
+            </Ul>
+          </li>
+        </ul>
       </Nav>
     </>
   )
