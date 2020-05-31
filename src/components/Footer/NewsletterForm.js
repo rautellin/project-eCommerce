@@ -9,21 +9,22 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   text-transform: uppercase;
   width: 100%;
+  height: 50%;
 `;
 
 export const TermsContainer = styled.div`
   display: flex;
   justify-content: center;
-  max-width: 50%;
+  width: 40%;
 `;
 
 export const CheckboxContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: fit-content;
 `;
 
 export const NewsletterForm = () => {

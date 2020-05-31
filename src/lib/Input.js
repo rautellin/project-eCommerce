@@ -15,18 +15,21 @@ export const Checkbox = styled.input`
    height: 14px;
    border: 1px solid black;
    cursor: pointer;
+   margin-right: 10px;
 
    :checked {
-      background: black;
+      background: url(./images/check.svg);
+      background-size: cover;
    }
 `;
 
 export const Label = styled.label`
-  font-size: 12px;
-  color: rgb(102, 102, 102);
+  font-size: 14px;
+  color: black;
   display: flex;
   cursor: pointer;
   width: 100%;
+  margin-bottom: 5px;
 `;
 
 export const TermsLabel = styled.label`
@@ -34,5 +37,7 @@ export const TermsLabel = styled.label`
   font-size: 12px;
   color: rgb(102, 102, 102);
   cursor: pointer;
+  width: 100%;
+  flex: 1;
 `;
 
