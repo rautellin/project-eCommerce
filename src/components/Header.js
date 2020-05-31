@@ -11,7 +11,6 @@ export const Header = () => {
     top: 0;
     left: 0;
     width: 100vw;
-    background: white;
     display: flex;
     justify-content: space-between;
     padding: 0 30px;

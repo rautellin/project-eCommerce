@@ -15,7 +15,6 @@ export const App = () => {
   const Container = styled.main`
     height: 100vh;
     width: 100vw;
-    padding: 0 30px;
   `
 
   return (

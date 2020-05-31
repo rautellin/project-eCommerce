@@ -6,16 +6,17 @@ export const HomePage = () => {
   const Container = styled.main`
     height: 100vh;
     width: 100%;
-    padding: 0 30px;
-    background: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(./images/page1.jpg);
+    background-size: cover;
   `
 
   return (
     <>
       <Container>
-        <Header>
-          Woman
-      </Header>
+        <Header>Collection</Header>
       </Container>
     </>
   )
