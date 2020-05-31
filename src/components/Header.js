@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Nav } from './Header/Nav'
+import { Logo } from './Header/Logo'
 import { Search } from './Header/Search'
 import { Cart } from './Header/Cart'
 
@@ -20,7 +20,7 @@ export const Header = () => {
   return (
     <>
       <Container>
-        <Nav />
+        <Logo />
         <Search />
         <Cart />
       </Container>

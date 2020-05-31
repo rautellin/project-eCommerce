@@ -8,12 +8,12 @@ import { HelpPage } from 'pages/HelpPage'
 import { CartPage } from 'pages/CartPage'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
+import { Pagination } from './components/Pagination'
 
 export const App = () => {
   const Container = styled.main`
     height: 100vh;
     width: 100vw;
-    background: red;
     padding: 0 30px;
   `
 
@@ -38,6 +38,7 @@ export const App = () => {
             <CartPage />
           </Route>
         </Switch>
+        <Pagination />
         <Footer />
       </Container>
     </BrowserRouter>

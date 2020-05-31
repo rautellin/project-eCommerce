@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { PageLinks } from '../../lib/Text'
-import { ShoppingBag } from './ShoppingBag'
+import { ShoppingBag } from './SVG/ShoppingBag'
 
 export const Container = styled.ul`
   display: flex;
