@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { TextInput, Checkbox, Label, TermsLabel } from '../../lib/Input'
-import { Submit } from '../../lib/Buttons'
+import { Button } from '../../lib/Buttons'
 import { FooterLink } from '../../lib/Text'
 
 export const Form = styled.form`
@@ -44,7 +44,7 @@ export const NewsletterForm = () => {
         <Checkbox type="checkbox" id="terms" />
         <TermsLabel htmlFor="terms">I have read and understand the <FooterLink href="/">privacy and cookies policy</FooterLink> and agree to receive personalised commercial communications from <strong>nara</strong> by email.</TermsLabel>
       </TermsContainer>
-      <Submit type="submit">Subscribe</Submit>
+      <Button type="submit">Subscribe</Button>
     </Form>
   )
 }

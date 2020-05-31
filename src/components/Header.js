@@ -8,6 +8,7 @@ export const Header = () => {
   const Container = styled.section`
     height: 104px;
     position: fixed;
+    z-index: 2;
     top: 0;
     left: 0;
     width: 100vw;
