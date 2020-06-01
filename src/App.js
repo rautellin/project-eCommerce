@@ -1,7 +1,8 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import { nav } from 'reducers/nav'
+import { cart } from 'reducers/cart'
+import { homePage } from 'reducers/homePage'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import { HomePage } from 'pages/HomePage'
@@ -16,7 +17,8 @@ import { Pagination } from './components/Pagination'
 import { Arrows } from './components/Arrows'
 
 const reducer = combineReducers({
-  nav: nav.reducer
+  cart: cart.reducer,
+  homePage: homePage.reducer
 })
 
 const store = configureStore({ reducer })

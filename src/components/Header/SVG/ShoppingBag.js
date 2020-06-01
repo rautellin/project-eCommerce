@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const ShoppingBag = () => {
-  const cartItems = useSelector((store) => store.nav.cart)
+  const cartItems = useSelector((store) => store.cart.items)
 
   const Link = styled(NavLink)`
   position: relative;

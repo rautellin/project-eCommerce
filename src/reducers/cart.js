@@ -1,12 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const nav = createSlice({
-  name: 'nav',
+export const cart = createSlice({
+  name: 'cart',
   initialState: {
-    cart: 0
+    items: 0
   },
   reducers: {
-    subscribe: () => {
+    addItem: () => {
       console.log('congrats')
     }
   }
