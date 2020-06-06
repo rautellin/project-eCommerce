@@ -9,6 +9,14 @@ export const SectionHeader = styled.h2`
   font-weight: 500;
 `
 
+export const Header = styled.h3`
+  font-family: 'Heebo', sans-serif;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  font-weight: 500;
+`
+
 // SLIDES
 
 export const SlideHeader = styled.h1`

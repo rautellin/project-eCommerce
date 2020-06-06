@@ -41,3 +41,27 @@ export const TermsLabel = styled.label`
   flex: 1;
 `;
 
+//LOGIN
+
+export const LoginInput = styled.input`
+   all: unset;
+   width: 100%;
+   text-transform: none;
+   padding-bottom: 5px;
+
+   :focus + label{
+      bottom: 30px;
+   }
+`;
+
+export const LoginLabel = styled.label`
+   font-size: 14px;
+   color: rgb(204, 204, 204);
+   position: absolute;
+   left: 0;
+   bottom: 4px;
+   -webkit-transition: bottom 0.3s;
+    -moz-transition: bottom 0.3s;
+    -o-transition: bottom 0.3s;
+    transition: bottom 0.3s;
+`;

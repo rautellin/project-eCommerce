@@ -38,6 +38,9 @@ export const App = () => {
           <Switch>
             <Route path="/" exact>
               <HomePage />
+              <Arrows />
+              <Pagination />
+              <Footer />
             </Route>
             <Route path="/search" exact>
               <SearchPage />
@@ -52,9 +55,6 @@ export const App = () => {
               <CartPage />
             </Route>
           </Switch>
-          <Arrows />
-          <Pagination />
-          <Footer />
         </Container>
       </Provider>
     </BrowserRouter>
