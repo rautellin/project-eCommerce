@@ -49,7 +49,7 @@ export const Button = styled.button`
    font-weight: 300;
    color: white;
    background: black;
-   width: 100%;
+   width: ${(props) => (props.width ? props.width : '100%')};
    text-align: center;
    padding: 11px 0;
    font-size: 18px;

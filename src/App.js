@@ -25,9 +25,17 @@ const reducer = combineReducers({
 const store = configureStore({ reducer })
 
 export const App = () => {
-  const Container = styled.main`
+  const Container = styled.div`
     height: 100vh;
     width: 100vw;
+  `
+
+  const PageContainer = styled.main`
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   `
 
   return (
@@ -43,21 +51,23 @@ export const App = () => {
               <Pagination />
               <Footer />
             </Route>
-            <Route path="/search" exact>
-              <SearchPage />
-            </Route>
-            <Route path="/login" exact>
-              <LoginPage />
-            </Route>
-            <Route path="/help" exact>
-              <HelpPage />
-            </Route>
-            <Route path="/cart" exact>
-              <CartPage />
-            </Route>
-            <Route path="/signup" exact>
-              <SignupPage />
-            </Route>
+            <PageContainer>
+              <Route path="/search" exact>
+                <SearchPage />
+              </Route>
+              <Route path="/login" exact>
+                <LoginPage />
+              </Route>
+              <Route path="/help" exact>
+                <HelpPage />
+              </Route>
+              <Route path="/cart" exact>
+                <CartPage />
+              </Route>
+              <Route path="/signup" exact>
+                <SignupPage />
+              </Route>
+            </PageContainer>
           </Switch>
         </Container>
       </Provider>

@@ -7,7 +7,6 @@ import { ArrowDown } from '../lib/Icons'
 
 export const HomePage = () => {
   const slides = useSelector((store) => store.homePage.slides)
-  console.log(slides)
 
   const Slide = styled.main`
     height: 100vh;

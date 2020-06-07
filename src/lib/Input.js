@@ -32,10 +32,10 @@ export const Label = styled.label`
   margin-bottom: 5px;
 `;
 
-export const TermsLabel = styled.label`
-  text-align: center;
+export const CheckboxLabel = styled.label`
+  text-align: ${(props) => props.align};
   font-size: 12px;
-  color: rgb(102, 102, 102);
+  color: ${(props) => (props.color ? props.color : 'rgb(102, 102, 102)')};
   cursor: pointer;
   width: 100%;
   flex: 1;
