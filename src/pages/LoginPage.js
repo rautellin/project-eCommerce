@@ -21,7 +21,6 @@ min-height: 460px;
 `
 
 export const Form = styled.form`
-background: yellow;
 width: 45%;
 padding: 40px 0;
 position: relative;

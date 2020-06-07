@@ -36,7 +36,7 @@ export const InputDescription = styled.p`
 export const Required = styled.p`
   margin-top: 9px;
   font-size: 12px;
-  color: ${(props) => (props.filled ? 'rgb(204, 204, 204)' : 'red')};
+  color: ${(props) => (props.filled ? 'transparent' : 'red')};
 `
 
 // BUTTON
