@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import styled from 'styled-components'
 
 // CONTAINER
@@ -11,11 +10,11 @@ margin-top:30px;
 // TEXT
 
 export const Label = styled.label`
-   font-size: 16px;
+   font-size: ${(props) => (props.filled ? '14px' : '16px')};
    color: rgb(204, 204, 204);
    position: absolute;
    left: 0;
-   bottom: 4px;
+   bottom: ${(props) => (props.filled ? '30px' : '4px')};
    -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
@@ -61,6 +60,10 @@ export const Button = styled.button`
    :hover {
       background: rgb(51, 51, 51);
    }
+
+   :disabled {
+    background: rgb(51, 51, 51);
+  }
 `;
 
 // INPUT
@@ -82,28 +85,3 @@ border-bottom: 1px solid rgb(204, 204, 204);
 }
 `;
 
-export const Email = () => {
-  const [email, setEmail] = useState('')
-
-  return (
-    <Input
-      required
-      type='email'
-      value={email}
-      onChange={(event) => setEmail(event.target.value)}
-    />
-  )
-}
-
-export const Password = () => {
-  const [password, setPassword] = useState('')
-
-  return (
-    <Input
-      required
-      type='password'
-      value={password}
-      onChange={(event) => setPassword(event.target.value)}
-    />
-  )
-}
