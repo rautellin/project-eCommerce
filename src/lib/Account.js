@@ -36,6 +36,7 @@ export const InputDescription = styled.p`
 export const Required = styled.p`
   margin-top: 9px;
   font-size: 12px;
+  color: ${(props) => (props.filled ? 'rgb(204, 204, 204)' : 'red')};
 `
 
 // BUTTON
@@ -60,10 +61,6 @@ export const Button = styled.button`
    :hover {
       background: rgb(51, 51, 51);
    }
-
-   :disabled {
-    background: rgb(51, 51, 51);
-  }
 `;
 
 // INPUT

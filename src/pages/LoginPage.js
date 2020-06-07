@@ -27,6 +27,15 @@ padding: 40px 0;
 position: relative;
 `
 
+export const Span = styled.span`
+opacity: 0;
+
+.required {
+  opacity: 1;
+}
+`
+
+
 export const LoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -34,6 +43,17 @@ export const LoginPage = () => {
   const handleSubmit = () => {
     console.log('submit')
   }
+
+  const requiredEmail = () => {
+    const d = document.getElementById('email')
+    d.className += 'required'
+  }
+
+  const requiredPassword = () => {
+    const d = document.getElementById('password')
+    d.className += 'required'
+  }
+
 
   const enabled = email.length > 0 && password.length > 0
   const filledEmail = email.length > 0
@@ -47,22 +67,24 @@ export const LoginPage = () => {
           <Header margin="0 0 40px 0">Log in</Header>
           <InputContainer>
             <Input
+              onFocus={requiredEmail}
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               required
               type="email" />
             <Label filled={filledEmail} for="email">E-mail</Label>
           </InputContainer>
-          <Required>Required field</Required>
+          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
           <InputContainer>
             <Input
+              onFocus={requiredPassword}
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               required
               type="password" />
             <Label filled={filledPassword} for="email">Password</Label>
           </InputContainer>
-          <Required>Required field</Required>
+          <Span id="password"><Required filled={filledPassword}>Required field</Required></Span>
           <Button type="submit" disabled={!enabled}>Log in</Button>
         </Form>
 
