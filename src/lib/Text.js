@@ -15,6 +15,17 @@ export const Header = styled.h3`
   text-transform: uppercase;
   letter-spacing: -2px;
   font-weight: 500;
+  margin: ${(props) => props.margin};
+`
+
+export const Paragraph = styled.p`
+  margin-bottom: 16px;
+  text-align: justify;
+`
+
+export const Required = styled.p`
+  margin-top: 9px;
+  font-size: 12px;
 `
 
 // SLIDES

@@ -60,6 +60,8 @@ export const FormButton = styled.button`
    font-size: 18px;
    font-weight: 500;
    letter-spacing: -1px;
+   position: absolute;
+   bottom: 20px;
 
    :hover {
       background: rgb(51, 51, 51);
