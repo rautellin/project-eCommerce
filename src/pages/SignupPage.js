@@ -40,26 +40,41 @@ export const CheckboxContainer = styled.div`
 `
 
 export const SignupPage = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
   const handleSubmit = () => {
     console.log('submit')
   }
 
+  // VALIDATION
+  const [name, setName] = useState('')
+  const requiredName = () => {
+    const d = document.getElementById('name')
+    d.className += 'required'
+  }
+  const filledName = name.length > 0
+
+  const [surname, setSurname] = useState('')
+  const requiredSurname = () => {
+    const d = document.getElementById('surname')
+    d.className += 'required'
+  }
+  const filledSurname = surname.length > 0
+
+  //OTHER SECTION
+  const [email, setEmail] = useState('')
   const requiredEmail = () => {
     const d = document.getElementById('email')
     d.className += 'required'
   }
+  const filledEmail = email.length > 0
 
+  const [password, setPassword] = useState('')
   const requiredPassword = () => {
     const d = document.getElementById('password')
     d.className += 'required'
   }
-
-  const enabled = email.length > 0 && password.length > 0
-  const filledEmail = email.length > 0
   const filledPassword = password.length > 0
+
+  const enabled = email.length > 0 && name.length > 0
 
   return (
     <Container>
@@ -69,47 +84,25 @@ export const SignupPage = () => {
 
           <InputContainer>
             <Input
-              onFocus={requiredEmail}
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
+              onFocus={requiredName}
+              value={name}
+              onChange={(event) => setName(event.target.value)}
               required
-              type="email" />
-            <Label filled={filledEmail} for="email">E-mail</Label>
+              type="text" />
+            <Label filled={filledName} for="name">Name</Label>
           </InputContainer>
-          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
+          <Span id="name"><Required filled={filledName}>Required field</Required></Span>
 
           <InputContainer>
             <Input
-              onFocus={requiredEmail}
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
+              onFocus={requiredSurname}
+              value={surname}
+              onChange={(event) => setSurname(event.target.value)}
               required
-              type="email" />
-            <Label filled={filledEmail} for="email">E-mail</Label>
+              type="text" />
+            <Label filled={filledSurname} for="surname">Surname</Label>
           </InputContainer>
-          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
-
-          <InputContainer>
-            <Input
-              onFocus={requiredEmail}
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              required
-              type="email" />
-            <Label filled={filledEmail} for="email">E-mail</Label>
-          </InputContainer>
-          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
-
-          <InputContainer>
-            <Input
-              onFocus={requiredEmail}
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              required
-              type="email" />
-            <Label filled={filledEmail} for="email">E-mail</Label>
-          </InputContainer>
-          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
+          <Span id="surname"><Required filled={filledSurname}>Required field</Required></Span>
 
           <CheckboxContainer>
             <Checkbox type="checkbox" id="newsletter" />
@@ -136,25 +129,15 @@ export const SignupPage = () => {
 
           <InputContainer>
             <Input
-              onFocus={requiredEmail}
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
+              onFocus={requiredPassword}
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
               required
-              type="email" />
-            <Label filled={filledEmail} for="email">E-mail</Label>
+              type="password" />
+            <Label filled={filledPassword} for="password">Password</Label>
           </InputContainer>
-          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
+          <Span id="password"><Required filled={filledPassword}>Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers.</Required></Span>
 
-          <InputContainer>
-            <Input
-              onFocus={requiredEmail}
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              required
-              type="email" />
-            <Label filled={filledEmail} for="email">E-mail</Label>
-          </InputContainer>
-          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
         </Section>
         <Button type="submit" disabled={!enabled} width="45%">Log in</Button>
       </Form>
