@@ -10,18 +10,15 @@ export const Logo = () => {
   `
 
   const Nara = styled.h1`
-  font-family: 'Vidaloka', serif;
+  font-family: 'Barnett', serif;
   font-size: 72px;
-  font-weight: lighter;
-  letter-spacing: -10px;
-  text-transform: uppercase;
-  margin-left: 10px;
+  margin-left: 35px;
   `
 
   return (
     <Container>
       <Menu />
-      <NavLink to="/" title="NARA Sweden, Go to the NARA Homepage"><Nara>Nara</Nara></NavLink>
+      <NavLink to="/" title="NARA Sweden, Go to the NARA Homepage"><Nara>Nara.com</Nara></NavLink>
     </Container>
   )
 }

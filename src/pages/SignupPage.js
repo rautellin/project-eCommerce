@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
-import { Button } from '../lib/Account'
+import { Button, Input, InputContainer, Label, Required } from '../lib/Account'
 import { Checkbox, CheckboxLabel } from '../lib/Input'
 import { Header, Paragraph, FooterLink } from '../lib/Text'
 
@@ -66,6 +66,51 @@ export const SignupPage = () => {
       <Header>Write your personal details</Header>
       <Form action="">
         <Section>
+
+          <InputContainer>
+            <Input
+              onFocus={requiredEmail}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+              type="email" />
+            <Label filled={filledEmail} for="email">E-mail</Label>
+          </InputContainer>
+          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
+
+          <InputContainer>
+            <Input
+              onFocus={requiredEmail}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+              type="email" />
+            <Label filled={filledEmail} for="email">E-mail</Label>
+          </InputContainer>
+          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
+
+          <InputContainer>
+            <Input
+              onFocus={requiredEmail}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+              type="email" />
+            <Label filled={filledEmail} for="email">E-mail</Label>
+          </InputContainer>
+          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
+
+          <InputContainer>
+            <Input
+              onFocus={requiredEmail}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+              type="email" />
+            <Label filled={filledEmail} for="email">E-mail</Label>
+          </InputContainer>
+          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
+
           <CheckboxContainer>
             <Checkbox type="checkbox" id="newsletter" />
             <CheckboxLabel color="black" htmlFor="newsletter">I wish to receive Zara news on my e-mail</CheckboxLabel>
@@ -75,7 +120,42 @@ export const SignupPage = () => {
             <CheckboxLabel color="black" htmlFor="terms">I have read and understand the <FooterLink href="/">Privacy and Cookies Policy</FooterLink></CheckboxLabel>
           </CheckboxContainer>
         </Section>
-        <Section></Section>
+
+        <Section>
+
+          <InputContainer>
+            <Input
+              onFocus={requiredEmail}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+              type="email" />
+            <Label filled={filledEmail} for="email">E-mail</Label>
+          </InputContainer>
+          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
+
+          <InputContainer>
+            <Input
+              onFocus={requiredEmail}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+              type="email" />
+            <Label filled={filledEmail} for="email">E-mail</Label>
+          </InputContainer>
+          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
+
+          <InputContainer>
+            <Input
+              onFocus={requiredEmail}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+              type="email" />
+            <Label filled={filledEmail} for="email">E-mail</Label>
+          </InputContainer>
+          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
+        </Section>
         <Button type="submit" disabled={!enabled} width="45%">Log in</Button>
       </Form>
     </Container>

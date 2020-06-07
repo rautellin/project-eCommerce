@@ -6,7 +6,7 @@ import { Cart } from './Header/Cart'
 
 export const Header = () => {
   const Container = styled.section`
-    height: 104px;
+    height: 114px;
     position: fixed;
     z-index: 2;
     top: 0;

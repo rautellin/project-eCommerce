@@ -16,6 +16,7 @@ import { Navigation } from './components/Navigation'
 import { Footer } from './components/Footer'
 import { Pagination } from './components/Pagination'
 import { Arrows } from './components/Arrows'
+import GlobalFonts from './fonts/fonts'
 
 const reducer = combineReducers({
   cart: cart.reducer,
@@ -41,6 +42,7 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Provider store={store}>
+        <GlobalFonts />
         <Container>
           <Header />
           <Navigation />
