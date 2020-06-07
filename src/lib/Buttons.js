@@ -45,25 +45,3 @@ export const SmallNavButton = styled.button`
    text-transform: uppercase;
    font-weight: 300;
 `;
-
-export const FormButton = styled.button`
-   all: unset;
-   font-family: 'Heebo', sans-serif;
-   font-size: 15px;
-   text-transform: uppercase;
-   font-weight: 300;
-   color: white;
-   background: black;
-   width: 100%;
-   text-align: center;
-   padding: 11px 0;
-   font-size: 18px;
-   font-weight: 500;
-   letter-spacing: -1px;
-   position: absolute;
-   bottom: 20px;
-
-   :hover {
-      background: rgb(51, 51, 51);
-   }
-`;

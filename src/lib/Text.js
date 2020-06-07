@@ -23,11 +23,6 @@ export const Paragraph = styled.p`
   text-align: justify;
 `
 
-export const Required = styled.p`
-  margin-top: 9px;
-  font-size: 12px;
-`
-
 // SLIDES
 
 export const SlideHeader = styled.h1`
