@@ -23,16 +23,16 @@ export const Navigation = () => {
 
   return (
     <>
-      <Nav>
+      <Nav id="navigation">
         <ul>
           <li>
-            <NavButton>Woman</NavButton>
+            <NavButton>Clothes</NavButton>
           </li>
           <li>
-            <NavButton>Man</NavButton>
+            <NavButton>Shoes</NavButton>
           </li>
           <li>
-            <NavButton>Kids</NavButton>
+            <NavButton>Accessories</NavButton>
           </li>
           <li>
             <NavButton margin="82px 0">Join Life</NavButton>
@@ -46,10 +46,10 @@ export const Navigation = () => {
                 <PageLinks to="/">Newsletter</PageLinks>
               </li>
               <li>
-                <PageLinks to="/">Contact Us</PageLinks>
+                <PageLinks to="/login">Login</PageLinks>
               </li>
               <li>
-                <PageLinks to="/">Help</PageLinks>
+                <PageLinks to="/help">Help</PageLinks>
               </li>
             </Ul>
           </li>

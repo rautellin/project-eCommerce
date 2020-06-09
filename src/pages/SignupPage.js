@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { NavLink } from 'react-router-dom'
 import { Button, Input, InputContainer, Label, Required } from '../lib/Account'
 import { Checkbox, CheckboxLabel } from '../lib/Input'
-import { Header, Paragraph, FooterLink } from '../lib/Text'
+import { Header, FooterLink } from '../lib/Text'
 
 export const Container = styled.section`
 width: 100%;
@@ -19,7 +18,6 @@ justify-content: space-between;
 `
 
 export const Section = styled.section`
-background: yellow;
 width: 45%;
 padding: 40px 0;
 position: relative;
@@ -40,10 +38,6 @@ export const CheckboxContainer = styled.div`
 `
 
 export const SignupPage = () => {
-  const handleSubmit = () => {
-    console.log('submit')
-  }
-
   // VALIDATION
   const [name, setName] = useState('')
   const requiredName = () => {
@@ -59,7 +53,7 @@ export const SignupPage = () => {
   }
   const filledSurname = surname.length > 0
 
-  //OTHER SECTION
+  // OTHER SECTION
   const [email, setEmail] = useState('')
   const requiredEmail = () => {
     const d = document.getElementById('email')
@@ -106,7 +100,7 @@ export const SignupPage = () => {
 
           <CheckboxContainer>
             <Checkbox type="checkbox" id="newsletter" />
-            <CheckboxLabel color="black" htmlFor="newsletter">I wish to receive Zara news on my e-mail</CheckboxLabel>
+            <CheckboxLabel color="black" htmlFor="newsletter">I wish to receive Nara news on my e-mail</CheckboxLabel>
           </CheckboxContainer>
           <CheckboxContainer>
             <Checkbox type="checkbox" id="terms" />
