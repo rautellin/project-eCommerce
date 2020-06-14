@@ -38,7 +38,7 @@ export const CheckboxContainer = styled.div`
 `
 
 export const SignupPage = () => {
-  // VALIDATION
+  // NAME VALIDATION
   const [name, setName] = useState('')
   const requiredName = () => {
     const d = document.getElementById('name')
@@ -46,6 +46,7 @@ export const SignupPage = () => {
   }
   const filledName = name.length > 0
 
+  // SURNAME VALIDATION
   const [surname, setSurname] = useState('')
   const requiredSurname = () => {
     const d = document.getElementById('surname')
@@ -53,7 +54,7 @@ export const SignupPage = () => {
   }
   const filledSurname = surname.length > 0
 
-  // OTHER SECTION
+  // EMAIL VALIDATION
   const [email, setEmail] = useState('')
   const requiredEmail = () => {
     const d = document.getElementById('email')
@@ -61,6 +62,7 @@ export const SignupPage = () => {
   }
   const filledEmail = email.length > 0
 
+  // PASSWORD VALIDATION
   const [password, setPassword] = useState('')
   const requiredPassword = () => {
     const d = document.getElementById('password')
@@ -68,12 +70,67 @@ export const SignupPage = () => {
   }
   const filledPassword = password.length > 0
 
+  // PASSWORD CONFIRM
+  const [confirmedPassword, setConfirmedPassword] = useState('')
+  const requiredConfirmPassword = () => {
+    const d = document.getElementById('confirmedPassword')
+    d.className += 'required'
+  }
+  const filledConfirmedPassword = confirmedPassword.length > 0
+
   const enabled = email.length > 0 && name.length > 0
 
   return (
     <Container>
       <Header>Write your personal details</Header>
       <Form action="">
+        <Section>
+
+          <InputContainer>
+            <Input
+              onFocus={requiredEmail}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+              type="email" />
+            <Label filled={filledEmail} for="email">E-mail</Label>
+          </InputContainer>
+          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
+
+          <InputContainer>
+            <Input
+              onFocus={requiredPassword}
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              required
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              type="password" />
+            <Label filled={filledPassword} for="password">Password</Label>
+          </InputContainer>
+          <Span id="password"><Required filled={filledPassword}>Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers.</Required></Span>
+
+          <InputContainer>
+            <Input
+              onFocus={requiredConfirmPassword}
+              value={confirmedPassword}
+              onChange={(event) => setConfirmedPassword(event.target.value)}
+              required
+              type="password" />
+            <Label filled={filledConfirmedPassword} for="password">Confirm password</Label>
+          </InputContainer>
+          <Span id="confirmedPassword"><Required filled={filledConfirmedPassword}>Passwords are not matching.</Required></Span>
+
+
+          <CheckboxContainer>
+            <Checkbox type="checkbox" id="newsletter" />
+            <CheckboxLabel color="black" htmlFor="newsletter">I wish to receive Nara news on my e-mail</CheckboxLabel>
+          </CheckboxContainer>
+          <CheckboxContainer>
+            <Checkbox type="checkbox" id="terms" />
+            <CheckboxLabel color="black" htmlFor="terms">I have read and understand the <FooterLink href="/">Privacy and Cookies Policy</FooterLink></CheckboxLabel>
+          </CheckboxContainer>
+        </Section>
+
         <Section>
 
           <InputContainer>
@@ -97,40 +154,6 @@ export const SignupPage = () => {
             <Label filled={filledSurname} for="surname">Surname</Label>
           </InputContainer>
           <Span id="surname"><Required filled={filledSurname}>Required field</Required></Span>
-
-          <CheckboxContainer>
-            <Checkbox type="checkbox" id="newsletter" />
-            <CheckboxLabel color="black" htmlFor="newsletter">I wish to receive Nara news on my e-mail</CheckboxLabel>
-          </CheckboxContainer>
-          <CheckboxContainer>
-            <Checkbox type="checkbox" id="terms" />
-            <CheckboxLabel color="black" htmlFor="terms">I have read and understand the <FooterLink href="/">Privacy and Cookies Policy</FooterLink></CheckboxLabel>
-          </CheckboxContainer>
-        </Section>
-
-        <Section>
-
-          <InputContainer>
-            <Input
-              onFocus={requiredEmail}
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              required
-              type="email" />
-            <Label filled={filledEmail} for="email">E-mail</Label>
-          </InputContainer>
-          <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
-
-          <InputContainer>
-            <Input
-              onFocus={requiredPassword}
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-              required
-              type="password" />
-            <Label filled={filledPassword} for="password">Password</Label>
-          </InputContainer>
-          <Span id="password"><Required filled={filledPassword}>Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers.</Required></Span>
 
         </Section>
         <Button type="submit" disabled={!enabled} width="45%">Log in</Button>

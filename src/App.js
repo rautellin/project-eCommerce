@@ -11,6 +11,7 @@ import { LoginPage } from 'pages/LoginPage'
 import { HelpPage } from 'pages/HelpPage'
 import { CartPage } from 'pages/CartPage'
 import { SignupPage } from 'pages/SignupPage'
+import { AdminPage } from 'pages/AdminPage'
 import { Header } from './components/Header'
 import { Navigation } from './components/Navigation'
 import { Footer } from './components/Footer'
@@ -68,6 +69,9 @@ export const App = () => {
               </Route>
               <Route path="/signup" exact>
                 <SignupPage />
+              </Route>
+              <Route path="/admin" exact>
+                <AdminPage />
               </Route>
             </PageContainer>
           </Switch>
