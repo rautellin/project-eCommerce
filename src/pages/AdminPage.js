@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, TextInput, Checkbox, CheckboxLabel, Label } from '../lib/Form'
+import { Button, Checkbox, CheckboxLabel, Label, InputContainer, Input, InputDescription, TextArea, TextAreaLabel } from '../lib/Form'
 import { Header } from '../lib/Text'
+import { Colors } from '../lib/DropDown'
 
 export const Container = styled.section`
 width: 100%;
@@ -42,7 +43,46 @@ export const AdminPage = () => {
       <Header>Add products here</Header>
       <Form action="">
         <Section>
-          <TextInput></TextInput>
+
+          <InputContainer>
+            <Input
+              required
+              type="text" />
+            <Label>Title</Label>
+          </InputContainer>
+
+          <InputContainer>
+            <Input
+              required
+              type="text" />
+            <Label>Image</Label>
+          </InputContainer>
+
+          <InputContainer>
+            <Input
+              required
+              type="number" />
+            <Label>Price</Label>
+          </InputContainer>
+
+          <InputContainer>
+            <TextAreaLabel>Description</TextAreaLabel>
+            <TextArea
+              required
+            />
+            <InputDescription>Minimum 20 character</InputDescription>
+          </InputContainer>
+
+        </Section>
+        <Section>
+          <InputContainer>
+            <Input
+              required
+              type="text" />
+            <Label for="email">Title</Label>
+          </InputContainer>
+
+          <Colors />
         </Section>
         <Button type="submit" width="45%">Add</Button>
       </Form>

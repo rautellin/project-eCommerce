@@ -64,6 +64,11 @@ export const Label = styled.label`
     transition: all 0.3s;
 `;
 
+export const TextAreaLabel = styled.label`
+   font-size: ${(props) => (props.filled ? '14px' : '16px')};
+   color: rgb(204, 204, 204);
+`;
+
 export const InputDescription = styled.p`
    font-size: 14px;
    color: rgb(204, 204, 204);
@@ -122,5 +127,17 @@ border-bottom: 1px solid rgb(204, 204, 204);
 :focus + label {
    bottom: 30px;
    font-size: 14px;
+}
+`;
+
+export const TextArea = styled.textarea`
+all: unset;
+width: 100%;
+text-transform: none;
+border: 1px solid rgb(204, 204, 204);
+margin-top: 3px;
+
+:focus {
+   border: 1px solid black;
 }
 `;
