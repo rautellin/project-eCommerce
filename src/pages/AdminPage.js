@@ -1,17 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Checkbox, CheckboxLabel, Label, InputContainer, Input, InputDescription, TextArea, TextAreaLabel } from '../lib/Form'
+import { Button, Label, InputContainer, Input, InputDescription, TextArea, TextAreaLabel, DropDownDescription } from '../lib/Form'
 import { Header } from '../lib/Text'
-import { Colors } from '../lib/DropDown'
+import { Colors, Sizes } from '../lib/DropDown'
 
 export const Container = styled.section`
 width: 100%;
 max-width: 1200px;
-min-height: 460px;
+min-height: 480px;
+position: relative;
+`
+export const Background = styled.section`
+width: 45%;
+position: absolute;
+right: 0;
+top: 0;
+background: url(./images/admin.jpg);
+background-size: cover;
+height: 100%;
 `
 
 export const Form = styled.form`
-padding: 40px 0;
 position: relative;
 display: flex;
 justify-content: space-between;
@@ -21,6 +30,9 @@ export const Section = styled.section`
 width: 45%;
 padding: 40px 0;
 position: relative;
+background: ${(props) => (props.background)};
+background-size: cover;
+min-height: 100%;
 `
 
 export const Span = styled.span`
@@ -40,7 +52,8 @@ export const CheckboxContainer = styled.div`
 export const AdminPage = () => {
   return (
     <Container>
-      <Header>Add products here</Header>
+      <Header>Add products</Header>
+      <p>All fields are required</p>
       <Form action="">
         <Section>
 
@@ -49,13 +62,6 @@ export const AdminPage = () => {
               required
               type="text" />
             <Label>Title</Label>
-          </InputContainer>
-
-          <InputContainer>
-            <Input
-              required
-              type="text" />
-            <Label>Image</Label>
           </InputContainer>
 
           <InputContainer>
@@ -73,19 +79,19 @@ export const AdminPage = () => {
             <InputDescription>Minimum 20 character</InputDescription>
           </InputContainer>
 
-        </Section>
-        <Section>
-          <InputContainer>
-            <Input
-              required
-              type="text" />
-            <Label for="email">Title</Label>
-          </InputContainer>
+          <Input
+            required
+            type="file" />
 
+          <DropDownDescription>Colors</DropDownDescription>
           <Colors />
+          <DropDownDescription>Available sizes</DropDownDescription>
+          <Sizes />
+
         </Section>
         <Button type="submit" width="45%">Add</Button>
       </Form>
+      <Background />
     </Container>
   )
 }

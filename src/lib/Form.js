@@ -87,6 +87,12 @@ export const Required = styled.p`
   color: ${(props) => (props.filled ? 'transparent' : 'red')};
 `
 
+export const DropDownDescription = styled.p`
+   font-size: 16px;
+   color: rgb(204, 204, 204);
+   margin-top: 10px;
+`;
+
 // BUTTON
 
 export const Button = styled.button`
