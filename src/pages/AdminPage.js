@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Label, InputContainer, Input, InputDescription, TextArea, TextAreaLabel, FileButton } from '../lib/Form'
+import { Label, InputContainer, Input, TextArea, TextAreaLabel } from '../lib/Form'
 import { Header } from '../lib/Text'
 import { Colors, Sizes } from '../lib/DropDown'
+import { SubmitButton, FileButton } from '../lib/Buttons'
 
+// STYLED COMPONENTS
 export const Container = styled.section`
 width: 100%;
 max-width: 1200px;
@@ -38,16 +40,19 @@ export const Title = styled.p`
    margin-top: 10px;
 `;
 
-export const Description = styled.p`
-   font-size: 12px;
-   color: rgb(204, 204, 204);
+export const Text = styled.p`
+   font-size: ${(props) => (props.fontsize ? props.fontsize : '16px')};
+   color: ${(props) => (props.color ? props.color : 'rgb(204, 204, 204)')};
+   margin-top: ${(props) => (props.margintop)};
 `;
+
+//
 
 export const AdminPage = () => {
   return (
     <Container>
       <Header>Add products</Header>
-      <p>All fields are required</p>
+      <Text color="black">All fields are required in order to add a product.</Text>
       <Form action="">
         <Section>
 
@@ -67,20 +72,21 @@ export const AdminPage = () => {
 
           <InputContainer>
             <TextAreaLabel>Description</TextAreaLabel>
-            <Description>Minimum 20 character</Description>
+            <Text fontsize="12px">Minimum 20 character</Text>
             <TextArea
               required
             />
           </InputContainer>
 
-          <Title>Colors</Title>
+          <Text margintop="10px">Colors</Text>
           <Colors />
-          <Title>Available sizes</Title>
+          <Text margintop="10px">Available sizes</Text>
           <Sizes />
           <FileButton
             required
-            type="file" />
-          <Button type="submit" position="block">Add</Button>
+            type="file"
+            margintop="20px" />
+          <SubmitButton type="submit" position="block" margintop="20px">Add</SubmitButton>
         </Section>
 
       </Form>

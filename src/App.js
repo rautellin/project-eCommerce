@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { cart } from 'reducers/cart'
 import { homePage } from 'reducers/homePage'
+import { user } from 'reducers/user'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import { HomePage } from 'pages/HomePage'
@@ -21,7 +22,8 @@ import GlobalFonts from './fonts/fonts'
 
 const reducer = combineReducers({
   cart: cart.reducer,
-  homePage: homePage.reducer
+  homePage: homePage.reducer,
+  user: user.reducer
 })
 
 const store = configureStore({ reducer })

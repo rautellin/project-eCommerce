@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Button, Input, InputContainer, Label, Required, Checkbox, CheckboxLabel } from '../lib/Form'
+import { Input, InputContainer, Label, Required, Checkbox, CheckboxLabel } from '../lib/Form'
 import { Header, FooterLink } from '../lib/Text'
+import { SubmitButton } from '../lib/Buttons'
 
 export const Container = styled.section`
 width: 100%;
@@ -155,7 +156,7 @@ export const SignupPage = () => {
           <Span id="surname"><Required filled={filledSurname}>Required field</Required></Span>
 
         </Section>
-        <Button type="submit" disabled={!enabled} width="45%">Log in</Button>
+        <SubmitButton type="submit" disabled={!enabled} width="45%">Log in</SubmitButton>
       </Form>
     </Container>
   )

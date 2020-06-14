@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
-import { Button, Input, InputContainer, Label, Required } from '../lib/Form'
+import { Input, InputContainer, Label, Required } from '../lib/Form'
+import { SubmitButton } from '../lib/Buttons'
 import { Header, Paragraph } from '../lib/Text'
 
 export const Section = styled.section`
@@ -73,7 +74,7 @@ export const LoginPage = () => {
           <Label filled={filledPassword} for="email">Password</Label>
         </InputContainer>
         <Span id="password"><Required filled={filledPassword}>Required field</Required></Span>
-        <Button type="submit" disabled={!enabled}>Log in</Button>
+        <SubmitButton type="submit" disabled={!enabled}>Log in</SubmitButton>
       </Form>
 
       <Form>
@@ -81,7 +82,7 @@ export const LoginPage = () => {
         <Paragraph> If you still don&apos;t have a <strong>Nara.com</strong> account, use this option to access the registration form.</Paragraph>
         <Paragraph>By giving us your details, purchasing in <strong>Nara.com</strong> will be faster and an enjoyable experience.</Paragraph>
         <NavLink to="signup">
-          <Button>Create account</Button>
+          <SubmitButton>Create account</SubmitButton>
         </NavLink>
       </Form>
 

@@ -45,3 +45,33 @@ export const SmallNavButton = styled.button`
    text-transform: uppercase;
    font-weight: 300;
 `;
+
+export const SubmitButton = styled.button`
+   all: unset;
+   font-size: 15px;
+   text-transform: uppercase;
+   font-weight: 300;
+   color: white;
+   background: black;
+   width: ${(props) => (props.width ? props.width : '100%')};
+   text-align: center;
+   padding: 11px 0;
+   font-size: 18px;
+   font-weight: 500;
+   letter-spacing: -1px;
+   position: ${(props) => (props.position ? props.position : 'absolute')};
+   bottom: 20px;
+   margin-top: ${(props) => (props.margintop)};
+   
+   :hover {
+      background: rgb(51, 51, 51);
+   }
+`;
+
+export const FileButton = styled.input`
+   font-size: 16px;
+   color: black;
+   width: ${(props) => (props.width ? props.width : '100%')};
+   font-weight: 300;
+   margin-top: ${(props) => (props.margintop)};
+`;

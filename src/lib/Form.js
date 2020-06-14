@@ -87,38 +87,6 @@ export const Required = styled.p`
   color: ${(props) => (props.filled ? 'transparent' : 'red')};
 `
 
-// BUTTON
-
-export const Button = styled.button`
-   all: unset;
-   font-family: 'Heebo', sans-serif;
-   font-size: 15px;
-   text-transform: uppercase;
-   font-weight: 300;
-   color: white;
-   background: black;
-   width: ${(props) => (props.width ? props.width : '100%')};
-   text-align: center;
-   padding: 11px 0;
-   font-size: 18px;
-   font-weight: 500;
-   letter-spacing: -1px;
-   position: ${(props) => (props.position ? props.position : 'absolute')};
-   bottom: 20px;
-   
-   :hover {
-      background: rgb(51, 51, 51);
-   }
-`;
-
-export const FileButton = styled.input`
-   font-family: 'Heebo', sans-serif;
-   font-size: 16px;
-   color: black;
-   width: ${(props) => (props.width ? props.width : '100%')};
-   font-weight: 300;
-`;
-
 // INPUT
 
 export const Input = styled.input`
