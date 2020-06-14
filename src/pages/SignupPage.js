@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Button, Input, InputContainer, Label, Required } from '../lib/Account'
-import { Checkbox, CheckboxLabel } from '../lib/Input'
+import { Button, Input, InputContainer, Label, Required, Checkbox, CheckboxLabel } from '../lib/Form'
 import { Header, FooterLink } from '../lib/Text'
 
 export const Container = styled.section`

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TextInput, Checkbox, Label, CheckboxLabel } from '../../lib/Input'
+import { TextInput, Checkbox, InputLabel, CheckboxLabel } from '../../lib/Form'
 import { Button } from '../../lib/Buttons'
 import { FooterLink } from '../../lib/Text'
 
@@ -36,9 +36,9 @@ export const NewsletterForm = () => {
     <Form onSubmit={handleSubmit}>
       <TextInput type="text" placeholder="Enter your email address here" />
       <CheckboxContainer>
-        <Label htmlFor="Woman"><Checkbox type="checkbox" id="Woman" />Woman</Label>
-        <Label htmlFor="Man"><Checkbox type="checkbox" id="Man" />Man</Label>
-        <Label htmlFor="Kids"><Checkbox type="checkbox" id="Kids" />Kids</Label>
+        <InputLabel htmlFor="Woman"><Checkbox type="checkbox" id="Woman" />Woman</InputLabel>
+        <InputLabel htmlFor="Man"><Checkbox type="checkbox" id="Man" />Man</InputLabel>
+        <InputLabel htmlFor="Kids"><Checkbox type="checkbox" id="Kids" />Kids</InputLabel>
       </CheckboxContainer>
       <TermsContainer>
         <Checkbox type="checkbox" id="terms" />

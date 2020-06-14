@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
-import { Button, Input, InputContainer, Label, Required } from '../lib/Account'
+import { Button, Input, InputContainer, Label, Required } from '../lib/Form'
 import { Header, Paragraph } from '../lib/Text'
 
 export const Section = styled.section`

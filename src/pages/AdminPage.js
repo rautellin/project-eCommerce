@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button } from '../lib/Account'
+import { Button, TextInput, Checkbox, CheckboxLabel, Label } from '../lib/Form'
 import { Header } from '../lib/Text'
 
 export const Container = styled.section`
@@ -41,7 +41,9 @@ export const AdminPage = () => {
     <Container>
       <Header>Add products here</Header>
       <Form action="">
-        <Section>Add products here</Section>
+        <Section>
+          <TextInput></TextInput>
+        </Section>
         <Button type="submit" width="45%">Add</Button>
       </Form>
     </Container>
