@@ -87,12 +87,6 @@ export const Required = styled.p`
   color: ${(props) => (props.filled ? 'transparent' : 'red')};
 `
 
-export const DropDownDescription = styled.p`
-   font-size: 16px;
-   color: rgb(204, 204, 204);
-   margin-top: 10px;
-`;
-
 // BUTTON
 
 export const Button = styled.button`
@@ -109,12 +103,20 @@ export const Button = styled.button`
    font-size: 18px;
    font-weight: 500;
    letter-spacing: -1px;
-   position: absolute;
+   position: ${(props) => (props.position ? props.position : 'absolute')};
    bottom: 20px;
    
    :hover {
       background: rgb(51, 51, 51);
    }
+`;
+
+export const FileButton = styled.input`
+   font-family: 'Heebo', sans-serif;
+   font-size: 16px;
+   color: black;
+   width: ${(props) => (props.width ? props.width : '100%')};
+   font-weight: 300;
 `;
 
 // INPUT

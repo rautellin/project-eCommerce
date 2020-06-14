@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Label, InputContainer, Input, InputDescription, TextArea, TextAreaLabel, DropDownDescription } from '../lib/Form'
+import { Button, Label, InputContainer, Input, InputDescription, TextArea, TextAreaLabel, FileButton } from '../lib/Form'
 import { Header } from '../lib/Text'
 import { Colors, Sizes } from '../lib/DropDown'
 
@@ -18,6 +18,7 @@ top: 0;
 background: url(./images/admin.jpg);
 background-size: cover;
 height: 100%;
+min-height: 480px;
 `
 
 export const Form = styled.form`
@@ -28,26 +29,19 @@ justify-content: space-between;
 
 export const Section = styled.section`
 width: 45%;
-padding: 40px 0;
 position: relative;
-background: ${(props) => (props.background)};
-background-size: cover;
-min-height: 100%;
 `
 
-export const Span = styled.span`
-opacity: 0;
+export const Title = styled.p`
+   font-size: 16px;
+   color: rgb(204, 204, 204);
+   margin-top: 10px;
+`;
 
-.required {
-  opacity: 1;
-}
-`
-
-export const CheckboxContainer = styled.div`
-  display: flex;
-  width: 100%;
-  margin-bottom: 24px;
-`
+export const Description = styled.p`
+   font-size: 12px;
+   color: rgb(204, 204, 204);
+`;
 
 export const AdminPage = () => {
   return (
@@ -67,29 +61,28 @@ export const AdminPage = () => {
           <InputContainer>
             <Input
               required
-              type="number" />
+              type="text" />
             <Label>Price</Label>
           </InputContainer>
 
           <InputContainer>
             <TextAreaLabel>Description</TextAreaLabel>
+            <Description>Minimum 20 character</Description>
             <TextArea
               required
             />
-            <InputDescription>Minimum 20 character</InputDescription>
           </InputContainer>
 
-          <Input
+          <Title>Colors</Title>
+          <Colors />
+          <Title>Available sizes</Title>
+          <Sizes />
+          <FileButton
             required
             type="file" />
-
-          <DropDownDescription>Colors</DropDownDescription>
-          <Colors />
-          <DropDownDescription>Available sizes</DropDownDescription>
-          <Sizes />
-
+          <Button type="submit" position="block">Add</Button>
         </Section>
-        <Button type="submit" width="45%">Add</Button>
+
       </Form>
       <Background />
     </Container>

@@ -20,7 +20,17 @@ export const Colors = () => {
   ]
 
   return (
-    <Select options={options} theme={(theme) => ({ ...theme, borderRadius: 0 })} />
+    <Select
+      options={options}
+      theme={(theme) => ({
+        ...theme,
+        borderRadius: 0,
+        colors: {
+          ...theme.colors,
+          primary25: 'hotpink',
+          primary: 'black'
+        }
+      })} />
   )
 }
 
@@ -50,7 +60,15 @@ export const Sizes = () => {
       className="basic-multi-select"
       classNamePrefix="select"
       options={options}
-      theme={(theme) => ({ ...theme, borderRadius: 0 })}
+      theme={(theme) => ({
+        ...theme,
+        borderRadius: 0,
+        colors: {
+          ...theme.colors,
+          primary25: 'hotpink',
+          primary: 'black',
+        }
+      })}
     />
   )
 }
