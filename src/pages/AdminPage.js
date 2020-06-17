@@ -28,6 +28,15 @@ export const Form = styled.form`
 position: relative;
 display: flex;
 justify-content: space-between;
+
+:valid button {
+      background: black;
+      cursor: pointer;
+
+      :hover {
+        background: rgb(51, 51, 51);
+      }
+}
 `
 
 export const Section = styled.section`
@@ -117,7 +126,7 @@ export const AdminPage = () => {
     <Container>
       <Header>Add products</Header>
       <Text color="black">All fields are required in order to add a product.</Text>
-      <Form onSubmit={submitHandler}>
+      <Form onSubmit={submitHandler} id="form">
         <Section>
 
           <InputContainer>
@@ -125,6 +134,7 @@ export const AdminPage = () => {
               type="text"
               value={title}
               onChange={(event) => setTitle(event.target.value)}
+              required
             />
             <Label>Title</Label>
           </InputContainer>
@@ -134,6 +144,7 @@ export const AdminPage = () => {
               type="text"
               value={price}
               onChange={(event) => setPrice(event.target.value)}
+              required
             />
             <Label>Price</Label>
           </InputContainer>
@@ -144,11 +155,13 @@ export const AdminPage = () => {
             <TextArea
               value={description}
               onChange={(event) => setDescription(event.target.value)}
+              required
             />
           </InputContainer>
 
           <Text margintop="10px">Category</Text>
           <Select
+            required
             options={categoryOptions}
             value={(category === '') ? null : category.value}
             onChange={handleCategory}
@@ -163,6 +176,7 @@ export const AdminPage = () => {
             })} />
           <Text margintop="10px">Color</Text>
           <Select
+            required
             options={colorOptions}
             value={(color === '') ? null : color.value}
             onChange={handleColor}
@@ -177,6 +191,7 @@ export const AdminPage = () => {
             })} />
           <Text margintop="10px">Available sizes</Text>
           <Select
+            required
             isMulti
             name="colors"
             className="basic-multi-select"
@@ -194,6 +209,7 @@ export const AdminPage = () => {
               }
             })} />
           <FileButton
+            required
             id="fileinput"
             type="file"
             ref={fileInput}
