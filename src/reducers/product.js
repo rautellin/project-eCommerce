@@ -55,55 +55,6 @@ export const product = createSlice({
       { value: 'One size', label: 'One size' }
     ]
   },
-  reducers: {
-    addProduct: (state, action) => {
-      const {
-        title,
-        price,
-        color,
-        category,
-        description,
-        availableSizes,
-        imageUrl
-      } = action.payload
-      state.products.push({
-        title,
-        price,
-        color,
-        category,
-        description,
-        availableSizes,
-        imageUrl
-      })
-    },
-    setProducts: (state, action) => {
-      state.products = action.payload.products
-    }
-  }
+  reducers: []
 })
 
-export const fetchProducts = () => {
-  const API_URL = 'http://rautellin-final-project-api.herokuapp.com/products'
-  const ERR_CANNOT_FETCH = 'Cannot fetch products'
-
-  return (dispatch) => {
-    fetch(API_URL)
-      .then((res) => {
-        try {
-          return res.json()
-        } catch (err) {
-          res.status(400).json({ message: ERR_CANNOT_FETCH, errors: err.errors })
-        }
-      })
-      .then((json) => {
-        dispatch(
-          product.actions.setProducts({
-            products: json
-          })
-        )
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
-}

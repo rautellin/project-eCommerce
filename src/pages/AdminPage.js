@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import Select from 'react-select'
 import styled from 'styled-components'
 import { Label, InputContainer, Input, TextArea, TextAreaLabel } from '../lib/Form'
 import { Header } from '../lib/Text'
-import { SubmitButton } from '../lib/Buttons'
-
-// URL
-const API_URL = 'http://rautellin-final-project-api.herokuapp.com/products'
+import { SubmitButton, FileButton } from '../lib/Buttons'
 
 // STYLED COMPONENTS
 export const Container = styled.section`
@@ -50,14 +47,12 @@ export const Text = styled.p`
    margin-top: ${(props) => (props.margintop)};
 `;
 
-//
-
 export const AdminPage = () => {
   const categoryOptions = useSelector((store) => store.product.categories)
   const colorOptions = useSelector((store) => store.product.colors)
   const sizeOptions = useSelector((store) => store.product.sizes)
 
-  // const fileInput = useRef()
+  const fileInput = useRef()
   const [title, setTitle] = useState('')
   const [price, setPrice] = useState('')
   const [color, setColor] = useState('')
@@ -68,7 +63,7 @@ export const AdminPage = () => {
   const submitHandler = (e) => {
     e.preventDefault()
 
-    fetch(API_URL, {
+    fetch('https://rautellin-final-project-api.herokuapp.com/products', {
       method: 'POST',
       body: JSON.stringify({
         title,
@@ -81,7 +76,15 @@ export const AdminPage = () => {
       headers: { 'Content-Type': 'application/json' }
     })
       .then((res) => res.json())
-      .then((json) => console.log(json))
+      .then(({ _id }) => {
+        const formData = new FormData()
+        formData.append('image', fileInput.current.files[0])
+        fetch(`https://rautellin-final-project-api.herokuapp.com/products/${_id}/image`, {
+          method: 'POST',
+          body: formData
+        })
+          .then((res) => res.json())
+      })
       .then(() => {
         setTitle('')
         setPrice('')
@@ -89,24 +92,25 @@ export const AdminPage = () => {
         setCategory('')
         setDescription('')
         setSizes('')
+        document.getElementById('fileinput').value = ''
       })
-      .catch((err) => console.log('error:', err.errors))
+      .catch((err) => console.log('error:', err))
   }
 
-  const handleColor = (color) => {
-    setColor(color.value)
+  const handleColor = (selectedColor) => {
+    setColor(selectedColor.value)
   }
 
-  const handleSizes = (sizes) => {
-    const values = sizes.map((item) => {
+  const handleCategory = (selectedCategory) => {
+    setCategory(selectedCategory.value)
+  }
+
+  const handleSizes = (selectedSizes) => {
+    const values = selectedSizes.map((item) => {
       const { value } = item
       return value
     })
     setSizes(values)
-  }
-
-  const handleCategory = (category) => {
-    setCategory(category.value)
   }
 
   return (
@@ -189,16 +193,16 @@ export const AdminPage = () => {
                 primary: 'black'
               }
             })} />
-          {/* <FileButton
-
+          <FileButton
+            id="fileinput"
             type="file"
             ref={fileInput}
             margintop="20px"
             name="file"
-            class="file-upload"
+            className="file-upload"
             data-cloudinary-field="image_id"
             data-form-data="{ 'transformation': {'crop':'limit','tags':'samples','width':3000,'height':2000}}"
-          /> */}
+          />
           <SubmitButton type="submit" position="block" margintop="20px">Add</SubmitButton>
         </Section>
 
