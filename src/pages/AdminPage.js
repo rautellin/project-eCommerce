@@ -60,6 +60,7 @@ export const AdminPage = () => {
   const categoryOptions = useSelector((store) => store.product.categories)
   const colorOptions = useSelector((store) => store.product.colors)
   const sizeOptions = useSelector((store) => store.product.sizes)
+  const availableSizeOptions = useSelector((store) => store.product.availableSizes)
 
   const fileInput = useRef()
   const [title, setTitle] = useState('')
@@ -67,7 +68,8 @@ export const AdminPage = () => {
   const [color, setColor] = useState('')
   const [category, setCategory] = useState('')
   const [description, setDescription] = useState('')
-  const [sizes, setSizes] = useState([])
+  const [sizes, setSizes] = useState([sizeOptions[0].value, sizeOptions[1].value, sizeOptions[2].value, sizeOptions[3].value, sizeOptions[4].value])
+  const [availableSizes, setAvailableSizes] = useState([])
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -80,6 +82,7 @@ export const AdminPage = () => {
         color,
         category,
         description,
+        availableSizes,
         sizes
       }),
       headers: { 'Content-Type': 'application/json' }
@@ -100,7 +103,8 @@ export const AdminPage = () => {
         setColor('')
         setCategory('')
         setDescription('')
-        setSizes('')
+        setSizes([sizeOptions[0].value, sizeOptions[1].value, sizeOptions[2].value, sizeOptions[3].value, sizeOptions[4].value])
+        setAvailableSizes('')
         document.getElementById('fileinput').value = ''
       })
       .catch((err) => console.log('error:', err))
@@ -115,11 +119,27 @@ export const AdminPage = () => {
   }
 
   const handleSizes = (selectedSizes) => {
-    const values = selectedSizes.map((item) => {
-      const { value } = item
-      return value
-    })
-    setSizes(values)
+    if (selectedSizes === null) {
+      return
+    } else {
+      const values = selectedSizes.map((item) => {
+        const { value } = item
+        return value
+      })
+      setSizes(values)
+    }
+  }
+
+  const handleAvailableSizes = (selectedAvailableSizes) => {
+    if (selectedAvailableSizes === null) {
+      return
+    } else {
+      const values = selectedAvailableSizes.map((item) => {
+        const { value } = item
+        return value
+      })
+      setAvailableSizes(values)
+    }
   }
 
   return (
@@ -146,12 +166,11 @@ export const AdminPage = () => {
               onChange={(event) => setPrice(event.target.value)}
               required
             />
-            <Label>Price</Label>
+            <Label>Price (in SEK)</Label>
           </InputContainer>
 
           <InputContainer>
             <TextAreaLabel>Description</TextAreaLabel>
-            <Text fontsize="12px">Minimum 20 character</Text>
             <TextArea
               value={description}
               onChange={(event) => setDescription(event.target.value)}
@@ -189,7 +208,7 @@ export const AdminPage = () => {
                 primary: 'black'
               }
             })} />
-          <Text margintop="10px">Available sizes</Text>
+          <Text margintop="10px">Sizes</Text>
           <Select
             required
             isMulti
@@ -197,8 +216,28 @@ export const AdminPage = () => {
             className="basic-multi-select"
             classNamePrefix="select"
             options={sizeOptions}
-            value={(sizes === '') ? null : sizes.value}
             onChange={handleSizes}
+            value={(sizes === [sizeOptions[0].value, sizeOptions[1].value, sizeOptions[2].value, sizeOptions[3].value, sizeOptions[4].value]) ? [sizeOptions[0], sizeOptions[1], sizeOptions[2], sizeOptions[3], sizeOptions[4]] : sizes.value}
+            defaultValue={[sizeOptions[0], sizeOptions[1], sizeOptions[2], sizeOptions[3], sizeOptions[4]]}
+            theme={(theme) => ({
+              ...theme,
+              borderRadius: 0,
+              colors: {
+                ...theme.colors,
+                primary25: 'hotpink',
+                primary: 'black'
+              }
+            })} />
+          <Text margintop="10px">Available sizes</Text>
+          <Select
+            required
+            isMulti
+            name="colors"
+            className="basic-multi-select"
+            classNamePrefix="select"
+            options={availableSizeOptions}
+            value={(availableSizes === '') ? null : availableSizes.value}
+            onChange={handleAvailableSizes}
             theme={(theme) => ({
               ...theme,
               borderRadius: 0,

@@ -38,8 +38,8 @@ export const HomePage = () => {
         <SlideHeader>{slides[1].header}</SlideHeader>
         <SlideText>{slides[1].text}</SlideText>
         <SlideButton>View</SlideButton>
-        <Video poster="./videos/video1.png" autoPlay muted loop>
-          <source src="./videos/video1.mp4" type="video/mp4" />
+        <Video poster="./videos/video.png" autoPlay muted loop>
+          <source src="./videos/video.mp4" type="video/mp4" />
         </Video>
         <ArrowDown />
       </Slide>

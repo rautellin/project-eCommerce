@@ -104,6 +104,11 @@ border-bottom: 1px solid rgb(204, 204, 204);
    bottom: 30px;
    font-size: 14px;
 }
+
+:valid + label {
+   bottom: 30px;
+   font-size: 14px;
+}
 `;
 
 export const TextArea = styled.textarea`

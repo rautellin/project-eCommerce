@@ -8,6 +8,8 @@ import { product } from 'reducers/product'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import { HomePage } from 'pages/HomePage'
+import { ProductsPage } from 'pages/ProductsPage'
+import { ProductPage } from 'pages/ProductPage'
 import { SearchPage } from 'pages/SearchPage'
 import { LoginPage } from 'pages/LoginPage'
 import { HelpPage } from 'pages/HelpPage'
@@ -59,6 +61,12 @@ export const App = () => {
               <Footer />
             </Route>
             <PageContainer>
+              <Route path="/products" exact>
+                <ProductsPage />
+              </Route>
+              <Route path="/product" exact>
+                <ProductPage />
+              </Route>
               <Route path="/search" exact>
                 <SearchPage />
               </Route>
