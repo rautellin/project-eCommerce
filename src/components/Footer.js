@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { SectionHeader } from '../lib/Text'
+import { SlideHeader } from '../lib/Text'
 import { NewsletterForm } from './Footer/NewsletterForm'
 import { SocialMedia } from './Footer/SocialMedia'
 import { Terms } from './Footer/Terms'
@@ -19,7 +19,7 @@ export const Footer = () => {
   return (
     <>
       <Container id="footer">
-        <SectionHeader>Join our newsletter</SectionHeader>
+        <SlideHeader shadow="none">Join our newsletter</SlideHeader>
         <NewsletterForm />
         <SocialMedia />
         <Terms />

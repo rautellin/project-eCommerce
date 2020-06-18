@@ -1,17 +1,5 @@
 import styled from 'styled-components'
 
-export const Button = styled.button`
-   all: unset;
-   height: 35px;
-   text-align: center;
-   text-transform: uppercase;
-   font-family: 'Heebo', sans-serif;
-   font-weight: 500;
-   font-size: 15px;
-   border: 1px solid black;
-   padding: 0 17px;
-`;
-
 export const SlideButton = styled.button`
    all: unset;
    height: 35px;
@@ -21,9 +9,28 @@ export const SlideButton = styled.button`
    font-weight: 500;
    font-size: 15px;
    border: 2px solid black;
+   border-color: ${(props) => props.color};
+   color: ${(props) => props.color};
    padding: 0 40px;
    margin-top: 10px;
    cursor: pointer;
+`;
+
+export const SubscribeButton = styled.button`
+   all: unset;
+   font-size: 15px;
+   height: 35px;
+   text-transform: uppercase;
+   font-weight: 300;
+   color: white;
+   background: rgb(51, 51, 51);
+   text-align: center;
+   padding: 11px 0;
+   font-size: 18px;
+   font-weight: 500;
+   letter-spacing: -1px;
+   margin-top: 10px;
+   padding: 0 40px;
 `;
 
 export const NavButton = styled.button`

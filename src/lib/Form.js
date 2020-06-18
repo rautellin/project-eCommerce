@@ -2,15 +2,6 @@ import styled from 'styled-components'
 
 // GENERAL INPUT
 
-export const TextInput = styled.input`
-   all: unset;
-   border-bottom: solid black 1px;
-   padding-bottom: 10px;
-   text-align: center;
-   width: 350px;
-   text-transform: none;
-`;
-
 export const Checkbox = styled.input`
    all: unset;
    width: 14px;
@@ -22,6 +13,10 @@ export const Checkbox = styled.input`
    :checked {
       background: url(./images/check.svg);
       background-size: cover;
+   }
+
+   :checked ~label {
+      color: black;
    }
 `;
 
@@ -57,6 +52,8 @@ export const Label = styled.label`
    color: rgb(204, 204, 204);
    position: absolute;
    left: 0;
+   text-transform: none;
+   font-family: 'Heebo', sans-serif;
    bottom: ${(props) => (props.filled ? '30px' : '4px')};
    -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -91,7 +88,7 @@ export const Required = styled.p`
 
 export const Input = styled.input`
 all: unset;
-width: 100%;
+width: ${(props) => (props.width ? props.width : '100%')};
 text-transform: none;
 padding-bottom: 5px;
 border-bottom: 1px solid rgb(204, 204, 204);

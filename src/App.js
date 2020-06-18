@@ -20,7 +20,6 @@ import { Header } from './components/Header'
 import { Navigation } from './components/Navigation'
 import { Footer } from './components/Footer'
 import { Pagination } from './components/Pagination'
-import { Arrows } from './components/Arrows'
 import GlobalFonts from './fonts/fonts'
 
 const reducer = combineReducers({
@@ -56,7 +55,6 @@ export const App = () => {
           <Switch>
             <Route path="/" exact>
               <HomePage />
-              <Arrows />
               <Pagination />
               <Footer />
             </Route>

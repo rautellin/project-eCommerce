@@ -1,14 +1,6 @@
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-export const SectionHeader = styled.h2`
-  font-family: 'Heebo', sans-serif;
-  font-size: 36px;
-  text-transform: uppercase;
-  letter-spacing: -2px;
-  font-weight: 500;
-`
-
 export const Header = styled.h3`
   font-family: 'Heebo', sans-serif;
   font-size: 32px;
@@ -31,6 +23,8 @@ export const SlideHeader = styled.h1`
   text-transform: uppercase;
   letter-spacing: -7px;
   margin-bottom: -27px;
+  color: ${(props) => props.color};
+  text-shadow: ${(props) => (props.shadow ? props.shadow : '0px 0px 3px rgb(0,0,0,0.5)')};
 `
 
 export const SlideText = styled.div`
@@ -41,6 +35,8 @@ export const SlideText = styled.div`
   font-size: 14px;
   text-align: center;
   max-width: 50%;
+  color: ${(props) => props.color};
+  text-shadow:0px 0px 10px rgb(0,0,0,0.5);
 `
 
 // LINKS

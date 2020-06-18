@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TextInput, Checkbox, InputLabel, CheckboxLabel } from '../../lib/Form'
-import { Button } from '../../lib/Buttons'
+import { Input, Label, InputContainer, Checkbox, InputLabel, CheckboxLabel } from '../../lib/Form'
+import { SubscribeButton } from '../../lib/Buttons'
 import { FooterLink } from '../../lib/Text'
 
 export const Form = styled.form`
@@ -13,6 +13,15 @@ export const Form = styled.form`
   text-transform: uppercase;
   width: 100%;
   height: 50%;
+
+  :valid button {
+      background: black;
+      cursor: pointer;
+
+      :hover {
+        background: rgb(51, 51, 51);
+      }
+}
 `
 
 export const TermsContainer = styled.div`
@@ -34,17 +43,20 @@ export const NewsletterForm = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <TextInput type="text" placeholder="Enter your email address here" />
+      <InputContainer>
+        <Input width="350px" type="text" required />
+        <Label>Enter your email address here</Label>
+      </InputContainer>
       <CheckboxContainer>
-        <InputLabel htmlFor="Woman"><Checkbox type="checkbox" id="Woman" />Woman</InputLabel>
-        <InputLabel htmlFor="Man"><Checkbox type="checkbox" id="Man" />Man</InputLabel>
-        <InputLabel htmlFor="Kids"><Checkbox type="checkbox" id="Kids" />Kids</InputLabel>
+        <InputLabel htmlFor="Campaigns"><Checkbox type="checkbox" id="Campaigns" />Campaigns</InputLabel>
+        <InputLabel htmlFor="Events"><Checkbox type="checkbox" id="Events" />Events</InputLabel>
+        <InputLabel htmlFor="Misc"><Checkbox type="checkbox" id="Misc" />Misc</InputLabel>
       </CheckboxContainer>
       <TermsContainer>
-        <Checkbox type="checkbox" id="terms" />
+        <Checkbox type="checkbox" id="terms" required />
         <CheckboxLabel align="center" htmlFor="terms">I have read and understand the <FooterLink href="/">privacy and cookies policy</FooterLink> and agree to receive personalised commercial communications from <strong>nara</strong> by email.</CheckboxLabel>
       </TermsContainer>
-      <Button type="submit">Subscribe</Button>
+      <SubscribeButton color="black" type="submit">Subscribe</SubscribeButton>
     </Form>
   )
 }

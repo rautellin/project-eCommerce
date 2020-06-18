@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { NavigationLinks } from '../lib/Text'
 
+// Not needed
 export const Arrows = () => {
   const Container = styled.div`
   position: fixed;
