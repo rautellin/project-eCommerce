@@ -30,8 +30,8 @@ export const SizeContainer = styled.ul`
 display: flex;
 justify-content: space-between;
 width: 100%;
+margin: 5px 0 10px 0;
 `
-
 export const Size = styled.li`
 margin: 0 5px;
 border: 1px solid rgb(242, 242, 242);
@@ -42,7 +42,6 @@ width: 100%;
 
 export const ProductPage = () => {
   const { id } = useParams()
-  console.log(id)
 
   const [product, setProduct] = useState({})
   const [sizes, setSizes] = useState([])
@@ -59,7 +58,6 @@ export const ProductPage = () => {
   }, [setProduct, setSizes, setAvailableSizes, id])
 
   const intersection = sizes.filter((item) => availableSizes.includes(item))
-  console.log(intersection)
 
   return (
     <>
@@ -70,7 +68,7 @@ export const ProductPage = () => {
           <MediumHeader>{product.price}.00 SEK</MediumHeader>
           <SmallerHeader>{product.color}</SmallerHeader>
           <Paragraph>{product.description}</Paragraph>
-          {(sizes.length <= 1) ? <SmallerHeader>{sizes}</SmallerHeader> :
+          {(sizes.length <= 1) ? <SmallerHeader margin="0 0 5px 0">{sizes}</SmallerHeader> :
             <>
               <SmallerHeader>Select size</SmallerHeader>
               <SizeContainer>
@@ -81,7 +79,7 @@ export const ProductPage = () => {
               </SizeContainer>
             </>}
           <SubmitButton background="black" position="none">Add</SubmitButton>
-          <SmallerHeader>Reviews</SmallerHeader>
+          <SmallerHeader margin="10px 0 5px 0">Reviews</SmallerHeader>
           <SmallerHeader>Delivery & returns</SmallerHeader>
         </ProductDetails>
       </Container>

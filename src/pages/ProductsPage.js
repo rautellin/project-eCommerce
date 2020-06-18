@@ -9,6 +9,8 @@ grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 grid-auto-rows: 500px;
 width: 100%;
 max-width: 1200px;
+padding-top: 114px;
+height: 100vh;
 `
 
 export const Product = styled.div`
