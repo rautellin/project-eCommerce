@@ -10,6 +10,14 @@ export const Header = styled.h3`
   margin: ${(props) => props.margin};
 `
 
+export const MediumHeader = styled.h4`
+  font-family: 'Heebo', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin: ${(props) => props.margin};
+`
+
 export const SmallerHeader = styled.h5`
   font-family: 'Heebo', sans-serif;
   font-size: 15px;
@@ -82,3 +90,6 @@ export const SearchLine = styled(NavLink)`
 export const FooterLink = styled.a`
   text-decoration: underline;
 `
+
+// PRODUCT
+

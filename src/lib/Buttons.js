@@ -59,7 +59,7 @@ export const SubmitButton = styled.button`
    text-transform: uppercase;
    font-weight: 300;
    color: white;
-   background: rgb(51, 51, 51);
+   background: ${(props) => (props.background ? props.background : 'rgb(51, 51, 51)')};
    width: ${(props) => (props.width ? props.width : '100%')};
    text-align: center;
    padding: 11px 0;
