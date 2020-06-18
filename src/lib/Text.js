@@ -10,6 +10,14 @@ export const Header = styled.h3`
   margin: ${(props) => props.margin};
 `
 
+export const SmallerHeader = styled.h5`
+  font-family: 'Heebo', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin: ${(props) => props.margin};
+`
+
 export const Paragraph = styled.p`
   margin-bottom: 16px;
   text-align: justify;

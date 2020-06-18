@@ -156,7 +156,7 @@ export const SignupPage = () => {
           <Span id="surname"><Required filled={filledSurname}>Required field</Required></Span>
 
         </Section>
-        <SubmitButton type="submit" disabled={!enabled} width="45%">Log in</SubmitButton>
+        <SubmitButton type="submit" disabled={!enabled} width="45%">Create account</SubmitButton>
       </Form>
     </Container>
   )

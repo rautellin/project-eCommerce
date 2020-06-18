@@ -62,7 +62,7 @@ export const App = () => {
               <Route path="/products" exact>
                 <ProductsPage />
               </Route>
-              <Route path="/product" exact>
+              <Route path="/product/:id" exact>
                 <ProductPage />
               </Route>
               <Route path="/search" exact>

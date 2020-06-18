@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { Header, PageLinks } from '../lib/Text'
+import { Header, SmallerHeader } from '../lib/Text'
 
 export const Section = styled.section`
 display: grid;
@@ -35,11 +36,11 @@ export const ProductsPage = () => {
     <>
       <Section>
         {products.map((product, index) => (
-          <Product>
-            <Header>{product.title}</Header>
-            <Image src={product.imageUrl} alt="" />
-            <PageLinks to={product._id}>{product.sizes.length} sizes</PageLinks>
-            <p>{product.price}</p>
+          <Product key={index}>
+            <NavLink to={`/product/${product._id}`}><Header>{product.title}</Header></NavLink>
+            <NavLink to={`/product/${product._id}`}><Image src={product.imageUrl} alt="" /></NavLink>
+            <SmallerHeader>{product.availableSizes.length} available sizes</SmallerHeader>
+            <p>{product.price} SEK</p>
           </Product>
         ))}
       </Section>
