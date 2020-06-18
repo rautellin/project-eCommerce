@@ -17,6 +17,15 @@ export const Form = styled.form`
 width: 45%;
 padding: 40px 0;
 position: relative;
+
+:valid button {
+      background: black;
+      cursor: pointer;
+
+      :hover {
+        background: rgb(51, 51, 51);
+      }
+    }
 `
 
 export const Span = styled.span`
@@ -45,7 +54,6 @@ export const LoginPage = () => {
     d.className += 'required'
   }
 
-  const enabled = email.length > 0 && password.length > 0
   const filledEmail = email.length > 0
   const filledPassword = password.length > 0
 
@@ -74,7 +82,7 @@ export const LoginPage = () => {
           <Label filled={filledPassword} for="email">Password</Label>
         </InputContainer>
         <Span id="password"><Required filled={filledPassword}>Required field</Required></Span>
-        <SubmitButton type="submit" disabled={!enabled}>Log in</SubmitButton>
+        <SubmitButton type="submit">Log in</SubmitButton>
       </Form>
 
       <Form>
