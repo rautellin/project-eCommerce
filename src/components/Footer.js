@@ -18,7 +18,7 @@ export const Footer = () => {
 
   return (
     <>
-      <Container>
+      <Container id="footer">
         <SectionHeader>Join our newsletter</SectionHeader>
         <NewsletterForm />
         <SocialMedia />

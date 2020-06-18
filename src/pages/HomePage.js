@@ -6,7 +6,7 @@ import { SlideButton } from '../lib/Buttons'
 import { ArrowDown } from '../lib/Icons'
 
 export const HomePage = () => {
-  const slides = useSelector((store) => store.homePage.slides)
+  const slides = useSelector((store) => store.design.slides)
 
   const Slide = styled.main`
     height: 100vh;
@@ -28,27 +28,28 @@ export const HomePage = () => {
 
   return (
     <>
-      <Slide background="url(./images/page1.jpg)">
-        <SlideHeader>{slides[0].header}</SlideHeader>
-        <SlideText>{slides[0].text}</SlideText>
-        <SlideButton>View</SlideButton>
-        <ArrowDown />
+      <Slide background={slides[0].image}>
+        <SlideHeader color={slides[0].color}>{slides[0].header}</SlideHeader>
+        <SlideText color={slides[0].color}>{slides[0].text}</SlideText>
+        <SlideButton color={slides[0].color}>View</SlideButton>
+        <ArrowDown href="#slide2" />
       </Slide>
-      <Slide>
-        <SlideHeader>{slides[1].header}</SlideHeader>
-        <SlideText>{slides[1].text}</SlideText>
-        <SlideButton>View</SlideButton>
+      <Slide id="slide2">
+        <SlideHeader color={slides[1].color}>{slides[1].header}</SlideHeader>
+        <SlideText color={slides[1].color}>{slides[1].text}</SlideText>
+        <SlideButton color={slides[1].color}>View</SlideButton>
         <Video poster="./videos/video.png" autoPlay muted loop>
-          <source src="./videos/video.mp4" type="video/mp4" />
+          <source src="https://player.vimeo.com/external/353237048.hd.mp4?s=f782eb50065299b07e6b0f798811af74829d5524&amp;profile_id=172&amp;oauth2_token_id=57447761" type="video/mp4" />
         </Video>
-        <ArrowDown />
+        <ArrowDown href="#slide3" />
       </Slide>
-      <Slide background="url(./images/page2.jpg)">
-        <SlideHeader>Collection</SlideHeader>
-        <SlideText>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi illo magni veritatis aliquam odio earum quas similique vel. Reiciendis a earum voluptate ea omnis voluptates impedit, voluptatibus eaque itaque nemo?</SlideText>
-        <SlideButton>View</SlideButton>
-        <ArrowDown />
+      <Slide background={slides[2].image} id="slide3">
+        <SlideHeader color={slides[2].color}>{slides[2].header}</SlideHeader>
+        <SlideText color={slides[2].color}>{slides[2].text}</SlideText>
+        <SlideButton color={slides[2].color}>View</SlideButton>
+        <ArrowDown href="#footer" />
       </Slide>
     </>
   )
 }
+
