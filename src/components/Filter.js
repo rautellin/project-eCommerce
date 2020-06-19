@@ -19,10 +19,6 @@ export const Filter = () => {
 
   const Link = styled(NavLink)`
   padding: 0 5px;
-
-  :active{
-    text-decoration: underline;
-  }
   `
 
   const Filters = styled.h4`  
@@ -35,7 +31,6 @@ export const Filter = () => {
   text-transform: uppercase;
   font-weight: 400;
   `
-
   return (
     <Container>
       <li><Link to="/products">View all</Link></li>
