@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export const Filter = () => {
   const Container = styled.ul`
@@ -39,10 +39,10 @@ export const Filter = () => {
   return (
     <Container>
       <li><Link to="/products">View all</Link></li>
-      <li><Link to="/products?filter=bottomsleggings">Bottoms & Leggings</Link></li>
-      <li><Link to="/products?filter=shorts">Shorts</Link></li>
-      <li><Link to="/products?filter=croptop">Crop top</Link></li>
-      <li><Link to="/products?filter=sportbra">Sport bra</Link></li>
+      <li><Link to="/products?category=leggings">Bottoms & Leggings</Link></li>
+      <li><Link to="/products?category=shorts">Shorts</Link></li>
+      <li><Link to="/products?category=crop">Crop top</Link></li>
+      <li><Link to="/products?category=bra">Sport bra</Link></li>
       <Filters>+filters</Filters>
     </Container>
   )

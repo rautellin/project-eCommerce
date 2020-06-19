@@ -29,28 +29,33 @@ export const ProductsPage = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
+  const useQuery = () => {
+    return new URLSearchParams(useLocation().search)
+  }
+  const query = useQuery()
+  const category = query.get('category')
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch('http://rautellin-final-project-api.herokuapp.com/products')
-        const json = await res.json()
-        setProducts(json)
-        setLoading(false)
+        if (category === null) {
+          const res = await fetch('http://rautellin-final-project-api.herokuapp.com/products')
+          const json = await res.json()
+          setProducts(json)
+          setLoading(false)
+        } else {
+          const res = await fetch(`http://rautellin-final-project-api.herokuapp.com/products/?category=${category}`)
+          const json = await res.json()
+          setProducts(json)
+          setLoading(false)
+        }
       } catch (err) {
         setLoading(false)
         setError(true)
-        console.log(err)
       }
     }
     fetchProducts()
-  }, [setProducts, setLoading])
-
-  const useQuery = () => {
-    return new URLSearchParams(useLocation().search);
-  }
-  const query = useQuery()
-  const filter = query.get('filter')
-  console.log(filter)
+  }, [setProducts, setLoading, category])
 
   return (
     <>
