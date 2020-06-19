@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import { Filter } from '../components/Filter'
 import { Header, SmallerHeader } from '../lib/Text'
@@ -10,7 +10,7 @@ grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 grid-auto-rows: 500px;
 width: 100%;
 max-width: 1200px;
-padding-top: 124px;
+padding-top: 144px;
 height: 100vh;
 `
 
@@ -44,6 +44,13 @@ export const ProductsPage = () => {
     }
     fetchProducts()
   }, [setProducts, setLoading])
+
+  const useQuery = () => {
+    return new URLSearchParams(useLocation().search);
+  }
+  const query = useQuery()
+  const filter = query.get('filter')
+  console.log(filter)
 
   return (
     <>
