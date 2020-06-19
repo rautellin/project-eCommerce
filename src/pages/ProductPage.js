@@ -41,6 +41,7 @@ padding: 5px 0;
 color: ${(props) => (props.color ? props.color : 'rgb(242, 242, 242)')};
 text-align: center;
 width: 100%;
+text-transform: uppercase;
 
 :enabled {
   cursor: pointer;
@@ -61,20 +62,20 @@ export const ProductPage = () => {
   const [selectedSize, setSelectedSize] = useState('')
 
   useEffect(() => {
-    fetch(`https://rautellin-final-project-api.herokuapp.com/product/${id}`)
-      .then((res) => res.json())
-      .then((json) => {
-        setProduct(json)
-        setSizes(json.sizes)
-        setAvailableSizes(json.availableSizes)
-      })
+    const fetchProduct = async () => {
+      const res = await fetch(`https://rautellin-final-project-api.herokuapp.com/product/${id}`)
+      const json = await res.json()
+      setProduct(json)
+      setSizes(json.sizes)
+      setAvailableSizes(json.availableSizes)
+    }
+    fetchProduct()
   }, [setProduct, setSizes, setAvailableSizes, id])
 
   const intersection = sizes.filter((item) => availableSizes.includes(item))
 
   const onClick = (event) => {
     setSelectedSize(event.target.value)
-    console.log(selectedSize)
   }
 
   const disabled = selectedSize === ''
@@ -89,9 +90,9 @@ export const ProductPage = () => {
           <MediumHeader fontweight="500">{product.price} SEK</MediumHeader>
           <SmallerHeader>{product.color}</SmallerHeader>
           <Paragraph>{product.description}</Paragraph>
-          {(sizes.length <= 1) ? <SmallerHeader margin="0 0 5px 0">{sizes}</SmallerHeader> :
+          <SmallerHeader>Select size</SmallerHeader>
+          {(sizes.length <= 1) ? <SizeContainer><Size onClick={onClick} value={sizes[0]} margin="0 0 5px 0" color="black">{sizes}</Size></SizeContainer> :
             <>
-              <SmallerHeader>Select size</SmallerHeader>
               <SizeContainer>
                 {sizes.map((size, index) => ((intersection.includes(size) ? <Size color="black" key={index} onClick={onClick} value={size}>{size}</Size>
                   : <Size key={index} disabled>{size}</Size>

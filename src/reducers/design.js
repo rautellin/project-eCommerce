@@ -10,12 +10,6 @@ export const design = createSlice({
     ]
   },
   reducers: {
-    leftArrow: () => {
-      console.log('congrats')
-    },
-    rightArrow: () => {
-      console.log('congrats')
-    }
   }
 })
 

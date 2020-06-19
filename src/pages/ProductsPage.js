@@ -25,27 +25,31 @@ object-fit: contain;
 
 export const ProductsPage = () => {
   const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('http://rautellin-final-project-api.herokuapp.com/products')
-      .then((res) => res.json())
-      .then((json) => {
-        setProducts(json)
-      })
-  }, [setProducts])
+    const fetchProducts = async () => {
+      const res = await fetch('http://rautellin-final-project-api.herokuapp.com/products')
+      const json = await res.json()
+      setProducts(json)
+      setLoading(false)
+    }
+    fetchProducts()
+  }, [setProducts, setLoading])
 
   return (
     <>
-      <Section>
-        {products.map((product, index) => (
-          <Product key={index}>
-            <NavLink to={`/product/${product._id}`}><Header>{product.title}</Header></NavLink>
-            <NavLink to={`/product/${product._id}`}><Image src={product.imageUrl} alt="" /></NavLink>
-            <SmallerHeader>{product.availableSizes.length} available sizes</SmallerHeader>
-            <p>{product.price} SEK</p>
-          </Product>
-        ))}
-      </Section>
+      {loading ? <Header>Loading products...</Header>
+        : <Section>
+          {products.map((product, index) => (
+            <Product key={index}>
+              <NavLink to={`/product/${product._id}`}><Header>{product.title}</Header></NavLink>
+              <NavLink to={`/product/${product._id}`}><Image src={product.imageUrl} alt="" /></NavLink>
+              <SmallerHeader>{product.availableSizes.length} available sizes</SmallerHeader>
+              <p>{product.price} SEK</p>
+            </Product>
+          ))}
+        </Section>}
     </>
   )
 }
