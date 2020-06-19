@@ -59,7 +59,7 @@ export const SubmitButton = styled.button`
    text-transform: uppercase;
    font-weight: 300;
    color: white;
-   background: ${(props) => (props.background ? props.background : 'rgb(51, 51, 51)')};
+   background: rgb(51, 51, 51);
    width: ${(props) => (props.width ? props.width : '100%')};
    text-align: center;
    padding: 11px 0;
@@ -69,6 +69,10 @@ export const SubmitButton = styled.button`
    position: ${(props) => (props.position ? props.position : 'absolute')};
    bottom: 20px;
    margin-top: ${(props) => (props.margintop)};
+
+   :enabled {
+      background: black;
+   }
 `;
 
 export const FileButton = styled.input`

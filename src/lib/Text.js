@@ -14,7 +14,7 @@ export const MediumHeader = styled.h4`
   font-family: 'Heebo', sans-serif;
   font-size: 22px;
   text-transform: uppercase;
-  font-weight: 300;
+  font-weight: ${(props) => (props.fontweight ? props.fontweight : '300')};
   margin: ${(props) => props.margin};
 `
 
@@ -71,14 +71,6 @@ export const PageLinks = styled(NavLink)`
   text-transform: uppercase;
   font-weight: 300;
   margin: ${(props) => props.margin};
-`
-
-export const NavigationLinks = styled(NavLink)`
-  font-family: 'Heebo', sans-serif;
-  font-size: 22px;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding-right: 10px;
 `
 
 export const SearchLine = styled(NavLink)`
