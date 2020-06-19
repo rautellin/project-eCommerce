@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+import { Filter } from '../components/Filter'
 import { Header, SmallerHeader } from '../lib/Text'
 
 export const Section = styled.section`
@@ -9,7 +10,7 @@ grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 grid-auto-rows: 500px;
 width: 100%;
 max-width: 1200px;
-padding-top: 114px;
+padding-top: 124px;
 height: 100vh;
 `
 
@@ -26,21 +27,30 @@ object-fit: contain;
 export const ProductsPage = () => {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const res = await fetch('http://rautellin-final-project-api.herokuapp.com/products')
-      const json = await res.json()
-      setProducts(json)
-      setLoading(false)
+      try {
+        const res = await fetch('http://rautellin-final-project-api.herokuapp.com/products')
+        const json = await res.json()
+        setProducts(json)
+        setLoading(false)
+      } catch (err) {
+        setLoading(false)
+        setError(true)
+        console.log(err)
+      }
     }
     fetchProducts()
   }, [setProducts, setLoading])
 
   return (
     <>
-      {loading ? <Header>Loading products...</Header>
+      {error && <><Header>Oh no!</Header><SmallerHeader>There&apos;s currently no connection to the server.</SmallerHeader></>}
+      {loading ? <Header>Loading products, please wait...</Header>
         : <Section>
+          <Filter />
           {products.map((product, index) => (
             <Product key={index}>
               <NavLink to={`/product/${product._id}`}><Header>{product.title}</Header></NavLink>

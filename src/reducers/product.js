@@ -72,6 +72,6 @@ export const product = createSlice({
       { value: 'One size', label: 'One size' }
     ]
   },
-  reducers: []
+  reducers: {}
 })
 

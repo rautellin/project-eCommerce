@@ -2,13 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-// Not needed
-export const ArrowLeft = () => {
+export const ArrowLeft = ({ justify, marginleft }) => {
   const ArrowContainer = styled(NavLink)`
   display: flex;
-  align-items: center;
+  justify-content: ${justify};
   width: 100%;
-  margin-left: -25px;
+  margin-left: ${marginleft};
 
   :hover svg{
     opacity: 1;

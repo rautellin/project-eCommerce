@@ -13,6 +13,12 @@ height: 100vh;
 display: flex;
 padding-top: 114px;
 `
+
+export const ErrorContainer = styled.section`
+display: flex;
+flex-direction: column;
+`
+
 export const Image = styled.img`
 width: 50%;
 height: 100%;
@@ -60,14 +66,24 @@ export const ProductPage = () => {
   const [sizes, setSizes] = useState([])
   const [availableSizes, setAvailableSizes] = useState([])
   const [selectedSize, setSelectedSize] = useState('')
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const res = await fetch(`https://rautellin-final-project-api.herokuapp.com/product/${id}`)
-      const json = await res.json()
-      setProduct(json)
-      setSizes(json.sizes)
-      setAvailableSizes(json.availableSizes)
+      try {
+        const res = await fetch(`https://rautellin-final-project-api.herokuapp.com/product/${id}`)
+        const json = await res.json()
+        setProduct(json)
+        setSizes(json.sizes)
+        setAvailableSizes(json.availableSizes)
+        setLoading(false)
+        console.log('no error')
+      } catch (err) {
+        setError(true)
+        setLoading(false)
+        console.log('error')
+      }
     }
     fetchProduct()
   }, [setProduct, setSizes, setAvailableSizes, id])
@@ -75,6 +91,8 @@ export const ProductPage = () => {
   const intersection = sizes.filter((item) => availableSizes.includes(item))
 
   const onClick = (event) => {
+    event.target.style.color = 'white'
+    event.target.style.background = 'black'
     setSelectedSize(event.target.value)
   }
 
@@ -82,29 +100,36 @@ export const ProductPage = () => {
 
   return (
     <>
-      <Container>
-        <Image src={product.imageUrl} />
-        <ProductDetails>
-          <ArrowLeft />
-          <Header>{product.title}</Header>
-          <MediumHeader fontweight="500">{product.price} SEK</MediumHeader>
-          <SmallerHeader>{product.color}</SmallerHeader>
-          <Paragraph>{product.description}</Paragraph>
-          <SmallerHeader>Select size</SmallerHeader>
-          {(sizes.length <= 1) ? <SizeContainer><Size onClick={onClick} value={sizes[0]} margin="0 0 5px 0" color="black">{sizes}</Size></SizeContainer> :
-            <>
-              <SizeContainer>
-                {sizes.map((size, index) => ((intersection.includes(size) ? <Size color="black" key={index} onClick={onClick} value={size}>{size}</Size>
-                  : <Size key={index} disabled>{size}</Size>
-                )
-                ))}
-              </SizeContainer>
-            </>}
-          <SubmitButton disabled={disabled} background="black" position="none">Add</SubmitButton>
-          <SmallerHeader margin="10px 0 5px 0">Reviews</SmallerHeader>
-          <SmallerHeader>Delivery & returns</SmallerHeader>
-        </ProductDetails>
-      </Container>
+      {error &&
+        <ErrorContainer>
+          <Header>Could not find product</Header>
+          <ArrowLeft justify="center" />
+        </ErrorContainer>}
+      {loading && <Header>Please wait...</Header>}
+      {!error && !loading &&
+        <Container>
+          <Image src={product.imageUrl} />
+          <ProductDetails>
+            <ArrowLeft marginleft="-25px" />
+            <Header>{product.title}</Header>
+            <MediumHeader fontweight="500">{product.price} SEK</MediumHeader>
+            <SmallerHeader>{product.color}</SmallerHeader>
+            <Paragraph>{product.description}</Paragraph>
+            <SmallerHeader>Select size</SmallerHeader>
+            {(sizes.length <= 1) ? <SizeContainer><Size onClick={onClick} value={sizes[0]} margin="0 0 5px 0" color="black">{sizes}</Size></SizeContainer> :
+              <>
+                <SizeContainer>
+                  {sizes.map((size, index) => ((intersection.includes(size) ? <Size color="black" key={index} onClick={onClick} value={size}>{size}</Size>
+                    : <Size key={index} disabled>{size}</Size>
+                  )
+                  ))}
+                </SizeContainer>
+              </>}
+            <SubmitButton disabled={disabled} background="black" position="none">Add</SubmitButton>
+            <SmallerHeader margin="10px 0 5px 0">Reviews</SmallerHeader>
+            <SmallerHeader>Delivery & returns</SmallerHeader>
+          </ProductDetails>
+        </Container>}
     </>
   )
 }
