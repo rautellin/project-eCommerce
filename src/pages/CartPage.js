@@ -3,47 +3,83 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 import { cart } from 'reducers/cart'
-import { PageContainer, Form } from '../lib/Containers'
-import { Header, MediumHeader, SmallerHeader } from '../lib/Text'
+import { CenterContainer, Table, TableTop, TableBorder } from '../lib/Containers'
+import { Header, MediumHeader, SmallerHeader, TableHeader } from '../lib/Text'
 import { SubmitButton } from '../lib/Buttons'
 
 export const Checkout = styled.section`
-width: 45%;
-position: absolute;
-right: 0;
-top: 0;
-height: 100%;
-min-height: 480px;
+width: 40%;
+align-self: flex-end;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+margin-top: 20px;
+`
+
+export const Quantity = styled.div`
+display: flex;
+font-family: 'Heebo', sans-serif;
+font-size: 15px;
+text-transform: uppercase;
+font-weight: 300;
+width: 120px;
+justify-content: space-between;
+align-items: center;
+`
+
+export const QuantityButton = styled.button`
+all: unset;
+border: 1px solid rgb(238, 238, 238);
+font-family: 'Heebo', sans-serif;
+font-size: 15px;
+text-transform: uppercase;
+font-weight: 300;
+width: 40px;
+height: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
 export const CartPage = () => {
   const products = useSelector((store) => store.cart)
-  console.log(products)
   const totalPrice = products.reduce((total, item) => (total + (item.price * item.quantity)), 0)
-  console.log(totalPrice)
   const dispatch = useDispatch()
   return (
-    <PageContainer>
+    <CenterContainer>
       <Header>Shopping cart</Header>
-      <Form>
-        {(products.length === 0) ? <MediumHeader> Your cart is currently empty. Continue browsing <NavLink to="/products">here</NavLink>.</MediumHeader> :
-          <>
-            <MediumHeader>{products.length} products</MediumHeader>
-            <ul>
-              {products.map((item, index) => (
-                <>
-                  <SmallerHeader key={index}>{item.title}</SmallerHeader>
-                  <button type="button" onClick={() => dispatch(cart.actions.removeItem(item))}>-</button>
-                  <button type="button" onClick={() => dispatch(cart.actions.addItem(item))}>+</button>
-                </>
-              ))}
-            </ul>
-          </>}
-      </Form>
+      {(products.length === 0) ? <MediumHeader> Your cart is currently empty. Continue browsing <NavLink to="/products">here</NavLink>.</MediumHeader> :
+        <>
+          <MediumHeader>{products.length} products</MediumHeader>
+          <Table>
+            <TableTop>
+              <TableHeader width="70%">Item</TableHeader>
+              <TableHeader>Quantity</TableHeader>
+              <TableHeader>Subtotal</TableHeader>
+            </TableTop>
+            {products.map((item, index) => (
+              <tr>
+                <TableBorder>
+                  <SmallerHeader key={index}>{item.product.title}</SmallerHeader>
+                </TableBorder>
+                <TableBorder>
+                  <Quantity>
+                    <QuantityButton onClick={() => dispatch(cart.actions.removeItem(item))}>-</QuantityButton>
+                    {item.quantity}
+                    <QuantityButton onClick={() => dispatch(cart.actions.addItem(item))}>+</QuantityButton>
+                  </Quantity>
+                </TableBorder>
+                <TableBorder>
+                  <SmallerHeader>{(item.product.price * item.product.quantity)}</SmallerHeader>
+                </TableBorder>
+              </tr>
+            ))}
+          </Table>
+        </>}
       <Checkout>
         <MediumHeader>Total: {totalPrice}.00 SEK</MediumHeader>
-        <SubmitButton>Checkout</SubmitButton>
+        <SubmitButton position="none" margintop="20px">Checkout</SubmitButton>
       </Checkout>
-    </PageContainer>
+    </CenterContainer>
   )
 }

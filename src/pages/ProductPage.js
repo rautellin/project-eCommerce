@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { cart } from '../reducers/cart'
 import styled from 'styled-components'
 import { useParams } from 'react-router'
+import { cart } from '../reducers/cart'
 import { SubmitButton } from '../lib/Buttons'
 import { Header, MediumHeader, SmallerHeader, Paragraph } from '../lib/Text'
 import { ArrowLeft } from '../lib/Arrows'
@@ -99,6 +99,10 @@ export const ProductPage = () => {
 
   const disabled = selectedSize === ''
 
+  const addToCart = () => {
+    dispatch(cart.actions.addItem({ product, selectedSize, quantity: 1 }))
+  }
+
   return (
     <>
       {error &&
@@ -126,7 +130,7 @@ export const ProductPage = () => {
                   ))}
                 </SizeContainer>
               </>}
-            <SubmitButton disabled={disabled} background="black" position="none" onClick={() => dispatch(cart.actions.addItem(product))}>Add to cart</SubmitButton>
+            <SubmitButton disabled={disabled} background="black" position="none" onClick={addToCart}>Add to cart</SubmitButton>
             <SmallerHeader margin="10px 0 5px 0">Reviews</SmallerHeader>
             <SmallerHeader>Delivery & returns</SmallerHeader>
           </ProductDetails>
