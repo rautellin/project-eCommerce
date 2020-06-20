@@ -31,8 +31,6 @@ export const Paragraph = styled.p`
   text-align: justify;
 `
 
-// SLIDES
-
 export const SlideHeader = styled.h1`
   font-family: 'Heebo', sans-serif;
   font-size: 94px;
@@ -40,7 +38,6 @@ export const SlideHeader = styled.h1`
   letter-spacing: -7px;
   margin-bottom: -27px;
   color: ${(props) => props.color};
-  text-shadow: ${(props) => (props.shadow ? props.shadow : '0px 0px 3px rgb(0,0,0,0.5)')};
 `
 
 export const SlideText = styled.div`
@@ -82,6 +79,3 @@ export const SearchLine = styled(NavLink)`
 export const FooterLink = styled.a`
   text-decoration: underline;
 `
-
-// PRODUCT
-
