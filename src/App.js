@@ -75,7 +75,7 @@ export const App = () => {
               <Route path="/help" exact>
                 <HelpPage />
               </Route>
-              <Route path="/cart" exact>
+              <Route path="/cart/:id?" exact>
                 <CartPage />
               </Route>
               <Route path="/signup" exact>

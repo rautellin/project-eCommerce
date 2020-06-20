@@ -1,16 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
-
-export const Section = styled.section`
-width: 100%;
-`
+import { PageContainer, Form, SectionImage } from '../lib/Containers'
 
 export const UserPage = () => {
   return (
     <>
-      <Section>
-        User page
-      </Section>
+      <PageContainer>
+        <Form />
+        <SectionImage src="/images/user.jpg" />
+      </PageContainer>
     </>
   )
 }

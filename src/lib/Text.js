@@ -27,6 +27,12 @@ export const SmallerHeader = styled.h5`
   margin: ${(props) => props.margin};
 `
 
+export const Text = styled.p`
+   font-size: ${(props) => (props.fontsize ? props.fontsize : '16px')};
+   color: ${(props) => (props.color ? props.color : 'rgb(204, 204, 204)')};
+   margin-top: ${(props) => (props.margintop)};
+`;
+
 export const Paragraph = styled.p`
   margin-bottom: 16px;
   text-align: justify;
