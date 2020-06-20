@@ -60,15 +60,15 @@ export const Navigation = () => {
             <NavButton onClick={toggleClothes} onTouchStart={toggleClothes}>Clothes</NavButton>
             <Ul id="clothes">
               <li><NavLinks url="/products" text="View all" /></li>
-              <li><NavLinks url="/products" text="Bottoms & Leggings" /></li>
-              <li><NavLinks url="/products" text="Shorts" /></li>
-              <li><NavLinks url="/products" text="Crop tops" /></li>
-              <li><NavLinks url="/products" text="T-shirts & tops" /></li>
-              <li><NavLinks url="/products" text="Hoodies" /></li>
-              <li><NavLinks url="/products" text="Jackets" /></li>
-              <li><NavLinks url="/products" text="Vests" /></li>
-              <li><NavLinks url="/products" text="Sports bras" /></li>
-              <li><NavLinks url="/products" text="Swimwear" /></li>
+              <li><NavLinks url="/products?category=leggings" text="Bottoms & Leggings" /></li>
+              <li><NavLinks url="/products?category=shorts" text="Shorts" /></li>
+              <li><NavLinks url="/products?category=crop" text="Crop tops" /></li>
+              <li><NavLinks url="/products?category=tops" text="T-shirts & tops" /></li>
+              <li><NavLinks url="/products?category=hoodies" text="Hoodies" /></li>
+              <li><NavLinks url="/products?category=jackets" text="Jackets" /></li>
+              <li><NavLinks url="/products?category=vests" text="Vests" /></li>
+              <li><NavLinks url="/products?category=bras" text="Sports bras" /></li>
+              <li><NavLinks url="/products?category=swimwear" text="Swimwear" /></li>
             </Ul>
           </li>
           <li>
