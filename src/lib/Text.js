@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
@@ -79,3 +80,27 @@ export const SearchLine = styled(NavLink)`
 export const FooterLink = styled.a`
   text-decoration: underline;
 `
+
+export const NavLinks = ({ url, text }) => {
+  const closeNav = () => {
+    const navigation = document.getElementById('navigation')
+    const help = document.getElementById('help')
+    const clothes = document.getElementById('clothes')
+    const accessories = document.getElementById('accessories')
+    navigation.classList.remove('show')
+    help.classList.remove('show')
+    clothes.classList.remove('show')
+    accessories.classList.remove('show')
+  }
+
+  const Links = styled(NavLink)`
+  font-family: 'Heebo', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 300;
+  `
+
+  return (
+    <Links onClick={closeNav} onTouchStart={closeNav} to={url}>{text}</Links>
+  )
+}

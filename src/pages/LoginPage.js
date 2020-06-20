@@ -69,7 +69,7 @@ export const LoginPage = () => {
             onChange={(event) => setEmail(event.target.value)}
             required
             type="email" />
-          <Label filled={filledEmail} for="email">E-mail</Label>
+          <Label filled={filledEmail} htmlFor="email">E-mail</Label>
         </InputContainer>
         <Span id="email"><Required filled={filledEmail}>Required field</Required></Span>
         <InputContainer>
@@ -79,7 +79,7 @@ export const LoginPage = () => {
             onChange={(event) => setPassword(event.target.value)}
             required
             type="password" />
-          <Label filled={filledPassword} for="email">Password</Label>
+          <Label filled={filledPassword} htmlFor="email">Password</Label>
         </InputContainer>
         <Span id="password"><Required filled={filledPassword}>Required field</Required></Span>
         <SubmitButton type="submit">Log in</SubmitButton>
