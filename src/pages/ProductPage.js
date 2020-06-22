@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { cart } from '../reducers/cart'
 import styled from 'styled-components'
 import { useParams } from 'react-router'
 import { SubmitButton } from '../lib/Buttons'
@@ -60,6 +62,7 @@ text-transform: uppercase;
 `
 
 export const ProductPage = () => {
+  const dispatch = useDispatch()
   const { id } = useParams()
   const [product, setProduct] = useState({})
   const [sizes, setSizes] = useState([])
@@ -113,6 +116,7 @@ export const ProductPage = () => {
       headers: { 'Content-Type': 'application/json' }
     })
       .then((res) => res.json())
+      .then((json) => dispatch(cart.actions.addItem(json)))
       .catch((err) => console.log('error:', err))
   }
 

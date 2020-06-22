@@ -8,7 +8,6 @@ export const cart = createSlice({
   reducers: {
     addItem: (state, action) => {
       state.items.push(action.payload)
-      console.log(action.payload)
     },
     removeItem: (state, action) => {
       const existingProduct = state.items.find((item) => item.id === action.payload.id)

@@ -54,7 +54,7 @@ export const HamburgerMenu = () => {
 }
 
 export const ShoppingBag = () => {
-  const cartItems = useSelector((store) => store.cart.items)
+  const cartItems = useSelector((store) => store.cart.items.length)
 
   const Link = styled(NavLink)`
   position: relative;
