@@ -70,16 +70,6 @@ export const SignupPage = () => {
   }
   const filledPassword = password.length > 0
 
-  // PASSWORD CONFIRM
-  const [confirmedPassword, setConfirmedPassword] = useState('')
-  const requiredConfirmPassword = () => {
-    const d = document.getElementById('confirmedPassword')
-    d.className += 'required'
-  }
-  const filledConfirmedPassword = confirmedPassword.length > 0
-
-  const enabled = email.length > 0 && name.length > 0
-
   return (
     <Container>
       <Header>Write your personal details</Header>
@@ -103,22 +93,11 @@ export const SignupPage = () => {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
               required
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               type="password" />
             <Label filled={filledPassword} for="password">Password</Label>
           </InputContainer>
           <Span id="password"><Required filled={filledPassword}>Enter a secure password: At least 8 characters long, containing uppercase and lowercase letters and numbers.</Required></Span>
-
-          <InputContainer>
-            <Input
-              onFocus={requiredConfirmPassword}
-              value={confirmedPassword}
-              onChange={(event) => setConfirmedPassword(event.target.value)}
-              required
-              type="password" />
-            <Label filled={filledConfirmedPassword} for="password">Confirm password</Label>
-          </InputContainer>
-          <Span id="confirmedPassword"><Required filled={filledConfirmedPassword}>Passwords are not matching.</Required></Span>
 
 
           <CheckboxContainer>
@@ -156,7 +135,7 @@ export const SignupPage = () => {
           <Span id="surname"><Required filled={filledSurname}>Required field</Required></Span>
 
         </Section>
-        <SubmitButton type="submit" disabled={!enabled} width="45%">Create account</SubmitButton>
+        <SubmitButton type="submit" width="45%">Create account</SubmitButton>
       </Form>
     </Container>
   )

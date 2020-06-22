@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { useParams } from 'react-router'
-import { cart } from '../reducers/cart'
 import { SubmitButton } from '../lib/Buttons'
 import { Header, MediumHeader, SmallerHeader, Paragraph } from '../lib/Text'
 import { ArrowLeft } from '../lib/Arrows'
@@ -62,9 +60,7 @@ text-transform: uppercase;
 `
 
 export const ProductPage = () => {
-  const dispatch = useDispatch()
   const { id } = useParams()
-
   const [product, setProduct] = useState({})
   const [sizes, setSizes] = useState([])
   const [availableSizes, setAvailableSizes] = useState([])
@@ -95,12 +91,29 @@ export const ProductPage = () => {
     event.target.style.color = 'white'
     event.target.style.background = 'black'
     setSelectedSize(event.target.value)
+    return selectedSize
   }
 
   const disabled = selectedSize === ''
 
-  const addToCart = () => {
-    dispatch(cart.actions.addItem({ product, selectedSize, quantity: 1 }))
+  const addToCart = (event) => {
+    event.preventDefault()
+    const { title, price, color, imageUrl } = product
+
+    fetch('https://rautellin-final-project-api.herokuapp.com/cart', {
+      method: 'POST',
+      body: JSON.stringify({
+        id,
+        title,
+        price,
+        color,
+        selectedSize,
+        imageUrl
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log('error:', err))
   }
 
   return (

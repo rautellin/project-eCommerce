@@ -72,6 +72,7 @@ export const SubmitButton = styled.button`
 
    :enabled {
       background: black;
+      cursor: pointer;
    }
 `;
 

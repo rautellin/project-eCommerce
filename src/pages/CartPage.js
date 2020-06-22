@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { useDispatch, useSelector } from 'react-redux'
 import { cart } from 'reducers/cart'
 import { CenterContainer, Table, TableTop, TableBorder } from '../lib/Containers'
 import { Header, MediumHeader, SmallerHeader, TableHeader } from '../lib/Text'
@@ -42,44 +41,59 @@ align-items: center;
 `
 
 export const CartPage = () => {
-  const products = useSelector((store) => store.cart)
-  const totalPrice = products.reduce((total, item) => (total + (item.price * item.quantity)), 0)
-  const dispatch = useDispatch()
+  const [items, setItems] = useState([])
+  const [error, setError] = useState(false)
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const res = await fetch('https://rautellin-final-project-api.herokuapp.com/cart')
+        const json = await res.json()
+        setItems(json)
+      } catch (err) {
+        setError(true)
+      }
+    }
+    fetchProduct()
+  }, [setItems, setError])
+
+  const totalPrice = items.reduce((total, item) => (total + (item.price * item.quantity)), 0)
+  console.log(totalPrice)
   return (
     <CenterContainer>
       <Header>Shopping cart</Header>
-      {(products.length === 0) ? <MediumHeader> Your cart is currently empty. Continue browsing <NavLink to="/products">here</NavLink>.</MediumHeader> :
+      {(items.length === 0) ? <MediumHeader> Your cart is currently empty. Continue browsing <NavLink to="/products">here</NavLink>.</MediumHeader> :
         <>
-          <MediumHeader>{products.length} products</MediumHeader>
+          <MediumHeader>{items.length} products</MediumHeader>
           <Table>
             <TableTop>
               <TableHeader width="70%">Item</TableHeader>
               <TableHeader>Quantity</TableHeader>
               <TableHeader>Subtotal</TableHeader>
             </TableTop>
-            {products.map((item, index) => (
+            {items.map((item, index) => (
               <tr>
                 <TableBorder>
-                  <SmallerHeader key={index}>{item.product.title}</SmallerHeader>
+                  <SmallerHeader key={index}>{item.title}</SmallerHeader>
                 </TableBorder>
                 <TableBorder>
                   <Quantity>
-                    <QuantityButton onClick={() => dispatch(cart.actions.removeItem(item))}>-</QuantityButton>
+                    <QuantityButton>-</QuantityButton>
                     {item.quantity}
-                    <QuantityButton onClick={() => dispatch(cart.actions.addItem(item))}>+</QuantityButton>
+                    <QuantityButton>+</QuantityButton>
                   </Quantity>
                 </TableBorder>
                 <TableBorder>
-                  <SmallerHeader>{(item.product.price * item.product.quantity)}</SmallerHeader>
+                  <SmallerHeader>{(item.price * item.quantity)}</SmallerHeader>
                 </TableBorder>
               </tr>
             ))}
           </Table>
+          <Checkout>
+            <MediumHeader>Total: {totalPrice}.00 SEK</MediumHeader>
+            <SubmitButton position="none" margintop="20px">Checkout</SubmitButton>
+          </Checkout>
         </>}
-      <Checkout>
-        <MediumHeader>Total: {totalPrice}.00 SEK</MediumHeader>
-        <SubmitButton position="none" margintop="20px">Checkout</SubmitButton>
-      </Checkout>
     </CenterContainer>
   )
 }

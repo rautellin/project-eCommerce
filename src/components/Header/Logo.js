@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { Menu } from './SVG/Menu'
+import { HamburgerMenu } from '../../lib/Icons'
 
 export const Logo = () => {
   const Container = styled.div`
@@ -17,7 +17,7 @@ export const Logo = () => {
 
   return (
     <Container>
-      <Menu id="menu" />
+      <HamburgerMenu id="menu" />
       <NavLink to="/" title="NARA Sweden, Go to the NARA Homepage"><Nara>Nara.com</Nara></NavLink>
     </Container>
   )
