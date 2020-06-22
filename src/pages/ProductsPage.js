@@ -39,12 +39,12 @@ export const ProductsPage = () => {
     const fetchProducts = async () => {
       try {
         if (category === null) {
-          const res = await fetch('http://rautellin-final-project-api.herokuapp.com/products')
+          const res = await fetch('https://rautellin-final-project-api.herokuapp.com/products')
           const json = await res.json()
           setProducts(json)
           setLoading(false)
         } else {
-          const res = await fetch(`http://rautellin-final-project-api.herokuapp.com/products/?category=${category}`)
+          const res = await fetch(`https://rautellin-final-project-api.herokuapp.com/products/?category=${category}`)
           const json = await res.json()
           setProducts(json)
           setLoading(false)
