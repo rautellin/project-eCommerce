@@ -36,28 +36,3 @@ width: 90px;
 object-fit: cover;
 margin-right: 20px;
 `
-
-export const Quantity = styled.div`
-display: flex;
-font-family: 'Heebo', sans-serif;
-font-size: 15px;
-text-transform: uppercase;
-font-weight: 300;
-width: 120px;
-justify-content: space-between;
-align-items: center;
-`
-
-export const QuantityButton = styled.button`
-all: unset;
-border: 1px solid rgb(238, 238, 238);
-font-family: 'Heebo', sans-serif;
-font-size: 15px;
-text-transform: uppercase;
-font-weight: 300;
-width: 40px;
-height: 40px;
-display: flex;
-justify-content: center;
-align-items: center;
-`

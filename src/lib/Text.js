@@ -87,6 +87,13 @@ export const FooterLink = styled.a`
   text-decoration: underline;
 `
 
+export const NavigationLinks = styled(NavLink)`
+font-family: 'Heebo', sans-serif;
+font-size: 15px;
+text-transform: uppercase;
+font-weight: 300;
+`
+
 export const NavLinks = ({ url, text }) => {
   const closeNav = () => {
     const navigation = document.getElementById('navigation')
@@ -99,14 +106,7 @@ export const NavLinks = ({ url, text }) => {
     accessories.classList.remove('show')
   }
 
-  const Links = styled(NavLink)`
-  font-family: 'Heebo', sans-serif;
-  font-size: 15px;
-  text-transform: uppercase;
-  font-weight: 300;
-  `
-
   return (
-    <Links onClick={closeNav} onTouchStart={closeNav} to={url}>{text}</Links>
+    <NavigationLinks onClick={closeNav} onTouchStart={closeNav} to={url}>{text}</NavigationLinks>
   )
 }

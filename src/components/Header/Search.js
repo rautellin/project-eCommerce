@@ -6,7 +6,6 @@ import { SearchLine } from '../../lib/Text'
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  /* display: hidden;  when the search page is active*/
 `;
 
 export const NavigationLinks = styled(NavLink)`
