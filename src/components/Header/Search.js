@@ -9,7 +9,7 @@ export const Container = styled.div`
   /* display: hidden;  when the search page is active*/
 `;
 
-const NavigationLinks = styled(NavLink)`
+export const NavigationLinks = styled(NavLink)`
   font-family: 'Heebo', sans-serif;
   font-size: 22px;
   text-transform: uppercase;
