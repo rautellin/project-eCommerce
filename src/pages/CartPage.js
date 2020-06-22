@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { cart } from 'reducers/cart'
 import { CenterContainer, Table, TableTop, TableBorder } from '../lib/Containers'
-import { Header, MediumHeader, SmallerHeader, TableHeader } from '../lib/Text'
+import { Header, MediumHeader, SmallerHeader, TableHeader, Text } from '../lib/Text'
 import { SubmitButton } from '../lib/Buttons'
+
+export const DetailsContainer = styled.div`
+display: flex;
+`
+
+export const Image = styled.img`
+width: 90px;
+object-fit: cover;
+margin-right: 20px;
+`
 
 export const Checkout = styled.section`
 width: 40%;
@@ -43,6 +52,7 @@ align-items: center;
 export const CartPage = () => {
   const [items, setItems] = useState([])
   const [error, setError] = useState(false)
+  const totalPrice = items.reduce((total, item) => (total + (item.price * item.quantity)), 0)
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -57,8 +67,6 @@ export const CartPage = () => {
     fetchProduct()
   }, [setItems, setError])
 
-  const totalPrice = items.reduce((total, item) => (total + (item.price * item.quantity)), 0)
-  console.log(totalPrice)
   return (
     <CenterContainer>
       <Header>Shopping cart</Header>
@@ -74,7 +82,13 @@ export const CartPage = () => {
             {items.map((item, index) => (
               <tr>
                 <TableBorder>
-                  <SmallerHeader key={index}>{item.title}</SmallerHeader>
+                  <DetailsContainer>
+                    <Image src={item.imageUrl} />
+                    <div>
+                      <SmallerHeader key={index}>{item.title} - {item.color}</SmallerHeader>
+                      <Text key={index}>{item.selectedSize}</Text>
+                    </div>
+                  </DetailsContainer>
                 </TableBorder>
                 <TableBorder>
                   <Quantity>
