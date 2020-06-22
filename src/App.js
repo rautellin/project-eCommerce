@@ -32,20 +32,20 @@ const reducer = combineReducers({
 
 const store = configureStore({ reducer })
 
+export const Container = styled.div`
+height: 100vh;
+width: 100vw;
+`
+
+export const PageContainer = styled.main`
+height: 100vh;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+`
+
 export const App = () => {
-  const Container = styled.div`
-    height: 100vh;
-    width: 100vw;
-  `
-
-  const PageContainer = styled.main`
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `
-
   return (
     <BrowserRouter>
       <Provider store={store}>

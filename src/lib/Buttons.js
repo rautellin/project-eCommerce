@@ -74,6 +74,10 @@ export const SubmitButton = styled.button`
       background: black;
       cursor: pointer;
    }
+
+   :enabled:hover {
+      background: rgb(51, 51, 51);
+   }
 `;
 
 export const FileButton = styled.input`

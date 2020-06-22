@@ -1,19 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { CenterContainer, Table, TableTop, TableBorder } from '../lib/Containers'
-import { Header, MediumHeader, SmallerHeader, TableHeader, Text } from '../lib/Text'
+import { CenterContainer } from '../lib/Containers'
+import { Header, MediumHeader, SmallerHeader, Text } from '../lib/Text'
 import { SubmitButton } from '../lib/Buttons'
-
-export const DetailsContainer = styled.div`
-display: flex;
-`
-
-export const Image = styled.img`
-width: 90px;
-object-fit: cover;
-margin-right: 20px;
-`
+import { Table, TableHeader, TableHeaders, TableBorder, Image, DetailsContainer, Quantity, QuantityButton } from '../lib/Table'
 
 export const Checkout = styled.section`
 width: 40%;
@@ -24,34 +15,8 @@ align-items: flex-end;
 margin-top: 20px;
 `
 
-export const Quantity = styled.div`
-display: flex;
-font-family: 'Heebo', sans-serif;
-font-size: 15px;
-text-transform: uppercase;
-font-weight: 300;
-width: 120px;
-justify-content: space-between;
-align-items: center;
-`
-
-export const QuantityButton = styled.button`
-all: unset;
-border: 1px solid rgb(238, 238, 238);
-font-family: 'Heebo', sans-serif;
-font-size: 15px;
-text-transform: uppercase;
-font-weight: 300;
-width: 40px;
-height: 40px;
-display: flex;
-justify-content: center;
-align-items: center;
-`
-
 export const CartPage = () => {
   const [items, setItems] = useState([])
-  const [error, setError] = useState(false)
   const totalPrice = items.reduce((total, item) => (total + (item.price * item.quantity)), 0)
 
   useEffect(() => {
@@ -61,11 +26,11 @@ export const CartPage = () => {
         const json = await res.json()
         setItems(json)
       } catch (err) {
-        setError(true)
+        console.log('errror')
       }
     }
     fetchProduct()
-  }, [setItems, setError])
+  }, [setItems])
 
   return (
     <CenterContainer>
@@ -74,33 +39,37 @@ export const CartPage = () => {
         <>
           <MediumHeader>{items.length} products</MediumHeader>
           <Table>
-            <TableTop>
-              <TableHeader width="70%">Item</TableHeader>
-              <TableHeader>Quantity</TableHeader>
-              <TableHeader>Subtotal</TableHeader>
-            </TableTop>
-            {items.map((item, index) => (
+            <TableHeader>
               <tr>
-                <TableBorder>
-                  <DetailsContainer>
-                    <Image src={item.imageUrl} />
-                    <div>
-                      <SmallerHeader key={index}>{item.title} - {item.color}</SmallerHeader>
-                      <Text key={index}>{item.selectedSize}</Text>
-                    </div>
-                  </DetailsContainer>
-                </TableBorder>
-                <TableBorder>
-                  <Quantity>
-                    <QuantityButton>-</QuantityButton>
-                    {item.quantity}
-                    <QuantityButton>+</QuantityButton>
-                  </Quantity>
-                </TableBorder>
-                <TableBorder>
-                  <SmallerHeader>{(item.price * item.quantity)}</SmallerHeader>
-                </TableBorder>
+                <TableHeaders width="70%">Item</TableHeaders>
+                <TableHeaders>Quantity</TableHeaders>
+                <TableHeaders>Subtotal</TableHeaders>
               </tr>
+            </TableHeader>
+            {items.map((item, index) => (
+              <tbody key={index}>
+                <tr>
+                  <TableBorder>
+                    <DetailsContainer>
+                      <NavLink to={`/product/${item.id}`}><Image src={item.imageUrl} /></NavLink>
+                      <div>
+                        <NavLink to={`/product/${item.id}`}><SmallerHeader>{item.title} - {item.color}</SmallerHeader></NavLink>
+                        <Text>{item.selectedSize}</Text>
+                      </div>
+                    </DetailsContainer>
+                  </TableBorder>
+                  <TableBorder>
+                    <Quantity>
+                      <QuantityButton>-</QuantityButton>
+                      {item.quantity}
+                      <QuantityButton>+</QuantityButton>
+                    </Quantity>
+                  </TableBorder>
+                  <TableBorder>
+                    <SmallerHeader>{(item.price * item.quantity)}</SmallerHeader>
+                  </TableBorder>
+                </tr>
+              </tbody>
             ))}
           </Table>
           <Checkout>

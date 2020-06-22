@@ -53,19 +53,3 @@ object-fit: cover;
 height: 100%;
 min-height: 480px;
 `
-
-export const Table = styled.table`
-width: 100%;
-border-collapse: collapse;
-border: 1px solid rgb(238, 238, 238);
-`
-
-export const TableTop = styled.tr`
-width: 100%;
-background: rgb(238, 238, 238);
-`
-
-export const TableBorder = styled.td`
-border: 1px solid rgb(238, 238, 238);
-padding: 10px 0 10px 20px;
-`

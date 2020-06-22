@@ -59,18 +59,6 @@ export const SlideText = styled.div`
   text-shadow:0px 0px 10px rgb(0,0,0,0.5);
 `
 
-// TABLE
-
-export const TableHeader = styled.th`
-  font-family: 'Heebo', sans-serif;
-  font-size: 16px;
-  text-transform: uppercase;
-  font-weight: 300;
-  text-align: left;
-  width: ${(props) => props.width};
-  padding: 10px 0 10px 20px;
-`
-
 // LINKS
 
 export const ExternalLinks = styled.a`
