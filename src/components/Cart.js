@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import { Quantity } from './Quantity'
 import { NavLinks } from 'lib/Text'
 import { CloseCart } from 'lib/Icons'
 import { SubmitButton } from 'lib/Buttons'
@@ -47,6 +48,22 @@ display: none;
 `
 
 export const Cart = () => {
+  const [items, setItems] = useState([])
+  const totalPrice = items.reduce((total, item) => (total + (item.price * item.quantity)), 0)
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const res = await fetch('https://rautellin-final-project-api.herokuapp.com/cart')
+        const json = await res.json()
+        setItems(json.cartItems)
+      } catch (err) {
+        console.log('errror')
+      }
+    }
+    fetchProduct()
+  }, [setItems])
+
   const hideCart = () => {
     const cart = document.getElementById('cart')
     const overlay = document.getElementById('overlay')
@@ -59,6 +76,15 @@ export const Cart = () => {
       <Nav id="cart">
         <CloseCart right="30px" />
         <NavLinks url="/cart" text="Your cart" />
+        {items.map((item, index) => (
+          <div key={index}>
+            <p>{item.title}{item.color}</p>
+            <p>{item.selectedSize}</p>
+            <p>{item.price}</p>
+            <Quantity item={item} />
+          </div>
+        ))}
+        <p>Total {totalPrice}.00 SEK</p>
         <NavLink to="/cart">
           <SubmitButton position="block" background="rgb(2, 114, 169)" hover="rgb(1, 91, 132)">Checkout</SubmitButton>
         </NavLink>

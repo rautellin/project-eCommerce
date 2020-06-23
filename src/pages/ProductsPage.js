@@ -7,7 +7,8 @@ import { Header, SmallerHeader } from '../lib/Text'
 export const Section = styled.section`
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-grid-auto-rows: 500px;
+grid-gap: 10px;
+grid-auto-rows: minmax(1fr, 800px);
 width: 100%;
 max-width: 1200px;
 padding-top: 144px;
@@ -16,12 +17,16 @@ height: 100vh;
 
 export const Product = styled.div`
 width: 100%;
+display: flex;
+flex-direction: column;
+`
+export const ProductDetail = styled.div`
+width: 100%;
 `
 
 export const Image = styled.img`
 width: 100%;
-height: 100%;
-object-fit: contain;
+object-fit: cover;
 `
 
 export const ProductsPage = () => {
@@ -65,10 +70,12 @@ export const ProductsPage = () => {
           <Filter />
           {products.map((product, index) => (
             <Product key={index}>
-              <NavLink to={`/product/${product._id}`}><Header>{product.title}</Header></NavLink>
               <NavLink to={`/product/${product._id}`}><Image src={product.imageUrl} alt="" /></NavLink>
-              <SmallerHeader>{product.availableSizes.length} available sizes</SmallerHeader>
-              <p>{product.price} SEK</p>
+              <ProductDetail>
+                <NavLink to={`/product/${product._id}`}><Header>{product.title}</Header></NavLink>
+                <SmallerHeader>{product.color} - {product.availableSizes.length} available sizes</SmallerHeader>
+                <p>{product.price}.00 SEK</p>
+              </ProductDetail>
             </Product>
           ))}
         </Section>}

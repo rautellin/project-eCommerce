@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { CenterContainer } from '../lib/Containers'
@@ -18,7 +17,6 @@ margin-top: 20px;
 `
 
 export const CartPage = () => {
-  const cartItems = useSelector((store) => store.cart)
   const [items, setItems] = useState([])
   const totalPrice = items.reduce((total, item) => (total + (item.price * item.quantity)), 0)
   const totalItems = items.reduce((total, item) => (total + (item.quantity)), 0)
