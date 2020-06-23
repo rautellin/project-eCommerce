@@ -36,7 +36,6 @@ export const ProductsPage = () => {
 
   const location = useLocation()
   const path = location.pathname
-  console.log(path)
 
   const useQuery = () => {
     return new URLSearchParams(useLocation().search)

@@ -4,8 +4,9 @@ import styled from 'styled-components'
 import { CenterContainer } from '../lib/Containers'
 import { Header, MediumHeader, SmallerHeader, Text } from '../lib/Text'
 import { SubmitButton } from '../lib/Buttons'
-import { Table, TableHeader, TableHeaders, TableBorder, Image, DetailsContainer } from '../lib/Table'
+import { Table, TableHeader, TableHeaders, TableBorder, Image, DetailsContainer, SubtotalContainer } from '../lib/Table'
 import { Quantity } from '../components/Quantity'
+import { Remove } from '../components/Remove'
 
 export const Checkout = styled.section`
 width: 40%;
@@ -53,7 +54,7 @@ export const CartPage = () => {
                 <tr>
                   <TableBorder>
                     <DetailsContainer>
-                      <NavLink to={`/product/${item.id}`}><Image src={item.imageUrl} /></NavLink>
+                      <Image src={item.imageUrl} />
                       <div>
                         <NavLink to={`/product/${item.id}`}><SmallerHeader>{item.title} - {item.color}</SmallerHeader></NavLink>
                         <Text>{item.selectedSize}</Text>
@@ -61,10 +62,15 @@ export const CartPage = () => {
                     </DetailsContainer>
                   </TableBorder>
                   <TableBorder>
-                    <Quantity item={item} />
+                    <SubtotalContainer>
+                      <Quantity item={item} />
+                      <Remove item={item} />
+                    </SubtotalContainer>
                   </TableBorder>
                   <TableBorder>
-                    <SmallerHeader>{(item.price * item.quantity)}</SmallerHeader>
+                    <SubtotalContainer>
+                      <SmallerHeader>{(item.price * item.quantity)}.00 SEK</SmallerHeader>
+                    </SubtotalContainer>
                   </TableBorder>
                 </tr>
               </tbody>
