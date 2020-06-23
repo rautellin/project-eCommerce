@@ -26,7 +26,7 @@ export const Header = () => {
     <>
       <Container background={background}>
         <Logo />
-        <Search />
+        {(path === '/search') ? null : <Search />}
         <Cart />
       </Container>
     </>

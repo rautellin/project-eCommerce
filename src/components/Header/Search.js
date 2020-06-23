@@ -1,7 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
-import { SearchLine } from '../../lib/Text'
+import styled from 'styled-components'
+
+export const SearchLine = styled(NavLink)`
+  border-bottom: 1px solid black;
+  width: 147px;
+  height: 18px;
+`
 
 export const Container = styled.div`
   display: flex;

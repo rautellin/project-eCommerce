@@ -27,6 +27,12 @@ export const SmallerHeader = styled.h5`
   margin: ${(props) => props.margin};
 `
 
+export const CartDetail = styled.p`
+   font-size: 14px;
+   color: ${(props) => (props.color ? props.color : 'black')};
+   margin-top: ${(props) => (props.margintop)};
+`;
+
 export const Text = styled.p`
    font-size: ${(props) => (props.fontsize ? props.fontsize : '16px')};
    color: ${(props) => (props.color ? props.color : 'rgb(204, 204, 204)')};
@@ -77,24 +83,18 @@ export const PageLinks = styled(NavLink)`
   margin: ${(props) => props.margin};
 `
 
-export const SearchLine = styled(NavLink)`
-  border-bottom: 1px solid black;
-  width: 147px;
-  height: 18px;
-`
-
 export const FooterLink = styled.a`
   text-decoration: underline;
 `
 
 export const NavigationLinks = styled(NavLink)`
 font-family: 'Heebo', sans-serif;
-font-size: 15px;
+font-size: ${(props) => (props.size ? props.size : '15px')};
 text-transform: uppercase;
-font-weight: 300;
+font-weight: ${(props) => (props.weight ? props.weight : '300')};
 `
 
-export const NavLinks = ({ url, text }) => {
+export const NavLinks = ({ url, text, size, weight }) => {
   const closeNav = () => {
     const navigation = document.getElementById('navigation')
     const help = document.getElementById('help')
@@ -107,6 +107,6 @@ export const NavLinks = ({ url, text }) => {
   }
 
   return (
-    <NavigationLinks onClick={closeNav} onTouchStart={closeNav} to={`/products${url}`}>{text}</NavigationLinks>
+    <NavigationLinks size={size} weight={weight} onClick={closeNav} onTouchStart={closeNav} to={`/products${url}`}>{text}</NavigationLinks>
   )
 }

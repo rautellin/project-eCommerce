@@ -25,6 +25,11 @@ display: flex;
 justify-content: center;
 align-items: center;
 cursor: pointer;
+
+:hover{
+  background: black;
+  color: white;
+}
 `
 
 export const Quantity = ({ item }) => {

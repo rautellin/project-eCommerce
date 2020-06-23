@@ -119,9 +119,9 @@ export const ProductPage = () => {
     })
       .then((res) => res.json())
       .then(() => {
-        const cart = document.getElementById('cart')
+        const carticon = document.getElementById('cart')
         const overlay = document.getElementById('overlay')
-        cart.classList.add('show')
+        carticon.classList.add('show')
         overlay.classList.add('show')
       })
       .catch((err) => console.log('error:', err))
