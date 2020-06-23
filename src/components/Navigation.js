@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { NavButton } from 'lib/Buttons'
 import { NavLinks } from 'lib/Text'
-import { CloseButton } from 'lib/Icons'
+import { CloseNav } from 'lib/Icons'
 
 export const Nav = styled.nav`
 height: 100%;
@@ -54,7 +54,7 @@ export const Navigation = () => {
   return (
     <>
       <Nav id="navigation">
-        <CloseButton left="30px" />
+        <CloseNav left="30px" />
         <ul>
           <li>
             <NavButton onClick={toggleClothes} onTouchStart={toggleClothes}>Clothes</NavButton>

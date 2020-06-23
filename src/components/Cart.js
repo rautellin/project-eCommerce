@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { NavLinks } from 'lib/Text'
-import { CloseButton } from 'lib/Icons'
+import { CloseCart } from 'lib/Icons'
 import { SubmitButton } from 'lib/Buttons'
 
 export const Nav = styled.nav`
@@ -14,8 +14,8 @@ z-index: 10;
 background: white;
 width: 246px;
 padding: 82px 28px 0 28px;
-/* transform: translate3d(0, -100%, 0);
-transition: all 0.5s ease-out; */
+transform: translate3d(100%, 0, 0);
+transition: all 0.5s ease-out;
 flex-direction: column;
 
 &&.show{
@@ -27,13 +27,14 @@ export const Overlay = styled.div`
 height: 100%;
 position: fixed;
 top: 0;
-right: 246px;
 width: 100%;
-z-index: 10;
-background: rgba(0,0,0,0.5);
+z-index: -10;
+background: rgba(0,0,0,0.0);
+transition: all 0.5s ease-out; 
 
 &&.show{
   background: rgba(0,0,0,0.5);
+  z-index: 9;
 }
 `
 
@@ -46,10 +47,17 @@ display: none;
 `
 
 export const Cart = () => {
+  const hideCart = () => {
+    const cart = document.getElementById('cart')
+    const overlay = document.getElementById('overlay')
+    cart.classList.remove('show')
+    overlay.classList.remove('show')
+  }
+
   return (
     <>
       <Nav id="cart">
-        <CloseButton right="30px" />
+        <CloseCart right="30px" />
         <NavLinks url="/cart" text="Your cart" />
         <NavLink to="/cart">
           <SubmitButton position="block" background="rgb(2, 114, 169)" hover="rgb(1, 91, 132)">Checkout</SubmitButton>
@@ -58,7 +66,7 @@ export const Cart = () => {
           <SubmitButton position="block" margintop="10px">Your cart</SubmitButton>
         </NavLink>
       </Nav>
-      <Overlay />
+      <Overlay id="overlay" onClick={hideCart} onTouchStart={hideCart} />
     </>
   )
 }

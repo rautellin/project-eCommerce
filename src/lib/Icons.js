@@ -42,7 +42,7 @@ export const ArrowDown = (props) => {
   )
 }
 
-export const CloseButton = ({ right, left }) => {
+export const CloseNav = ({ right, left }) => {
   const hideNav = () => {
     const navigation = document.getElementById('navigation')
     const help = document.getElementById('help')
@@ -52,6 +52,19 @@ export const CloseButton = ({ right, left }) => {
 
   return (
     <CloseSvg right={right} left={left} onClick={hideNav} onTouchStart={hideNav} id="closebutton" height="25" width="25" viewBox="0 0 24 24"><path d="M5.3 5.957l.707-.707 12.728 12.728-.707.707L5.3 5.957z" /><path d="M6.007 18.685l-.707-.707L18.028 5.25l.707.707L6.007 18.685z" /></CloseSvg>
+  )
+}
+
+export const CloseCart = ({ right, left }) => {
+  const hideCart = () => {
+    const cart = document.getElementById('cart')
+    const overlay = document.getElementById('overlay')
+    cart.classList.remove('show')
+    overlay.classList.remove('show')
+  }
+
+  return (
+    <CloseSvg onClick={hideCart} onTouchStart={hideCart} right={right} left={left} id="closebutton" height="25" width="25" viewBox="0 0 24 24"><path d="M5.3 5.957l.707-.707 12.728 12.728-.707.707L5.3 5.957z" /><path d="M6.007 18.685l-.707-.707L18.028 5.25l.707.707L6.007 18.685z" /></CloseSvg>
   )
 }
 

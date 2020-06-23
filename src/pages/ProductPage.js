@@ -118,6 +118,12 @@ export const ProductPage = () => {
       headers: { 'Content-Type': 'application/json' }
     })
       .then((res) => res.json())
+      .then(() => {
+        const cart = document.getElementById('cart')
+        const overlay = document.getElementById('overlay')
+        cart.classList.add('show')
+        overlay.classList.add('show')
+      })
       .catch((err) => console.log('error:', err))
   }
 
