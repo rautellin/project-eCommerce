@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 export const Filter = () => {
   const Container = styled.ul`
   position: fixed;
-  top: 104px;
+  top: 114px;
   left: 0;
   height: 20px;
   width: 100%;
@@ -23,7 +23,7 @@ export const Filter = () => {
 
   const Filters = styled.h4`  
   position: fixed;
-  top: 104px;
+  top: 114px;
   right: 20px;
   height: 20px;
   font-family: 'Heebo', sans-serif;

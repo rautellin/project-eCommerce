@@ -18,7 +18,7 @@ export const Logo = () => {
   return (
     <Container>
       <HamburgerMenu id="menu" />
-      <NavLink to="/" title="NARA Sweden, Go to the NARA Homepage"><Nara>Nara.com</Nara></NavLink>
+      <NavLink to="/" title="NARA Sweden, Go to the NARA Homepage" activeClassName="active"><Nara>Nara.com</Nara></NavLink>
     </Container>
   )
 }
