@@ -31,7 +31,7 @@ export const Quantity = ({ item }) => {
   const { id, quantity } = item
 
   const decreaseQty = async () => {
-    await fetch(`http://rautellin-final-project-api.herokuapp.com/cart/${id}/decrease`, {
+    await fetch(`https://rautellin-final-project-api.herokuapp.com/cart/${id}/decrease`, {
       method: 'PUT'
     })
       .then((res) => res.json())
@@ -39,7 +39,7 @@ export const Quantity = ({ item }) => {
   }
 
   const increaseQty = async () => {
-    await fetch(`http://rautellin-final-project-api.herokuapp.com/cart/${id}/increase`, {
+    await fetch(`https://rautellin-final-project-api.herokuapp.com/cart/${id}/increase`, {
       method: 'PUT'
     })
       .then((res) => res.json())
