@@ -22,7 +22,6 @@ export const Header = () => {
   const location = useLocation()
   const path = location.pathname
   const background = (path === '/') ? 'none' : 'white'
-  console.log(path)
   return (
     <>
       <Container background={background}>

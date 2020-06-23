@@ -34,6 +34,10 @@ export const ProductsPage = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
 
+  const location = useLocation()
+  const path = location.pathname
+  console.log(path)
+
   const useQuery = () => {
     return new URLSearchParams(useLocation().search)
   }
@@ -44,12 +48,12 @@ export const ProductsPage = () => {
     const fetchProducts = async () => {
       try {
         if (category === null) {
-          const res = await fetch('https://rautellin-final-project-api.herokuapp.com/products')
+          const res = await fetch(`https://rautellin-final-project-api.herokuapp.com${path}`)
           const json = await res.json()
           setProducts(json)
           setLoading(false)
         } else {
-          const res = await fetch(`https://rautellin-final-project-api.herokuapp.com/products/?category=${category}`)
+          const res = await fetch(`https://rautellin-final-project-api.herokuapp.com${path}/?category=${category}`)
           const json = await res.json()
           setProducts(json)
           setLoading(false)
@@ -60,7 +64,7 @@ export const ProductsPage = () => {
       }
     }
     fetchProducts()
-  }, [setProducts, setLoading, category])
+  }, [setProducts, setLoading, category, path])
 
   return (
     <>

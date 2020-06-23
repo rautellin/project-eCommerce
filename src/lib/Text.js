@@ -107,6 +107,6 @@ export const NavLinks = ({ url, text }) => {
   }
 
   return (
-    <NavigationLinks onClick={closeNav} onTouchStart={closeNav} to={url}>{text}</NavigationLinks>
+    <NavigationLinks onClick={closeNav} onTouchStart={closeNav} to={`/products${url}`}>{text}</NavigationLinks>
   )
 }

@@ -59,27 +59,27 @@ export const Navigation = () => {
           <li>
             <NavButton onClick={toggleClothes} onTouchStart={toggleClothes}>Clothes</NavButton>
             <Ul id="clothes">
-              <li><NavLinks url="/products" text="View all" /></li>
-              <li><NavLinks url="/products?category=leggings" text="Bottoms & Leggings" /></li>
-              <li><NavLinks url="/products?category=shorts" text="Shorts" /></li>
-              <li><NavLinks url="/products?category=crop" text="Crop tops" /></li>
-              <li><NavLinks url="/products?category=tops" text="T-shirts & tops" /></li>
-              <li><NavLinks url="/products?category=hoodies" text="Hoodies" /></li>
-              <li><NavLinks url="/products?category=jackets" text="Jackets" /></li>
-              <li><NavLinks url="/products?category=vests" text="Vests" /></li>
-              <li><NavLinks url="/products?category=bras" text="Sports bras" /></li>
-              <li><NavLinks url="/products?category=swimwear" text="Swimwear" /></li>
+              <li><NavLinks url="/clothes" text="View all" /></li>
+              <li><NavLinks url="/clothes?category=leggings" text="Bottoms & Leggings" /></li>
+              <li><NavLinks url="/clothes?category=shorts" text="Shorts" /></li>
+              <li><NavLinks url="/clothes?category=crop" text="Crop tops" /></li>
+              <li><NavLinks url="/clothes?category=tops" text="T-shirts & tops" /></li>
+              <li><NavLinks url="/clothes?category=hoodies" text="Hoodies" /></li>
+              <li><NavLinks url="/clothes?category=jackets" text="Jackets" /></li>
+              <li><NavLinks url="/clothes?category=vests" text="Vests" /></li>
+              <li><NavLinks url="/clothes?category=bras" text="Sports bras" /></li>
+              <li><NavLinks url="/clothes?category=swimwear" text="Swimwear" /></li>
             </Ul>
           </li>
           <li>
             <NavButton onClick={toggleAccessories} onTouchStart={toggleAccessories}>Accessories</NavButton>
             <Ul id="accessories">
               <li><NavLinks url="/accessories" text="View all" /></li>
-              <li><NavLinks url="/accessories" text="Headwear" /></li>
-              <li><NavLinks url="/accessories" text="Equipment" /></li>
-              <li><NavLinks url="/accessories" text="Bags" /></li>
-              <li><NavLinks url="/accessories" text="Bottles" /></li>
-              <li><NavLinks url="/accessories" text="Socks" /></li>
+              <li><NavLinks url="/accessories?category=header" text="Headwear" /></li>
+              <li><NavLinks url="/accessories?category=equipment" text="Equipment" /></li>
+              <li><NavLinks url="/accessories?category=bags" text="Bags" /></li>
+              <li><NavLinks url="/accessories?category=bottle" text="Bottles" /></li>
+              <li><NavLinks url="/accessories?category=socks" text="Socks" /></li>
             </Ul>
           </li>
           <li>

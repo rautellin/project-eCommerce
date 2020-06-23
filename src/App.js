@@ -62,7 +62,7 @@ export const App = () => {
               <Footer />
             </Route>
             <PageContainer>
-              <Route path="/products" exact>
+              <Route path="/products/:path?" exact>
                 <ProductsPage />
               </Route>
               <Route path="/product/:id" exact>
