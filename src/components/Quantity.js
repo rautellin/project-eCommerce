@@ -35,6 +35,7 @@ export const Quantity = ({ item }) => {
       method: 'PUT'
     })
       .then((res) => res.json())
+      .then(() => console.log('decrease'))
   }
 
   const increaseQty = async () => {
@@ -42,6 +43,7 @@ export const Quantity = ({ item }) => {
       method: 'PUT'
     })
       .then((res) => res.json())
+      .then(() => console.log('increase'))
   }
 
   return (
