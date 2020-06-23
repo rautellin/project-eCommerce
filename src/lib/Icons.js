@@ -25,7 +25,8 @@ bottom: 30px;
 export const CloseSvg = styled.svg`
 position: absolute;
 top: 30px;
-left: 30px;
+left: ${(props) => (props.left)};
+right: ${(props) => (props.right)};
 cursor: pointer;
 `
 
@@ -41,7 +42,7 @@ export const ArrowDown = (props) => {
   )
 }
 
-export const CloseButton = () => {
+export const CloseButton = ({ right, left }) => {
   const hideNav = () => {
     const navigation = document.getElementById('navigation')
     const help = document.getElementById('help')
@@ -50,7 +51,7 @@ export const CloseButton = () => {
   }
 
   return (
-    <CloseSvg onClick={hideNav} onTouchStart={hideNav} id="closebutton" height="25" width="25" viewBox="0 0 24 24"><path d="M5.3 5.957l.707-.707 12.728 12.728-.707.707L5.3 5.957z" /><path d="M6.007 18.685l-.707-.707L18.028 5.25l.707.707L6.007 18.685z" /></CloseSvg>
+    <CloseSvg right={right} left={left} onClick={hideNav} onTouchStart={hideNav} id="closebutton" height="25" width="25" viewBox="0 0 24 24"><path d="M5.3 5.957l.707-.707 12.728 12.728-.707.707L5.3 5.957z" /><path d="M6.007 18.685l-.707-.707L18.028 5.25l.707.707L6.007 18.685z" /></CloseSvg>
   )
 }
 

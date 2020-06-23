@@ -54,7 +54,7 @@ export const Navigation = () => {
   return (
     <>
       <Nav id="navigation">
-        <CloseButton />
+        <CloseButton left="30px" />
         <ul>
           <li>
             <NavButton onClick={toggleClothes} onTouchStart={toggleClothes}>Clothes</NavButton>

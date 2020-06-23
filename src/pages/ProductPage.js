@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { cart } from '../reducers/cart'
 import styled from 'styled-components'
 import { useParams } from 'react-router'
 import { SubmitButton } from '../lib/Buttons'
@@ -96,9 +98,12 @@ export const ProductPage = () => {
 
   const disabled = selectedSize === ''
 
+  // Add to cart
+  const dispatch = useDispatch()
   const addToCart = (event) => {
     event.preventDefault()
     const { title, price, color, imageUrl } = product
+    dispatch(cart.actions.addItem({ title, price, color, imageUrl, id, selectedSize }))
 
     fetch('https://rautellin-final-project-api.herokuapp.com/cart', {
       method: 'POST',
