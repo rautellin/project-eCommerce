@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
@@ -54,7 +55,7 @@ export const SearchPage = () => {
     const fetchProducts = async () => {
       try {
         if (title === '') {
-          const res = await fetch(`https://rautellin-final-project-api.herokuapp.com/products`)
+          const res = await fetch('https://rautellin-final-project-api.herokuapp.com/products')
           const json = await res.json()
           setProducts(json)
         } else {
@@ -73,9 +74,9 @@ export const SearchPage = () => {
     <>
       <Form>
         <Input
-          type='text'
+          type="text"
           value={title}
-          placeholder='search here'
+          placeholder="search here"
           onChange={(event) => setTitle(event.target.value)}
         />
       </Form>
