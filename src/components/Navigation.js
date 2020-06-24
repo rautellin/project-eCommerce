@@ -75,7 +75,7 @@ export const Navigation = () => {
             <NavButton onClick={toggleAccessories} onTouchStart={toggleAccessories}>Accessories</NavButton>
             <Ul id="accessories">
               <li><NavLinks url="/accessories" text="View all" /></li>
-              <li><NavLinks url="/accessories?category=header" text="Headwear" /></li>
+              <li><NavLinks url="/accessories?category=headwear" text="Headwear" /></li>
               <li><NavLinks url="/accessories?category=equipment" text="Equipment" /></li>
               <li><NavLinks url="/accessories?category=bags" text="Bags" /></li>
               <li><NavLinks url="/accessories?category=bottle" text="Bottles" /></li>
