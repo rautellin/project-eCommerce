@@ -41,7 +41,7 @@ export const Filter = () => {
         <li><Link to="/products/accessories">View all</Link></li>
         <li><Link to="/products/accessories?category=headwear">Headwear</Link></li>
         <li><Link to="/products/accessories?category=equipment">Equipment</Link></li>
-        <li><Link to="/products/accessories?category=bags">Bags</Link></li>
+        <li><Link to="/products/accessories?category=bag">Bags</Link></li>
         <li><Link to="/products/accessories?category=bottles">Bottles</Link></li>
         <li><Link to="/products/accessories?category=socks">Socks</Link></li>
         <Filters>+filters</Filters>

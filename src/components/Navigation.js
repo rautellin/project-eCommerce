@@ -77,7 +77,7 @@ export const Navigation = () => {
               <li><NavLinks url="/accessories" text="View all" /></li>
               <li><NavLinks url="/accessories?category=headwear" text="Headwear" /></li>
               <li><NavLinks url="/accessories?category=equipment" text="Equipment" /></li>
-              <li><NavLinks url="/accessories?category=bags" text="Bags" /></li>
+              <li><NavLinks url="/accessories?category=bag" text="Bags" /></li>
               <li><NavLinks url="/accessories?category=bottle" text="Bottles" /></li>
               <li><NavLinks url="/accessories?category=socks" text="Socks" /></li>
             </Ul>
