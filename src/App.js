@@ -11,7 +11,6 @@ import { HomePage } from 'pages/HomePage'
 import { ProductsPage } from 'pages/ProductsPage'
 import { ProductPage } from 'pages/ProductPage'
 import { SearchPage } from 'pages/SearchPage'
-import { LoginPage } from 'pages/LoginPage'
 import { HelpPage } from 'pages/HelpPage'
 import { CartPage } from 'pages/CartPage'
 import { SignupPage } from 'pages/SignupPage'
@@ -68,26 +67,23 @@ export const App = () => {
               <Route path="/product/:id" exact>
                 <ProductPage />
               </Route>
+              <Route path="/cart" exact>
+                <CartPage />
+              </Route>
               <Route path="/search" exact>
                 <SearchPage />
-              </Route>
-              <Route path="/login" exact>
-                <LoginPage />
               </Route>
               <Route path="/help" exact>
                 <HelpPage />
               </Route>
-              <Route path="/cart" exact>
-                <CartPage />
-              </Route>
               <Route path="/signup" exact>
                 <SignupPage />
               </Route>
+              <Route path="/user" exact>
+                <UserPage />
+              </Route>
               <Route path="/admin/:id" exact>
                 <AdminPage />
-              </Route>
-              <Route path="/user/:id" exact>
-                <UserPage />
               </Route>
             </PageContainer>
           </Switch>

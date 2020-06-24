@@ -75,6 +75,7 @@ export const SearchPage = () => {
         <Input
           type='text'
           value={title}
+          placeholder='search here'
           onChange={(event) => setTitle(event.target.value)}
         />
       </Form>
