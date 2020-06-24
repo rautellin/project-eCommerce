@@ -46,7 +46,6 @@ export const login = (email, password) => {
         if (res.ok /* if 200, 201, 204 */) {
           return res.json()
         }
-        throw 'Unable to sign in. Please check your username and password are correct'
       })
       .then((json) => {
         // Save the login info
@@ -78,7 +77,6 @@ export const getSecretMessage = () => {
         if (res.ok) {
           return res.json();
         }
-        throw 'Could not get information. Make sure you are logged in and try again.';
       })
       // SUCCESS: Do something with the information we got back
       .then((json) => {
