@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useLocation } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 
 export const Filter = () => {
@@ -31,14 +32,32 @@ export const Filter = () => {
   text-transform: uppercase;
   font-weight: 400;
   `
-  return (
-    <Container>
-      <li><Link to="/products">View all</Link></li>
-      <li><Link to="/products?category=leggings">Bottoms & Leggings</Link></li>
-      <li><Link to="/products?category=shorts">Shorts</Link></li>
-      <li><Link to="/products?category=crop">Crop top</Link></li>
-      <li><Link to="/products?category=bra">Sport bra</Link></li>
-      <Filters>+filters</Filters>
-    </Container>
-  )
+  const location = useLocation()
+  const path = location.pathname
+
+  if (path === '/products/accessories') {
+    return (
+      <Container>
+        <li><Link to="/products/accessories">View all</Link></li>
+        <li><Link to="/products/accessories?category=headwear">Headwear</Link></li>
+        <li><Link to="/products/accessories?category=equipment">Equipment</Link></li>
+        <li><Link to="/products/accessories?category=bags">Bags</Link></li>
+        <li><Link to="/products/accessories?category=bottles">Bottles</Link></li>
+        <li><Link to="/products/accessories?category=socks">Socks</Link></li>
+        <Filters>+filters</Filters>
+      </Container>
+    )
+  } else {
+    return (
+      <Container>
+        <li><Link to="/products/clothes">View all</Link></li>
+        <li><Link to="/products/clothes?category=leggings">Bottoms & Leggings</Link></li>
+        <li><Link to="/products/clothes?category=shorts">Shorts</Link></li>
+        <li><Link to="/products/clothes?category=crop">Crop tops</Link></li>
+        <li><Link to="/products/clothes?category=bra">Sport bras</Link></li>
+        <Filters>+filters</Filters>
+      </Container>
+    )
+  }
+
 }
