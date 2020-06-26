@@ -10,14 +10,13 @@ export const ModalOverlay = styled.div`
   height: 100%;
   background: rgba(0,0,0,0.5);
   z-index: 10;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
-  /* display: none;
   
   &&.show{
-    display: block;
-  } */
+    display: flex;
+  }
 `
 
 export const ModalContainer = styled.div`

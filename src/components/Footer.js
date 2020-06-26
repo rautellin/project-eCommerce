@@ -2,7 +2,6 @@ import React from 'react'
 import { SlideHeader } from '../lib/Text'
 import { NewsletterForm } from './Footer/NewsletterForm'
 import { SocialMedia } from './Footer/SocialMedia'
-import { Terms } from './Footer/Terms'
 import { FullPageContainer } from '../lib/Containers'
 
 export const Footer = () => {
@@ -12,7 +11,6 @@ export const Footer = () => {
         <SlideHeader>Join our newsletter</SlideHeader>
         <NewsletterForm />
         <SocialMedia />
-        <Terms />
       </FullPageContainer>
     </>
   )

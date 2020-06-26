@@ -19,7 +19,6 @@ import { UserPage } from 'pages/UserPage'
 import { Header } from './components/Header'
 import { Navigation } from './components/Navigation'
 import { Footer } from './components/Footer'
-import { Pagination } from './components/Pagination'
 import { Cart } from './components/Cart'
 import GlobalFonts from './fonts/fonts'
 
@@ -57,7 +56,6 @@ export const App = () => {
           <Switch>
             <Route path="/" exact>
               <HomePage />
-              <Pagination />
               <Footer />
             </Route>
             <PageContainer>

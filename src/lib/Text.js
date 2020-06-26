@@ -67,14 +67,6 @@ export const SlideText = styled.div`
 
 // LINKS
 
-export const ExternalLinks = styled.a`
-  font-family: 'Heebo', sans-serif;
-  font-size: 15px;
-  text-transform: uppercase;
-  font-weight: 300;
-  margin: ${(props) => props.margin};
-`
-
 export const PageLinks = styled(NavLink)`
   font-family: 'Heebo', sans-serif;
   font-size: 15px;
@@ -83,15 +75,25 @@ export const PageLinks = styled(NavLink)`
   margin: ${(props) => props.margin};
 `
 
-export const FooterLink = styled.a`
-  text-decoration: underline;
+export const Links = styled.a`
+  font-family: 'Heebo', sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin: 0 10px;
 `
 
+export const ExternalLinks = ({ href, text }) => {
+  return (
+    <Links href={href} target="_blank">{text}</Links>
+  )
+}
+
 export const NavigationLinks = styled(NavLink)`
-font-family: 'Heebo', sans-serif;
-font-size: ${(props) => (props.size ? props.size : '15px')};
-text-transform: uppercase;
-font-weight: ${(props) => (props.weight ? props.weight : '300')};
+  font-family: 'Heebo', sans-serif;
+  font-size: ${(props) => (props.size ? props.size : '15px')};
+  text-transform: uppercase;
+  font-weight: ${(props) => (props.weight ? props.weight : '300')};
 `
 
 export const NavLinks = ({ url, text, size, weight }) => {

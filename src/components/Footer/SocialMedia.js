@@ -5,17 +5,18 @@ import { ExternalLinks } from '../../lib/Text'
 export const SocialMedia = () => {
   const Container = styled.article`
     display: flex;
-    justify-content: space-evenly;
-    width: 600px;
+    justify-content: center;
+    width: 100%;
+    position: relative;
   `
 
   return (
     <Container>
-      <ExternalLinks href="/" target="_blank">Instagram</ExternalLinks>
-      <ExternalLinks href="/" target="_blank">Facebook</ExternalLinks>
-      <ExternalLinks href="/" target="_blank">Twitter</ExternalLinks>
-      <ExternalLinks href="/" target="_blank">Pinterest</ExternalLinks>
-      <ExternalLinks href="/" target="_blank">Youtube</ExternalLinks>
+      <ExternalLinks href="/" text="Facebook" />
+      <ExternalLinks href="/" text="Instagram" />
+      <ExternalLinks href="/" text="Twitter" />
+      <ExternalLinks href="/" text="Pinterest" />
+      <ExternalLinks href="/" text="Youtube" />
     </Container>
   )
 }

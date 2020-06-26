@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Input, InputContainer, Label, Required, Checkbox, CheckboxLabel } from '../lib/Form'
-import { Header, FooterLink } from '../lib/Text'
+import { Header } from '../lib/Text'
 import { SubmitButton } from '../lib/Buttons'
 
 export const Container = styled.section`
@@ -106,7 +106,7 @@ export const SignupPage = () => {
           </CheckboxContainer>
           <CheckboxContainer>
             <Checkbox type="checkbox" id="terms" />
-            <CheckboxLabel color="black" htmlFor="terms">I have read and understand the <FooterLink href="/">Privacy and Cookies Policy</FooterLink></CheckboxLabel>
+            <CheckboxLabel color="black" htmlFor="terms">I have read and understand the <a style={{ textDecoration: 'underline' }} href="/">Privacy and Cookies Policy</a></CheckboxLabel>
           </CheckboxContainer>
         </Section>
 
