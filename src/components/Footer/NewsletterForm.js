@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Input, Label, InputContainer, Checkbox, InputLabel, CheckboxLabel } from '../../lib/Form'
 import { SubscribeButton } from '../../lib/Buttons'
@@ -37,16 +37,19 @@ export const CheckboxContainer = styled.div`
 `
 
 export const NewsletterForm = () => {
+  const [email, setEmail] = useState('hanna')
+
   const handleSubmit = () => {
-    console.log('hello')
+    const modal = document.getElementById('modal')
+    modal.classList.add('show')
   }
 
   return (
     <>
-      <Modal>Thank you </Modal>
+      <Modal text={`In order to receive our newsletters you need to confirm your subscription. Please check your email ${email} for more information. `} />
       <Form onSubmit={handleSubmit}>
         <InputContainer>
-          <Input width="350px" type="text" required />
+          <Input width="350px" type="text" required value={email} />
           <Label>Enter your email address here</Label>
         </InputContainer>
         <CheckboxContainer>
