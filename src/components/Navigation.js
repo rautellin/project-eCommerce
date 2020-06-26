@@ -59,33 +59,33 @@ export const Navigation = () => {
           <li>
             <NavButton onClick={toggleClothes} onTouchStart={toggleClothes}>Clothes</NavButton>
             <Ul id="clothes">
-              <li><NavLinks url="/clothes" text="View all" /></li>
-              <li><NavLinks url="/clothes?category=leggings" text="Bottoms & Leggings" /></li>
-              <li><NavLinks url="/clothes?category=shorts" text="Shorts" /></li>
-              <li><NavLinks url="/clothes?category=crop" text="Crop tops" /></li>
-              <li><NavLinks url="/clothes?category=tops" text="T-shirts & tops" /></li>
-              <li><NavLinks url="/clothes?category=hoodies" text="Hoodies" /></li>
-              <li><NavLinks url="/clothes?category=jackets" text="Jackets" /></li>
-              <li><NavLinks url="/clothes?category=vests" text="Vests" /></li>
-              <li><NavLinks url="/clothes?category=bras" text="Sports bras" /></li>
-              <li><NavLinks url="/clothes?category=swimwear" text="Swimwear" /></li>
+              <li><NavLinks url="/products/clothes" text="View all" /></li>
+              <li><NavLinks url="/products/clothes?category=leggings" text="Bottoms & Leggings" /></li>
+              <li><NavLinks url="/products/clothes?category=shorts" text="Shorts" /></li>
+              <li><NavLinks url="/products/clothes?category=crop" text="Crop tops" /></li>
+              <li><NavLinks url="/products/clothes?category=tops" text="T-shirts & tops" /></li>
+              <li><NavLinks url="/products/clothes?category=hoodies" text="Hoodies" /></li>
+              <li><NavLinks url="/products/clothes?category=jackets" text="Jackets" /></li>
+              <li><NavLinks url="/products/clothes?category=vests" text="Vests" /></li>
+              <li><NavLinks url="/products/clothes?category=bras" text="Sports bras" /></li>
+              <li><NavLinks url="/products/clothes?category=swimwear" text="Swimwear" /></li>
             </Ul>
           </li>
           <li>
             <NavButton onClick={toggleAccessories} onTouchStart={toggleAccessories}>Accessories</NavButton>
             <Ul id="accessories">
-              <li><NavLinks url="/accessories" text="View all" /></li>
-              <li><NavLinks url="/accessories?category=headwear" text="Headwear" /></li>
-              <li><NavLinks url="/accessories?category=equipment" text="Equipment" /></li>
-              <li><NavLinks url="/accessories?category=bag" text="Bags" /></li>
-              <li><NavLinks url="/accessories?category=bottle" text="Bottles" /></li>
-              <li><NavLinks url="/accessories?category=socks" text="Socks" /></li>
+              <li><NavLinks url="/products/accessories" text="View all" /></li>
+              <li><NavLinks url="/products/accessories?category=headwear" text="Headwear" /></li>
+              <li><NavLinks url="/products/accessories?category=equipment" text="Equipment" /></li>
+              <li><NavLinks url="/products/accessories?category=bag" text="Bags" /></li>
+              <li><NavLinks url="/products/accessories?category=bottle" text="Bottles" /></li>
+              <li><NavLinks url="/products/accessories?category=socks" text="Socks" /></li>
             </Ul>
           </li>
           <li>
             <NavButton onClick={toggleAccount} onTouchStart={toggleAccount}>Account</NavButton>
             <Ul id="account">
-              <li><NavLinks url="/login" text="Log in" /></li>
+              <li><NavLinks url="/user" text="Log in" /></li>
             </Ul>
           </li>
           <li>

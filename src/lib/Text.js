@@ -107,6 +107,6 @@ export const NavLinks = ({ url, text, size, weight }) => {
   }
 
   return (
-    <NavigationLinks size={size} weight={weight} onClick={closeNav} onTouchStart={closeNav} to={`/products${url}`}>{text}</NavigationLinks>
+    <NavigationLinks size={size} weight={weight} onClick={closeNav} onTouchStart={closeNav} to={`${url}`}>{text}</NavigationLinks>
   )
 }

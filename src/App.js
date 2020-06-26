@@ -2,7 +2,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { cart } from 'reducers/cart'
-import { design } from 'reducers/design'
+import { ui } from 'reducers/ui'
 import { user } from 'reducers/user'
 import { product } from 'reducers/product'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
@@ -25,7 +25,7 @@ import GlobalFonts from './fonts/fonts'
 
 const reducer = combineReducers({
   cart: cart.reducer,
-  design: design.reducer,
+  ui: ui.reducer,
   user: user.reducer,
   product: product.reducer
 })
