@@ -69,19 +69,26 @@ export const ProductsPage = () => {
     <>
       {error && <><Header>Oh no!</Header><SmallerHeader>There&apos;s currently no connection to the server.</SmallerHeader></>}
       {loading ? <Header>Loading products, please wait...</Header>
-        : <Section>
-          <Filter />
-          {products.map((product, index) => (
-            <Product key={index}>
-              <NavLink to={`/product/${product._id}`}><Image src={product.imageUrl} alt="" /></NavLink>
-              <ProductDetail>
-                <NavLink to={`/product/${product._id}`}><Header>{product.title}</Header></NavLink>
-                <SmallerHeader>{product.color} - {product.availableSizes.length} available sizes</SmallerHeader>
-                <p>{product.price}.00 SEK</p>
-              </ProductDetail>
-            </Product>
-          ))}
-        </Section>}
+        :
+        (products.length === 0) ?
+          <>
+            <Filter />
+            <Header>No products found</Header>
+          </>
+          :
+          <Section>
+            <Filter />
+            {products.map((product, index) => (
+              <Product key={index}>
+                <NavLink to={`/product/${product._id}`}><Image src={product.imageUrl} alt="" /></NavLink>
+                <ProductDetail>
+                  <NavLink to={`/product/${product._id}`}><Header>{product.title}</Header></NavLink>
+                  <SmallerHeader>{product.color} - {product.availableSizes.length} available sizes</SmallerHeader>
+                  <p>{product.price}.00 SEK</p>
+                </ProductDetail>
+              </Product>))}
+          </Section>
+      }
     </>
   )
 }
