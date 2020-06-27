@@ -14,6 +14,7 @@ import { SearchPage } from 'pages/SearchPage'
 import { HelpPage } from 'pages/HelpPage'
 import { CartPage } from 'pages/CartPage'
 import { SignupPage } from 'pages/SignupPage'
+import { LoginPage } from 'pages/LoginPage'
 import { AdminPage } from 'pages/AdminPage'
 import { UserPage } from 'pages/UserPage'
 import { Header } from './components/Header'
@@ -77,7 +78,10 @@ export const App = () => {
               <Route path="/signup" exact>
                 <SignupPage />
               </Route>
-              <Route path="/user" exact>
+              <Route path="/login" exact>
+                <LoginPage />
+              </Route>
+              <Route path="/user/:id" exact>
                 <UserPage />
               </Route>
               <Route path="/admin/:id" exact>

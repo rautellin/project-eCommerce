@@ -19,7 +19,7 @@ export const Actions = styled.li`
 export const Cart = () => {
   return (
     <Container>
-      <Actions><PageLinks to="/user">Log in</PageLinks></Actions>
+      <Actions><PageLinks to="/login">Log in</PageLinks></Actions>
       <Actions><PageLinks to="/help">Help</PageLinks></Actions>
       <Actions><ShoppingBag /></Actions>
     </Container>
