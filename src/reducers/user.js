@@ -4,8 +4,8 @@ export const user = createSlice({
   name: 'user',
   initialState: {
     login: {
-      accessToken: '789b986ee85c394d5721ad2e1d4973f24a82eae5697cbcb0e78215847b29d0ea457078f8750d5af2107aaecd7c48dc009967349e89420e0c63fcfd75612b330098165e205a7604ac25f3feff9cd05ac9c563174d6fd9a84dec9b5ca3b63093e8373ea1a481ce3dcbb723acd4d3a52fdeaac811a3c93f6c8d55cc462a71547ec7',
-      userId: '5ef28e650dfc67002af70da8',
+      accessToken: null,
+      userId: null,
       name: null,
       surname: null,
       email: null,
@@ -39,6 +39,12 @@ export const user = createSlice({
 })
 
 // Thunks
+export const createCookie = (value) => {
+  const expiration = 2 * 60 * 60
+  document.cookie = `accessToken=${value}; max-age=${expiration}; path=/`
+  console.log(`this is the expiration ${expiration} in seconds`)
+}
+
 export const login = (email, password) => {
   return async (dispatch) => {
     await fetch('http://rautellin-final-project-api.herokuapp.com/login', {
@@ -56,6 +62,7 @@ export const login = (email, password) => {
       .then((json) => {
         dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }))
         dispatch(user.actions.setUserId({ userId: json.userId }))
+        createCookie(json.accessToken)
       })
       .catch((err) => {
         dispatch(user.actions.setErrorMessage({ errorMessage: err }))

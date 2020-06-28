@@ -81,7 +81,7 @@ export const App = () => {
               <Route path="/login" exact>
                 <LoginPage />
               </Route>
-              <Route path="/user/:id" exact>
+              <Route path="/user" exact>
                 <UserPage />
               </Route>
               <Route path="/admin/:id" exact>

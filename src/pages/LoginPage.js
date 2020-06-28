@@ -107,6 +107,6 @@ export const LoginPage = () => {
       </Section>
     )
   } else {
-    return <Redirect to="/search" />
+    return <Redirect to="/user" />
   }
 }
