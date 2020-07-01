@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 import { NavButton } from 'lib/Buttons'
 import { NavLinks } from 'lib/Text'
 import { CloseNav } from 'lib/Icons'
@@ -81,6 +82,9 @@ export const Navigation = () => {
               <li><NavLinks url="/products/accessories?category=bottle" text="Bottles" /></li>
               <li><NavLinks url="/products/accessories?category=socks" text="Socks" /></li>
             </Ul>
+          </li>
+          <li>
+            <NavButton><NavLink to="/search">Search</NavLink></NavButton>
           </li>
           <li>
             <NavButton onClick={toggleAccount} onTouchStart={toggleAccount}>Account</NavButton>

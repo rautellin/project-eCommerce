@@ -18,6 +18,7 @@ export const HomePage = () => {
     align-items: center;
     background: ${(props) => props.background};
     background-size: cover;
+    background-position: center;
     position: relative;
   `
 
@@ -25,6 +26,8 @@ export const HomePage = () => {
     position: absolute;
     z-index: -1;
     width: 100vw;
+    height: 100vh;
+    object-fit: cover;
   `
 
   return (
