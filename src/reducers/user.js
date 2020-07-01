@@ -38,7 +38,7 @@ export const user = createSlice({
 
 export const login = (email, password) => {
   return async (dispatch) => {
-    await fetch('http://rautellin-final-project-api.herokuapp.com/login', {
+    await fetch('https://rautellin-final-project-api.herokuapp.com/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' }
