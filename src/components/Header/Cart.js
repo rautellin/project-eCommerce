@@ -14,6 +14,14 @@ export const Actions = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 500px){
+  display: none;
+  
+  :nth-child(odd) {
+    display: flex;
+  }
+  }
 `;
 
 export const Cart = () => {

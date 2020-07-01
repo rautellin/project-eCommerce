@@ -8,6 +8,10 @@ export const Container = styled.section`
 width: 100%;
 max-width: 1200px;
 min-height: 460px;
+
+@media screen and (max-width: 500px){
+  padding: 10px;
+}
 `
 
 export const Form = styled.form`

@@ -9,6 +9,10 @@ export const Header = styled.h3`
   letter-spacing: -2px;
   font-weight: 500;
   margin: ${(props) => props.margin};
+
+  @media screen and (max-width: 500px){
+    font-size: 22px;
+  }
 `
 
 export const MediumHeader = styled.h4`
@@ -51,6 +55,13 @@ export const SlideHeader = styled.h1`
   letter-spacing: -7px;
   margin-bottom: -27px;
   color: ${(props) => props.color};
+
+  @media screen and (max-width: 500px){
+  font-size: 34px;
+  letter-spacing: 0;
+  text-align: center;
+  margin-bottom: 0;
+}
 `
 
 export const SlideText = styled.div`
@@ -81,6 +92,11 @@ export const Links = styled.a`
   text-transform: uppercase;
   font-weight: 300;
   margin: 0 10px;
+
+  @media screen and (max-width: 500px){
+  margin: 0 5px;
+  font-size: 12px;
+  }
 `
 
 export const ExternalLinks = ({ href, text }) => {

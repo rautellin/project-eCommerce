@@ -13,6 +13,10 @@ justify-content: space-between;
 width: 100%;
 max-width: 1200px;
 min-height: 460px;
+
+@media screen and (max-width: 500px){
+  display: block;
+}
 `
 
 export const Form = styled.form`
@@ -28,6 +32,15 @@ position: relative;
         background: rgb(51, 51, 51);
       }
     }
+
+@media screen and (max-width: 500px){
+  width: 100%;
+  padding: 10px;
+
+  && button {
+    position: static;
+  }
+}
 `
 
 export const Span = styled.span`

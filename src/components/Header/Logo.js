@@ -12,6 +12,11 @@ export const Nara = styled.h1`
 font-family: 'Barnett', serif;
 font-size: 72px;
 margin-left: 35px;
+
+@media screen and (max-width: 500px){
+  font-size: 42px;
+  margin: 0 15px;
+}
 `
 
 export const Logo = () => {

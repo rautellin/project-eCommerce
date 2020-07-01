@@ -16,6 +16,10 @@ display: flex;
 justify-content: space-between;
 padding: 0 30px;
 background: ${(props) => (props.background)};
+
+@media screen and (max-width: 500px){
+  padding: 0 10px;
+}
 `
 
 export const Header = () => {

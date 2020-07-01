@@ -10,6 +10,10 @@ font-weight: 300;
 width: 120px;
 justify-content: space-between;
 align-items: center;
+
+@media screen and (max-width: 500px){
+  justify-content: center;
+  }
 `
 
 export const QuantityButton = styled.button`
@@ -30,6 +34,12 @@ cursor: pointer;
   background: black;
   color: white;
 }
+
+@media screen and (max-width: 500px){
+  width: 20px;
+  height: 20px;
+  margin: 0 4px;
+  }
 `
 
 export const Quantity = ({ item }) => {

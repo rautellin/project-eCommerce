@@ -13,6 +13,11 @@ width: 100%;
 max-width: 1200px;
 padding-top: 144px;
 height: 100vh;
+
+@media screen and (max-width: 500px){
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: minmax(1fr, 500px);
+  }
 `
 
 export const Product = styled.div`

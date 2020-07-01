@@ -14,6 +14,10 @@ max-height: 1000px;
 height: 100vh;
 display: flex;
 padding-top: 114px;
+
+@media screen and (max-width: 500px){
+  display: block;
+  }
 `
 
 export const ErrorContainer = styled.section`
@@ -26,6 +30,12 @@ width: 50%;
 height: 100%;
 min-height: 480px;
 object-fit: cover;
+
+@media screen and (max-width: 500px){
+  width: 100%;
+  height: 70%;
+  min-height: 480px;
+  }
 `
 export const ProductDetails = styled.article`
 height: 100%;
@@ -33,6 +43,11 @@ width: 50%;
 display: flex;
 flex-direction: column;
 padding: 40px 0 0 60px;
+
+@media screen and (max-width: 500px){
+  width: 100%;
+  padding: 40px 10px 0 10px;
+  }
 `
 
 export const SizeContainer = styled.div`

@@ -15,22 +15,22 @@ export const Filter = () => {
   font-size: 12px;
   text-transform: uppercase;
   font-weight: 400;
+
+  @media screen and (max-width: 500px){
+    font-size: 10px;
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
   `
 
   const Link = styled(NavLink)`
   padding: 0 7px;
+
+  @media screen and (max-width: 500px){
+    padding: 0 3px;
+  }
   `
 
-  const Filters = styled.h4`  
-  position: fixed;
-  top: 114px;
-  right: 20px;
-  height: 20px;
-  font-family: 'Heebo', sans-serif;
-  font-size: 12px;
-  text-transform: uppercase;
-  font-weight: 400;
-  `
   const location = useLocation()
   const path = location.pathname
 
@@ -43,7 +43,6 @@ export const Filter = () => {
         <li><Link to="/products/accessories?category=bag">Bags</Link></li>
         <li><Link to="/products/accessories?category=bottle">Bottles</Link></li>
         <li><Link to="/products/accessories?category=socks">Socks</Link></li>
-        <Filters>+filters</Filters>
       </Container>
     )
   } else {
@@ -59,7 +58,6 @@ export const Filter = () => {
         <li><Link to="/products/clothes?category=vest">Vests</Link></li>
         <li><Link to="/products/clothes?category=swimwear">Swimwear</Link></li>
         <li><Link to="/products/clothes?category=bra">Sport bras</Link></li>
-        <Filters>+filters</Filters>
       </Container>
     )
   }
