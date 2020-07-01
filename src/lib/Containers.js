@@ -28,6 +28,7 @@ min-height: 480px;
 display: flex;
 flex-direction: column;
 align-items: center;
+justify-content: ${(props) => props.justifyContent};
 `
 
 export const Form = styled.form`

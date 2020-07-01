@@ -1,18 +1,12 @@
 import React from 'react'
-import { useCookies } from 'react-cookie'
+import { Header, Paragraph } from '../lib/Text'
+import { CenterContainer } from '../lib/Containers'
 
 export const HelpPage = () => {
-  const [cookies, setCookie, removeCookie] = useCookies(['name'])
-
-  const newName = 'Nat'
-  console.log(Object.keys(cookies).length)
-
   return (
-    <>
-      <h1>Hello CodeSandbox</h1>
-      {cookies.name && <h1>Hello {cookies.name}!</h1>}
-      <button onClick={() => { setCookie('name', newName, { path: '/', maxAge: 20 }) }} type="submit">Store Cookie</button>
-      <button onClick={() => { removeCookie('name') }} type="submit">Remove Cookie</button>
-    </>
+    <CenterContainer justifyContent="center">
+      <Header> Help</Header>
+      <Paragraph> Here you will find a FAQ</Paragraph>
+    </CenterContainer>
   )
 }
