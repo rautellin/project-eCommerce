@@ -40,8 +40,8 @@ opacity: 0;
 
 export const LoginPage = () => {
   const dispatch = useDispatch()
-  const accessToken = useSelector((store) => store.user.login.accessToken)
   const errorMessage = useSelector((store) => store.user.login.errorMessage)
+  const accessToken = useSelector((store) => store.user.login.accessToken)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -107,6 +107,6 @@ export const LoginPage = () => {
       </Section>
     )
   } else {
-    return <Redirect to="/user" />
+    return <Redirect to="/help" />
   }
 }

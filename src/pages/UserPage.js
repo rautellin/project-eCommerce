@@ -1,27 +1,18 @@
 import React, { useEffect, useState } from 'react'
+import { useCookies } from 'react-cookie'
 import { Redirect } from 'react-router-dom'
-
-export const getCookie = () => {
-  const accessToken = document.cookie
-    .split('; ')
-    .find((item) => item.startsWith('accessToken'))
-    .split('=')[1]
-  console.log(`this is the accessToken from the cookie ${accessToken}`)
-  return accessToken
-}
 
 export const UserPage = () => {
   const [user, setUser] = useState({})
   const [error, setError] = useState(false)
-  const accessToken = getCookie()
-  console.log(accessToken)
+  const [cookies, removeCookie] = useCookies(['accessToken'])
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const res = await fetch('https://rautellin-final-project-api.herokuapp.com/user', {
           method: 'GET',
-          headers: { Authorization: accessToken, 'Content-Type': 'application/json' }
+          headers: { Authorization: cookies.accessToken, 'Content-Type': 'application/json' }
         })
         const json = await res.json()
         setUser(json)
@@ -29,13 +20,20 @@ export const UserPage = () => {
         setError(true)
       }
     }
-    fetchUser()
-  }, [setUser, accessToken])
+    if (!document.cookie === '') {
+      fetchUser()
+    }
+  }, [setUser, cookies.accessToken])
 
   console.log(user)
   console.log(error)
 
-  if (accessToken) {
+  const handleLogOut = (event) => {
+    event.preventDefault()
+    removeCookie('accessToken')
+  }
+
+  if (cookies.accessToken) {
     if (Object.keys(user).length === 0) {
       return (
         <h1>Please wait</h1>
@@ -44,6 +42,7 @@ export const UserPage = () => {
       return (
         <div>
           Welcome {user.name}!
+          <button type="submit" onClick={handleLogOut}>Log Out</button>
         </div>
       )
     }

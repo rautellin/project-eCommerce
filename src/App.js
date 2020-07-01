@@ -1,6 +1,12 @@
 import React from 'react'
+import { CookiesProvider, withCookies } from 'react-cookie'
 import { Provider } from 'react-redux'
-import { configureStore, combineReducers } from '@reduxjs/toolkit'
+import { combineReducers } from '@reduxjs/toolkit'
+import { createStore, applyMiddleware } from 'redux'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+import { PersistGate } from 'redux-persist/integration/react'
+import thunk from 'redux-thunk'
 import { cart } from 'reducers/cart'
 import { ui } from 'reducers/ui'
 import { user } from 'reducers/user'
@@ -23,6 +29,12 @@ import { Footer } from './components/Footer'
 import { Cart } from './components/Cart'
 import GlobalFonts from './fonts/fonts'
 
+const persistConfig = {
+  key: 'root',
+  storage,
+  blacklist: ['ui', 'product']
+}
+
 const reducer = combineReducers({
   cart: cart.reducer,
   ui: ui.reducer,
@@ -30,7 +42,10 @@ const reducer = combineReducers({
   product: product.reducer
 })
 
-const store = configureStore({ reducer })
+const persistedReducer = persistReducer(persistConfig, reducer)
+
+const store = createStore(persistedReducer, applyMiddleware(thunk))
+const persistor = persistStore(store)
 
 export const Container = styled.div`
 height: 100vh;
@@ -47,50 +62,56 @@ align-items: center;
 
 export const App = () => {
   return (
-    <BrowserRouter>
-      <Provider store={store}>
-        <GlobalFonts />
-        <Container>
-          <Header />
-          <Navigation />
-          <Cart />
-          <Switch>
-            <Route path="/" exact>
-              <HomePage />
-              <Footer />
-            </Route>
-            <PageContainer>
-              <Route path="/products/:path?" exact>
-                <ProductsPage />
-              </Route>
-              <Route path="/product/:id" exact>
-                <ProductPage />
-              </Route>
-              <Route path="/cart" exact>
-                <CartPage />
-              </Route>
-              <Route path="/search" exact>
-                <SearchPage />
-              </Route>
-              <Route path="/help" exact>
-                <HelpPage />
-              </Route>
-              <Route path="/signup" exact>
-                <SignupPage />
-              </Route>
-              <Route path="/login" exact>
-                <LoginPage />
-              </Route>
-              <Route path="/user" exact>
-                <UserPage />
-              </Route>
-              <Route path="/admin/:id" exact>
-                <AdminPage />
-              </Route>
-            </PageContainer>
-          </Switch>
-        </Container>
-      </Provider>
-    </BrowserRouter>
+    <CookiesProvider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <GlobalFonts />
+            <Container>
+              <Header />
+              <Navigation />
+              <Cart />
+              <Switch>
+                <Route path="/" exact>
+                  <HomePage />
+                  <Footer />
+                </Route>
+                <PageContainer>
+                  <Route path="/products/:path?" exact>
+                    <ProductsPage />
+                  </Route>
+                  <Route path="/product/:id" exact>
+                    <ProductPage />
+                  </Route>
+                  <Route path="/cart" exact>
+                    <CartPage />
+                  </Route>
+                  <Route path="/search" exact>
+                    <SearchPage />
+                  </Route>
+                  <Route path="/help" exact>
+                    <HelpPage />
+                  </Route>
+                  <Route path="/signup" exact>
+                    <SignupPage />
+                  </Route>
+                  <Route path="/login" exact>
+                    <LoginPage />
+                  </Route>
+                  <Route path="/user" exact>
+                    <UserPage />
+                  </Route>
+                  <Route path="/admin/:id" exact>
+                    <AdminPage />
+                  </Route>
+                </PageContainer>
+              </Switch>
+            </Container>
+          </PersistGate>
+        </Provider>
+      </BrowserRouter>
+    </CookiesProvider>
   )
 }
+
+export default withCookies(App)

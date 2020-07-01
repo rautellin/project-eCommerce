@@ -4,7 +4,6 @@ export const user = createSlice({
   name: 'user',
   initialState: {
     login: {
-      accessToken: null,
       userId: null,
       name: null,
       surname: null,
@@ -39,10 +38,10 @@ export const user = createSlice({
 })
 
 // Thunks
-export const createCookie = (value) => {
+
+export const addAcccessTokenToCookie = (value) => {
   const expiration = 2 * 60 * 60
   document.cookie = `accessToken=${value}; max-age=${expiration}; path=/`
-  console.log(`this is the expiration ${expiration} in seconds`)
 }
 
 export const login = (email, password) => {
@@ -60,9 +59,9 @@ export const login = (email, password) => {
         }
       })
       .then((json) => {
+        addAcccessTokenToCookie(json.accessToken)
         dispatch(user.actions.setAccessToken({ accessToken: json.accessToken }))
         dispatch(user.actions.setUserId({ userId: json.userId }))
-        createCookie(json.accessToken)
       })
       .catch((err) => {
         dispatch(user.actions.setErrorMessage({ errorMessage: err }))
@@ -71,6 +70,8 @@ export const login = (email, password) => {
 }
 
 export const logout = () => {
+  document.cookie = 'accessToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+
   return (dispatch) => {
     dispatch(user.actions.setAccessToken({ accessToken: null }))
     dispatch(user.actions.setUserId({ userId: 0 }))
