@@ -8,12 +8,14 @@ https://rautellin-ecommerce.netlify.app/
 
 ## What I learned 🧠
 
-*
+* How to combine backend and frontend into a full stack app
+* How to develope an entire eCommerce app
 
 ## Requirements 🧪
 
-*
-
-## Stretch Goals I reached 🏃‍♂
-
-*
+* Front end in React and Redux
+* Back-end in Node.js
+* MongoDB database
+* Navigation using React Router
+* Cross browser compatibilty
+* Responsive and work well on mobile, tablet and phone.
